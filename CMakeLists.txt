@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.6)
 project(BlueEngine)
 
-add_directories(src)
+include_directories(src)
 
 add_library(BlueEngine
 src/source/Core.cpp
