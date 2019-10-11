@@ -1,0 +1,13 @@
+﻿  Building Custom Rule C:/Users/s4915733/BlueEngine-master/CMakeLists.txt
+  CMake is re-running because C:/Users/s4915733/BlueEngine-master/build/CMakeFiles/generate.stamp is out-of-date.
+    the file 'C:/Users/s4915733/BlueEngine-master/CMakeLists.txt'
+    is newer than 'C:/Users/s4915733/BlueEngine-master/build/CMakeFiles/generate.stamp.depend'
+    result='-1'
+  -- Selecting Windows SDK version 10.0.17134.0 to target Windows 10.0.18362.
+  CMake Error at CMakeLists.txt:4 (add_directories):
+    Unknown CMake command "add_directories".
+  
+  
+  -- Configuring incomplete, errors occurred!
+  See also "C:/Users/s4915733/BlueEngine-master/build/CMakeFiles/CMakeOutput.log".
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppCommon.targets(209,5): error MSB6006: "cmd.exe" exited with code 1.
