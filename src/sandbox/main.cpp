@@ -1,6 +1,8 @@
+#include"Core.h"
 #include<iostream>
+#include<memory>
 int main()
 {
-std::cout<<"GEP Engine"<<std::endl;
-return 0;
+	Core core;
+
 }

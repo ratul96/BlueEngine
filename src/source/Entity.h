@@ -3,13 +3,15 @@
 #include<GLM/glm.hpp>
 #include<SDL2/SDL.h>
 #include<string>
+#include<vector>
+#include<memory>
 class Entity
 {
 public:
-	Entity();
+	/*Entity();
 	~Entity();
-	void updateEntity();
+	void updateEntity();*/
 protected:
-	std::vector<shared_ptr<Players>> players;
+	/*std::vector<shared_ptr<Players>> players;
 
-};
+};*/
