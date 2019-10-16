@@ -7,15 +7,13 @@ add_library(BlueEngine
 src/source/Core.h
 src/source/Entity.h
 src/source/PositionComponent.h
-src/source/Mesh.h
-src/source/Model.h
-src/source/Material.h
 src/source/Core.cpp
-src/source/Entity.cpp
+src/source/MeshComponent.h
+src/source.MeshComponent.cpp
 src/source/PositionComponent.cpp
-src/source/Mesh.cpp
+src/source/Model.h
 src/source/Model.cpp
-src/source/Material.cpp
+src/source/Entity.cpp
 )
 
 
