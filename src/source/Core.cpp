@@ -29,7 +29,7 @@ void Core::run()
 	{
 		// Something went very wrong in initialisation, all we can do is exit
 		std::cout << "Whoops! Something went very wrong, cannot initialise SDL :(" << std::endl;
-		
+	
 	}
 
 
@@ -90,13 +90,23 @@ void Core::run()
 	SDL_GLContext glcontext = SDL_GL_CreateContext(window);
 
 	// Call our initialisation function to set up GLEW and print out some GL info to console
-	
+	/*if (!InitGL())
+	{
+		return -1;
+	}*/
+
 
 
 	// We are going to work out how much time passes from frame to frame
 	// We will use this variable to store the time at our previous frame
 	// This function returns the number of milliseconds since SDL was initialised
 	unsigned int lastTime = SDL_GetTicks();
+
+
+	// Enable the depth test to make sure triangles in front are always in front no matter the order they are drawn
+	// When you do this, don't forget to clear the depth buffer at the start of each frame - otherwise you just get an empty screen!
+	glEnable(GL_DEPTH_TEST);
+
 
 
 }
