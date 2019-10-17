@@ -10,10 +10,11 @@
 class Entity
 {
 public:
-	/*Entity();
+	Entity();
 	~Entity();
-	void updateEntity();*/
+	
+	void updateModelEntityComponents(); //update with all the models accessing the components
 protected:
-	/*std::vector<shared_ptr<Players>> players;
+	std::vector<shared_ptr<Model>> models;
 
-};*/
+};
