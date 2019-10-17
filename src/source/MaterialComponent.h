@@ -8,5 +8,9 @@
 class MaterialComponent
 {
 public:
+	MaterialComponent();
+	~MaterialComponent();
 
-}
+	void LoadShaders();
+
+};
