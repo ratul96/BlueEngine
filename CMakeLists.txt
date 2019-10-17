@@ -5,6 +5,8 @@ include_directories(src)
 
 add_library(BlueEngine
 src/source/Core.h
+src/source/Component.h
+src/source/Component.cpp
 src/source/Entity.h
 src/source/PositionComponent.h
 src/source/Core.cpp
