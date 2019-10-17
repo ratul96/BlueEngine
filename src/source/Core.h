@@ -11,5 +11,6 @@ private:
 	~Core();
 public:
 	void run();
+	void runEntityComponent();
 	
 };
