@@ -15,6 +15,6 @@ public:
 	
 	void updateModelEntityComponents(); //update with all the models accessing the components
 protected:
-	std::vector<shared_ptr<Model>> models;
+	std::vector<shared_ptr<Component>> components;
 
 };
