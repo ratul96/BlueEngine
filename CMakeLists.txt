@@ -13,8 +13,6 @@ src/source/Core.cpp
 src/source/MeshComponent.h
 src/source.MeshComponent.cpp
 src/source/PositionComponent.cpp
-src/source/Model.h
-src/source/Model.cpp
 src/source/Entity.cpp
 src/source/MaterialComponent.h
 src/source/MaterialComponent.cpp
