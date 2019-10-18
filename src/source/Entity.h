@@ -1,11 +1,12 @@
 #pragma once
-#include "Model.h"
+#include "Component.h"
 #include "GL/glew.h"
 #include<GLM/glm.hpp>
 #include<SDL2/SDL.h>
 #include<string>
 #include<vector>
 #include<memory>
+#include<iostream>
 
 class Entity
 {
@@ -13,8 +14,11 @@ public:
 	Entity();
 	~Entity();
 	
-	void updateModelEntityComponents(); //update with all the models accessing the components
+	std::shared_ptr<Component>updateEntityComponents(); //update with all the models accessing the components
 protected:
-	std::vector<shared_ptr<Component>> components;
+	std::vector<std::shared_ptr<Component>> components;
+
+	
+
 
 };

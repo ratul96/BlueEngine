@@ -1,8 +1,12 @@
 #pragma once
-#include<glm/glm.hpp>
 #include "GL/glew.h"
-/*class PositionComponent
+#include<glm/glm.hpp>
+#include<iostream>
+
+class PositionComponent
 {
 public:
-	void setPosition(float _posX, float _posY, float _posZ);
-};*/
+	PositionComponent();
+	~PositionComponent();
+	void displayPosition();
+};

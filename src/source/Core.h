@@ -9,11 +9,12 @@
 class Core
 {
 private:
-	Core();
-	~Core();
+	//Core();
+	//~Core();
 public:
-	std::shared_ptr<Entity>addEntities();
+	std::shared_ptr<Entity>addEntity();
 	void runEntityComponents();
 	std::vector<std::shared_ptr<Entity>>entities;
 	
+	static std::shared_ptr<Core> initialize();
 };
