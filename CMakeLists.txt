@@ -11,7 +11,7 @@ src/source/Entity.h
 src/source/PositionComponent.h
 src/source/Core.cpp
 src/source/MeshComponent.h
-src/source.MeshComponent.cpp
+src/source/MeshComponent.cpp
 src/source/PositionComponent.cpp
 src/source/Entity.cpp
 src/source/MaterialComponent.h
