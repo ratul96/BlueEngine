@@ -4,7 +4,8 @@
 #include<memory>
 int main()
 {
-	std::shared_ptr<Core> core;
-	core->run();
+	std::shared_ptr<Core> core=std::make_shared<Core>();
+	std::shared_ptr<Entity> entity = std::make_shared<Entity>();
+	core->addEntity();
 
 }
