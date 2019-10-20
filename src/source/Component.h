@@ -19,13 +19,13 @@ public:
 
 	//void ontick();
 
-	void onDisplay();
+	virtual void onDisplay();
 
 protected:
 
 	/*std::weak_ptr<MaterialComponent> material;
 	std::weak_ptr<MeshComponent> mesh;*/
-	PositionComponent* position;
+	std::weak_ptr<PositionComponent> position;
 
 
 

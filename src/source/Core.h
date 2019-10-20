@@ -12,7 +12,7 @@ private:
 	//Core();
 	//~Core();
 public:
-	std::shared_ptr<Entity>addEntity();
+	void addEntity();
 	void runEntityComponents();
 	std::vector<std::shared_ptr<Entity>>entities;
 	

@@ -3,7 +3,7 @@
 
 Component::Component()
 {
-	position = new PositionComponent();
+	
 }
 Component::~Component()
 {
@@ -17,7 +17,7 @@ void Component::onBegin()
 {
 	std::cout << "Began" << std::endl;
 }*/
-void Component::onDisplay()
+ void Component::onDisplay()
 {
-	position->displayPosition();
+	 std::cout << "Display component" << std::endl;
 }

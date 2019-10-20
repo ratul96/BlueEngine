@@ -11,13 +11,12 @@
 class Entity
 {
 public:
-	Entity();
-	~Entity();
 	
-	std::shared_ptr<Component>updateEntityComponents(); //update with all the models accessing the components
-protected:
+	std::shared_ptr<Entity>initialize();
+	//std::shared_ptr<Component>updateEntityComponents(); //update with all the models accessing the components
 	std::vector<std::shared_ptr<Component>> components;
-
+	//std::shared_ptr<T>addComponent<T>();
+	void addComponents();
 	
 
 
