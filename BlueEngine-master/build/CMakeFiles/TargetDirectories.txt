@@ -1,4 +1,0 @@
-C:/Users/s4915733/BlueEngine-master/build/CMakeFiles/BlueEngine.dir
-C:/Users/s4915733/BlueEngine-master/build/CMakeFiles/sandbox.dir
-C:/Users/s4915733/BlueEngine-master/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/s4915733/BlueEngine-master/build/CMakeFiles/ZERO_CHECK.dir
