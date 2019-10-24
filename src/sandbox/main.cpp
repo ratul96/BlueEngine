@@ -5,7 +5,21 @@
 
 class TriangleRenderer : public Component
 {
-  int five;
+public:
+	TriangleRenderer()
+	{
+
+	}
+	~TriangleRenderer()
+	{
+
+	}
+	virtual void onDisplay()
+	{
+		onDisplay();
+	}
+
+	
 };
 
 int main()
