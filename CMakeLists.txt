@@ -16,6 +16,7 @@ src/source/PositionComponent.cpp
 src/source/Entity.cpp
 src/source/MaterialComponent.h
 src/source/MaterialComponent.cpp
+src/source/blueengine.h
 )
 
 
