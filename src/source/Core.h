@@ -13,8 +13,7 @@ private:
 	//~Core();
 public:
 	std::shared_ptr<Entity> addEntity();
-	void runEntityComponents();
 	std::vector<std::shared_ptr<Entity>>entities;
-	
 	static std::shared_ptr<Core> initialize();
+	virtual void ondisplay();
 };

@@ -25,7 +25,7 @@ protected:
 
 	/*std::weak_ptr<MaterialComponent> material;
 	std::weak_ptr<MeshComponent> mesh;*/
-	std::weak_ptr<PositionComponent> position;
+	//std::weak_ptr<PositionComponent> position;
 
 
 

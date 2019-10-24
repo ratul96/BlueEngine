@@ -15,7 +15,10 @@ std::shared_ptr<Entity> Core::addEntity()
 	return rtn;
 }
 
-void Core::runEntityComponents()
+void Core::ondisplay()
 {
-	
+	for (int i = 0; i < entities.size(); i++)
+	{
+		entities.at(i)->onDisplay();
+	}
 }

@@ -1,19 +1,10 @@
 #include "Entity.h"
 
-/*
-std::shared_ptr<Entity>Entity::initialize()
+void Entity:: onDisplay()
 {
-	std::shared_ptr<Entity> e = std::make_shared<Entity>();
-	return e;
-}
-*/
-
-/*
-void Entity:: addComponents()
-{
-	for (auto& c : components)
+	for (int i=0;i<components.size();i++)
 	{
-		c->onDisplay();
+		components.at(i)->onDisplay();
 	}
 }
-*/
+

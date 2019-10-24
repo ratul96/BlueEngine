@@ -24,9 +24,9 @@ public:
 
 		return rtn;
 	}
-
-private:
 	std::vector<std::shared_ptr<Component>> components;
+	virtual void onDisplay();
+
 
 
 };
