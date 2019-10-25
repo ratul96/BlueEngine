@@ -19,9 +19,13 @@ src/source/MaterialComponent.cpp
 src/source/blueengine.h
 )
 
+target_link_libraries(BlueEngine glew32 SDL2 OpenGL32 )
+
 
 add_executable(sandbox
 src/sandbox/main.cpp
+src/sandbox/TriangleRenderer.h
+src/sandbox/TriangleRenderer.cpp
 )
 
 target_link_libraries(sandbox BlueEngine)
