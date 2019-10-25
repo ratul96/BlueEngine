@@ -25,6 +25,7 @@ public:
 		return rtn;
 	}
 	std::vector<std::shared_ptr<Component>> components;
+	// onUpdate
 	virtual void onDisplay();
 
 

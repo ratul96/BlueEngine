@@ -15,10 +15,15 @@ std::shared_ptr<Entity> Core::addEntity()
 	return rtn;
 }
 
-void Core::ondisplay()
+void Core::run()
 {
-	for (int i = 0; i < entities.size(); i++)
+	while (true)
 	{
-		entities.at(i)->onDisplay();
+		// go through.. call update
+
+		for (int i = 0; i < entities.size(); i++)
+		{
+			entities.at(i)->onDisplay();
+		}
 	}
 }
