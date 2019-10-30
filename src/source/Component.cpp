@@ -1,6 +1,8 @@
 #include "Component.h"
 
 
+
+
 Component::Component()
 {
 	
@@ -17,7 +19,7 @@ void Component::onBegin()
 {
 	std::cout << "Began" << std::endl;
 }*/
- void Component::onDisplay()
+ void Component::DrawTriangle()
 {
-	 std::cout << "Display component" << std::endl;
+	 
 }

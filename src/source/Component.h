@@ -1,9 +1,12 @@
 #pragma once
 #include "MaterialComponent.h"
 #include "MeshComponent.h"
-#include "PositionComponent.h" 
+#include "PositionComponent.h"
 #include<memory>
 #include<iostream>
+#include<SDL2/SDL.h>
+
+
 
 class Component
 {
@@ -19,8 +22,10 @@ public:
 
 	//void ontick();
 
-	virtual void onDisplay();
+	virtual void DrawTriangle();
 
+	
+	
 protected:
 
 	/*std::weak_ptr<MaterialComponent> material;

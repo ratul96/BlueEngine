@@ -26,7 +26,7 @@ public:
 	}
 	std::vector<std::shared_ptr<Component>> components;
 	// onUpdate
-	virtual void onDisplay();
+	virtual void onUpdate();
 
 
 
