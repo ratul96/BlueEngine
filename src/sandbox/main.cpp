@@ -11,9 +11,6 @@ int main()
 
 	std::shared_ptr<Entity> entity = core->addEntity();
 	
-
-
-	//std::shared_ptr<Component> tr = entity->addComponent<Component>();
 	std::shared_ptr<TriangleRenderer> tr = entity->addComponent<TriangleRenderer>();
 
 	core->run();

@@ -1,39 +1,10 @@
 #include "TriangleRenderer.h"
 
+
+
 TriangleRenderer::TriangleRenderer()
 {
-	const GLfloat positions[] = {
-  0.0f, 0.5f, 0.0f,
-  -0.5f, -0.5f, 0.0f,
-  0.5f, -0.5f, 0.0f
-	};
-
-	const GLfloat colors[] = {
-	  1.0f, 0.0f, 0.0f, 1.0f,
-	  0.0f, 1.0f, 0.0f, 1.0f,
-	  0.0f, 0.0f, 1.0f, 1.0f
-	};
-
-	const GLchar *vertexShaderSrc =
-		"attribute vec3 in_Position;" \
-		"attribute vec4 in_Color;" \
-		"" \
-		"varying vec4 ex_Color;" \
-		"" \
-		"void main()" \
-		"{" \
-		"  gl_Position = vec4(in_Position, 1.0);" \
-		"  ex_Color = in_Color;" \
-		"}" \
-		"";
-
-	const GLchar *fragmentShaderSrc =
-		"varying vec4 ex_Color;" \
-		"void main()" \
-		"{" \
-		"  gl_FragColor = ex_Color;" \
-		"}" \
-		"";
+	
 
 }
 TriangleRenderer::~TriangleRenderer()
@@ -42,7 +13,7 @@ TriangleRenderer::~TriangleRenderer()
 	SDL_Quit();
 
 }
-void TriangleRenderer::onInit()
+void TriangleRenderer::DrawTriangle()
 {
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
@@ -52,7 +23,6 @@ void TriangleRenderer::onInit()
 	SDL_Window *window = SDL_CreateWindow("Lab 4 - Architecture",
 		SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
 		WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
-
 	if (!SDL_GL_CreateContext(window))
 	{
 		throw std::exception();
@@ -63,29 +33,6 @@ void TriangleRenderer::onInit()
 		throw std::exception();
 	}
 
-
-}
-void TriangleRenderer::CreateVAO()
-{
-	GLuint vaoId = 0;
-
-	// Create a new VAO on the GPU and bind it
-	glGenVertexArrays(1, &vaoId);
-
-	if (!vaoId)
-	{
-		throw std::exception();
-	}
-
-	glBindVertexArray(vaoId);
-	
-	
-
-
-
-}
-void TriangleRenderer::CreateVBO()
-{
 	GLuint positionsVboId = 0;
 
 	// Create a new VBO on the GPU and bind it
@@ -103,8 +50,6 @@ void TriangleRenderer::CreateVBO()
 
 	// Reset the state
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindVertexArray(0);
-	
 
 	GLuint colorsVboId = 0;
 
@@ -115,6 +60,30 @@ void TriangleRenderer::CreateVBO()
 	{
 		throw std::exception();
 	}
+
+
+	glBindBuffer(GL_ARRAY_BUFFER, colorsVboId);
+
+
+	// Upload a copy of the data from memory into the new VBO
+	glBufferData(GL_ARRAY_BUFFER, sizeof(colors), colors, GL_STATIC_DRAW);
+
+	// Reset the state
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+
+	GLuint vaoId = 0;
+
+	// Create a new VAO on the GPU and bind it
+	glGenVertexArrays(1, &vaoId);
+
+	if (!vaoId)
+	{
+		throw std::exception();
+	}
+
+	glBindVertexArray(vaoId);
+
 	// Bind the position VBO, assign it to position 0 on the bound VAO and flag it to be used
 	glBindBuffer(GL_ARRAY_BUFFER, positionsVboId);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (void *)0);
@@ -125,16 +94,10 @@ void TriangleRenderer::CreateVBO()
 	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (void *)0);
 	glEnableVertexAttribArray(1);
 
+	// Reset the state
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
 
-	glBindBuffer(GL_ARRAY_BUFFER, colorsVboId);
-
-	// Upload a copy of the data from memory into the new VBO
-	glBufferData(GL_ARRAY_BUFFER, sizeof(colors), colors, GL_STATIC_DRAW);
-
-	
-}
-void TriangleRenderer::Draw()
-{
 	GLuint vertexShaderId = glCreateShader(GL_VERTEX_SHADER);
 	glShaderSource(vertexShaderId, 1, &vertexShaderSrc, NULL);
 	glCompileShader(vertexShaderId);
@@ -208,9 +171,9 @@ void TriangleRenderer::Draw()
 		SDL_GL_SwapWindow(window);
 	}
 
-	
-	
 
+
+	
 }
 
 
