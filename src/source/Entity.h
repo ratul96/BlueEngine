@@ -24,6 +24,23 @@ public:
 
 		return rtn;
 	}
+
+	template<typename T>
+	std::shared_ptr<T> getComponent()
+	{
+		for (auto& c : components)
+		{
+			std::shared_ptr<T> rtn1 = std::dynamic_pointer_cast<T>(c);
+			if (rtn1 != NULL)
+			{
+				return rtn1
+			}
+			else
+			{
+				std::cout << "Does not Exist" << std::endl;
+			}
+		}
+	}
 	std::vector<std::shared_ptr<Component>> components;
 	// onUpdate
 	virtual void onUpdate();

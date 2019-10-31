@@ -5,5 +5,6 @@
 #include "Component.h"
 #include "Entity.h"
 #include "sandbox/TriangleRenderer.h"
+#include "PositionComponent.h"
 
 #endif
