@@ -6,5 +6,6 @@
 #include "Entity.h"
 #include "sandbox/TriangleRenderer.h"
 #include "PositionComponent.h"
+#include "MeshComponent.h"
 
 #endif

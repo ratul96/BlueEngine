@@ -7,7 +7,7 @@ PositionComponent::~PositionComponent()
 {
 
 }
-void PositionComponent::displayPosition()
+void PositionComponent::SetPosition()
 {
 	std::cout << "Display Position" << std::endl;
 }
