@@ -2,6 +2,7 @@
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 #include "source/Component.h"
+#include "source/MeshComponent.h"
 
 #include <exception>
 
