@@ -1,5 +1,5 @@
 #include "Component.h"
-
+#include "MeshComponent.h"
 
 
 
@@ -19,12 +19,12 @@ void Component::onBegin()
 {
 	std::cout << "Began" << std::endl;
 }*/
-
-void Component::createVBO()
-{
-
-}
- void Component::DrawTriangle()
+void Component::DrawTriangle()
 {
 	 
+}
+
+std::shared_ptr<MeshComponent> Component::getTransform()
+{
+	return std::shared_ptr<MeshComponent>();
 }

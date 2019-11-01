@@ -42,6 +42,11 @@ public:
 		}
 	}
 	std::vector<std::shared_ptr<Component>> components;
+	
+	std::shared_ptr<MeshComponent>getTransform();
+
+	std::weak_ptr<MeshComponent>mesh;
+	
 	// onUpdate
 	virtual void onUpdate();
 

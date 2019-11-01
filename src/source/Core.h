@@ -15,5 +15,6 @@ public:
 	std::shared_ptr<Entity> addEntity();
 	std::vector<std::shared_ptr<Entity>>entities;
 	static std::shared_ptr<Core> initialize();
+	std::weak_ptr<Core> self;
 	void run();
 };

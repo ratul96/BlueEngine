@@ -3,6 +3,7 @@
 std::shared_ptr<Core> Core::initialize()
 {
 	std::shared_ptr<Core> c = std::make_shared<Core>();
+	c->self = c;
 	return c;
 }
 
@@ -12,6 +13,7 @@ std::shared_ptr<Entity> Core::addEntity()
 
 	entities.push_back(rtn);
 
+	rtn->core = self;
 	return rtn;
 }
 

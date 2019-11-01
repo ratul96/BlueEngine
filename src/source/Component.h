@@ -3,7 +3,7 @@
 #include<iostream>
 #include<SDL2/SDL.h>
 
-
+class MeshComponent;
 
 class Component
 {
@@ -20,7 +20,9 @@ public:
 	//void ontick();
 
 	virtual void DrawTriangle();
-	virtual void createVBO();
+	//virtual void createVBO();
+
+	std::shared_ptr<MeshComponent>getTransform();
 	
 	
 protected:
