@@ -3,6 +3,7 @@
 #include <GL/glew.h>
 #include "source/Component.h"
 #include "source/MeshComponent.h"
+#include "source/Entity.h"
 
 #include <exception>
 
@@ -22,7 +23,9 @@ public:
 
 	SDL_Window *window;
 
-	
+	std::shared_ptr<Entity> e;
+
+	std::shared_ptr<MeshComponent>m =e->addComponent<MeshComponent>();
 	
 	
 
