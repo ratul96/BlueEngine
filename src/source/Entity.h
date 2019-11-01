@@ -8,9 +8,14 @@
 #include <memory>
 #include <iostream>
 
+class Core;
+
 class Entity
 {
 public:
+
+	Entity();
+	~Entity();
 	
 	//std::shared_ptr<Component>updateEntityComponents(); //update with all the models accessing the components
 	//std::shared_ptr<T>addComponent<T>();
@@ -21,6 +26,8 @@ public:
 		std::shared_ptr<T> rtn = std::make_shared<T>();
 
 		components.push_back(rtn);
+
+		rtn->entity=self;
 
 		return rtn;
 	}
@@ -46,6 +53,10 @@ public:
 	std::shared_ptr<MeshComponent>getTransform();
 
 	std::weak_ptr<MeshComponent>mesh;
+	
+	std::weak_ptr<Core>core;
+
+	std::weak_ptr<Entity>self;
 	
 	// onUpdate
 	virtual void onUpdate();

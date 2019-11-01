@@ -5,6 +5,7 @@
 
 class MeshComponent;
 
+class Entity;
 class Component
 {
 public:
@@ -23,6 +24,9 @@ public:
 	//virtual void createVBO();
 
 	std::shared_ptr<MeshComponent>getTransform();
+
+	std::weak_ptr<Entity>entity;
+
 	
 	
 protected:

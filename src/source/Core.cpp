@@ -14,6 +14,7 @@ std::shared_ptr<Entity> Core::addEntity()
 	entities.push_back(rtn);
 
 	rtn->core = self;
+	rtn->self = rtn;
 	return rtn;
 }
 

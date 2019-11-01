@@ -1,5 +1,10 @@
 #include "Entity.h"
 
+Entity::~Entity()
+{
+
+}
+
 std::shared_ptr<MeshComponent> Entity::getTransform()
 {
 	return std::shared_ptr<MeshComponent>();
