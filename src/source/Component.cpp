@@ -19,6 +19,11 @@ void Component::onBegin()
 {
 	std::cout << "Began" << std::endl;
 }*/
+
+void Component::createVBO()
+{
+
+}
  void Component::DrawTriangle()
 {
 	 

@@ -20,7 +20,7 @@ public:
 	//void ontick();
 
 	virtual void DrawTriangle();
-
+	virtual void createVBO();
 	
 	
 protected:
