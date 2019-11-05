@@ -1,5 +1,6 @@
 #pragma once
 #include "Entity.h"
+#include "Component.h"
 #include"GL/glew.h"
 #include<SDL2/SDL.h>
 #include<memory>

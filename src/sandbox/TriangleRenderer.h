@@ -3,6 +3,8 @@
 #include <GL/glew.h>
 #include "source/Component.h"
 #include "source/Entity.h"
+#include "source/PositionComponent.h"
+#include<memory>
 
 #include <exception>
 
@@ -23,7 +25,7 @@ public:
 	SDL_Window *window;
 
 	
-	
+   
 
 
 };

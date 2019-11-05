@@ -1,14 +1,7 @@
 #include "Entity.h"
 
-Entity::~Entity()
-{
 
-}
 
-std::shared_ptr<MeshComponent> Entity::getTransform()
-{
-	return std::shared_ptr<MeshComponent>();
-}
 
 void Entity:: onUpdate()
 {
@@ -17,5 +10,9 @@ void Entity:: onUpdate()
 	{
 		components.at(i)->DrawTriangle();
 	}
+}
+std::shared_ptr<Core>Entity::getCore()
+{
+	return core.lock();
 }
 

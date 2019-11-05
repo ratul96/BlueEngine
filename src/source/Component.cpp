@@ -24,7 +24,7 @@ void Component::DrawTriangle()
 	 
 }
 
-std::shared_ptr<MeshComponent> Component::getTransform()
+std::shared_ptr<Entity> Component::getEntity()
 {
-	return std::shared_ptr<MeshComponent>();
+	return entity.lock();
 }

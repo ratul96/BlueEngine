@@ -1,4 +1,5 @@
 #include "TriangleRenderer.h"
+#include "source/PositionComponent.h"
 
 
 const GLchar* vertexShaderSrc =
@@ -38,6 +39,9 @@ TriangleRenderer::~TriangleRenderer()
 }
 void TriangleRenderer::DrawTriangle()
 {
+	std::shared_ptr<PositionComponent>p = getEntity()->addComponent<PositionComponent>();
+	std::shared_ptr<PositionComponent>pc=getEntity()->getComponent<PositionComponent>();
+	pc->createVBO();
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
 		throw std::exception();

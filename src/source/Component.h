@@ -3,9 +3,10 @@
 #include<iostream>
 #include<SDL2/SDL.h>
 
-class MeshComponent;
+class PositionComponent;
 
 class Entity;
+
 class Component
 {
 public:
@@ -23,10 +24,12 @@ public:
 	virtual void DrawTriangle();
 	//virtual void createVBO();
 
-	std::shared_ptr<MeshComponent>getTransform();
+	//std::shared_ptr<PositionComponent>getTransform();
 
 	std::weak_ptr<Entity>entity;
 
+	std::shared_ptr<Entity>getEntity();
+	
 	
 	
 protected:

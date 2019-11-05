@@ -14,9 +14,6 @@ class Entity
 {
 public:
 
-	Entity();
-	~Entity();
-	
 	//std::shared_ptr<Component>updateEntityComponents(); //update with all the models accessing the components
 	//std::shared_ptr<T>addComponent<T>();
 
@@ -27,7 +24,7 @@ public:
 
 		components.push_back(rtn);
 
-		rtn->entity=self;
+		rtn->entity=self;//Reference of entity stored in Component
 
 		return rtn;
 	}
@@ -40,7 +37,7 @@ public:
 			std::shared_ptr<T> rtn1 = std::dynamic_pointer_cast<T>(c);
 			if (rtn1 != NULL)
 			{
-				return rtn1
+				return rtn1;
 			}
 			else
 			{
@@ -50,16 +47,18 @@ public:
 	}
 	std::vector<std::shared_ptr<Component>> components;
 	
-	std::shared_ptr<MeshComponent>getTransform();
+	//std::shared_ptr<MeshComponent>getTransform();
 
-	std::weak_ptr<MeshComponent>mesh;
+	//std::weak_ptr<MeshComponent>mesh;
 	
 	std::weak_ptr<Core>core;
 
 	std::weak_ptr<Entity>self;
+
+	std::shared_ptr<Core>getCore();
 	
 	// onUpdate
-	virtual void onUpdate();
+	void onUpdate();
 
 
 
