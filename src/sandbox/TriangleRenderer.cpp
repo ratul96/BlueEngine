@@ -2,6 +2,7 @@
 #include "source/PositionComponent.h"
 
 
+
 const GLchar* vertexShaderSrc =
 "attribute vec3 in_Position;" \
 "attribute vec4 in_Color;" \
@@ -42,6 +43,7 @@ void TriangleRenderer::DrawTriangle()
 	std::shared_ptr<PositionComponent>p = getEntity()->addComponent<PositionComponent>();
 	//std::shared_ptr<PositionComponent>pc=getEntity()->getComponent<PositionComponent>();
 	p->createVBO();
+	
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
 		throw std::exception();
@@ -73,51 +75,6 @@ void TriangleRenderer::DrawTriangle()
 
 	glBindVertexArray(vaoId);
 
-	
-	glShaderSource(vertexShaderId, 1, &vertexShaderSrc, NULL);
-	glCompileShader(vertexShaderId);
-	GLint success = 0;
-	glGetShaderiv(vertexShaderId, GL_COMPILE_STATUS, &success);
-
-	if (!success)
-	{
-		throw std::exception();
-	}
-
-	GLuint fragmentShaderId = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fragmentShaderId, 1, &fragmentShaderSrc, NULL);
-	glCompileShader(fragmentShaderId);
-	glGetShaderiv(fragmentShaderId, GL_COMPILE_STATUS, &success);
-
-	if (!success)
-	{
-		throw std::exception();
-	}
-
-	GLuint programId = glCreateProgram();
-	glAttachShader(programId, vertexShaderId);
-	glAttachShader(programId, fragmentShaderId);
-	glBindAttribLocation(programId, 0, "in_Position");
-	glBindAttribLocation(programId, 1, "in_Color");
-
-	if (glGetError() != GL_NO_ERROR)
-	{
-		throw std::exception();
-	}
-
-	glLinkProgram(programId);
-	glGetProgramiv(programId, GL_LINK_STATUS, &success);
-
-	if (!success)
-	{
-		throw std::exception();
-	}
-
-	glDetachShader(programId, vertexShaderId);
-	glDeleteShader(vertexShaderId);
-	glDetachShader(programId, fragmentShaderId);
-	glDeleteShader(fragmentShaderId);
-
 	bool quit = false;
 
 	while (!quit)
@@ -135,7 +92,7 @@ void TriangleRenderer::DrawTriangle()
 		glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		glUseProgram(programId);
+		glUseProgram(getShader()->programId);
 		glBindVertexArray(vaoId);
 
 		glDrawArrays(GL_TRIANGLES, 0, 3);

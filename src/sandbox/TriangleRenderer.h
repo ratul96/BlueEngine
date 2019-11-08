@@ -4,6 +4,7 @@
 #include "source/Component.h"
 #include "source/Entity.h"
 #include "source/PositionComponent.h"
+#include "source/Shader.h"
 #include<memory>
 
 #include <exception>
@@ -24,7 +25,12 @@ public:
 
 	SDL_Window *window;
 
-	
+	std::weak_ptr<Shader>sh;
+
+	std::shared_ptr<Shader>getShader()
+	{
+		return sh.lock();
+	}
    
 
 

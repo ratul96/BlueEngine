@@ -30,5 +30,12 @@ public:
 		"}" \
 		"";
 	GLuint vertexShaderId;
+	GLuint fragmentShaderId;
+
+	bool loadShaders();
+	bool CheckShaderCompiled();
+	
+	GLint success = 0;
+	GLuint programId;
 
 };
