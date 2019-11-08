@@ -19,10 +19,9 @@ void Component::onBegin()
 {
 	std::cout << "Began" << std::endl;
 }*/
-void Component::DrawTriangle()
-{
-	 
-}
+
+void Component::onUpdate() { }
+void Component::onDisplay() { }
 
 std::shared_ptr<Entity> Component::getEntity()
 {

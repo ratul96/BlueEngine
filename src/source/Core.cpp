@@ -13,6 +13,7 @@ std::shared_ptr<Entity> Core::addEntity()
 
 	entities.push_back(rtn);
 
+	rtn->self = rtn;
 	rtn->core = self;
 
 	return rtn;
@@ -27,6 +28,11 @@ void Core::run()
 		for (int i = 0; i < entities.size(); i++)
 		{
 			entities.at(i)->onUpdate();
+		}
+
+		for (int i = 0; i < entities.size(); i++)
+		{
+			entities.at(i)->onDisplay();
 		}
 	}
 }

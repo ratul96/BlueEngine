@@ -2,9 +2,9 @@
 
 Shader::Shader()
 {
-	GLuint vertexShaderId = glCreateShader(GL_VERTEX_SHADER);
-	GLuint fragmentShaderId = glCreateShader(GL_FRAGMENT_SHADER);
-	GLuint programId = glCreateProgram();
+	vertexShaderId = glCreateShader(GL_VERTEX_SHADER);
+	fragmentShaderId = glCreateShader(GL_FRAGMENT_SHADER);
+	programId = glCreateProgram();
 }
 Shader::~Shader()
 {
@@ -38,7 +38,7 @@ bool Shader::loadShaders()
 		return false;
 	}
 
-	
+	return true;
 }
 bool Shader::CheckShaderCompiled()
 {
@@ -66,4 +66,5 @@ bool Shader::CheckShaderCompiled()
 		return false;
 	}
 
+	return true;
 }

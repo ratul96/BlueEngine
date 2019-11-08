@@ -29,8 +29,29 @@ const GLchar* fragmentShaderSrc =
 
 TriangleRenderer::TriangleRenderer()
 {
-	
+	if (SDL_Init(SDL_INIT_VIDEO) < 0)
+        {
+                throw std::exception();
+        }
 
+        SDL_Window* window = SDL_CreateWindow("Lab 4 - Architecture",
+                SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+                WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
+
+        if (!SDL_GL_CreateContext(window))
+        {
+                throw std::exception();
+        }
+
+        if (glewInit() != GLEW_OK)
+        {
+                throw std::exception();
+        }
+
+	// create the shader sh = make_shared<Shader>();
+	// make rend context
+	// set source
+	// create buffer
 }
 TriangleRenderer::~TriangleRenderer()
 {
@@ -38,31 +59,12 @@ TriangleRenderer::~TriangleRenderer()
 	SDL_Quit();
 
 }
-void TriangleRenderer::DrawTriangle()
+void TriangleRenderer::onDisplay()
 {
 	std::shared_ptr<PositionComponent>p = getEntity()->addComponent<PositionComponent>();
 	//std::shared_ptr<PositionComponent>pc=getEntity()->getComponent<PositionComponent>();
 	p->createVBO();
 	
-	if (SDL_Init(SDL_INIT_VIDEO) < 0)
-	{
-		throw std::exception();
-	}
-
-	SDL_Window* window = SDL_CreateWindow("Lab 4 - Architecture",
-		SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-		WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
-
-	if (!SDL_GL_CreateContext(window))
-	{
-		throw std::exception();
-	}
-
-	if (glewInit() != GLEW_OK)
-	{
-		throw std::exception();
-	}
-
 	GLuint vaoId = 0;
 
 	// Create a new VAO on the GPU and bind it
@@ -74,6 +76,9 @@ void TriangleRenderer::DrawTriangle()
 	}
 
 	glBindVertexArray(vaoId);
+
+	// set buffer in attribute stream
+	// call render
 
 	bool quit = false;
 
@@ -92,7 +97,8 @@ void TriangleRenderer::DrawTriangle()
 		glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		glUseProgram(getShader()->programId);
+		// sh is NULL. Expect crash
+		glUseProgram(sh->programId);
 		glBindVertexArray(vaoId);
 
 		glDrawArrays(GL_TRIANGLES, 0, 3);

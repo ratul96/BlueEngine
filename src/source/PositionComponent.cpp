@@ -9,8 +9,6 @@ PositionComponent::~PositionComponent()
 }
 void PositionComponent::createVBO()
 {
-	
-
 	// Create a new VBO on the GPU and bind it
 	glGenBuffers(1, &positionsVboId);
 

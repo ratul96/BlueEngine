@@ -23,7 +23,11 @@ src/source/Shader.cpp
 src/source/blueengine.h
 )
 
-target_link_libraries(BlueEngine glew32 SDL2 OpenGL32 )
+if(MSVC)
+  target_link_libraries(BlueEngine glew32 SDL2 OpenGL32)
+else()
+  target_link_libraries(BlueEngine SDL2 GLEW GL)
+endif()
 
 
 add_executable(sandbox

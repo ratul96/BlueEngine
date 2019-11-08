@@ -59,6 +59,7 @@ public:
 	
 	// onUpdate
 	void onUpdate();
+	void onDisplay();
 
 
 

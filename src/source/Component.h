@@ -14,25 +14,22 @@ public:
 	~Component();
 
 	//void updateComponents(); //get the components here
-
 	//void onInit(); //Initialize window
-
 	//void onBegin();
-
 	//void ontick();
 
-	virtual void DrawTriangle();
+	virtual void onUpdate();
+	virtual void onDisplay();
+
 	//virtual void createVBO();
-
 	//std::shared_ptr<PositionComponent>getTransform();
-
-	std::weak_ptr<Entity>entity;
 
 	std::shared_ptr<Entity>getEntity();
 	
-	
-	
 protected:
+	friend class Entity;
+
+	std::weak_ptr<Entity>entity;
 
 	/*std::weak_ptr<MaterialComponent> material;
 	std::weak_ptr<MeshComponent> mesh;*/

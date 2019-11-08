@@ -21,16 +21,18 @@ public:
 	~TriangleRenderer();
 	
 	
-	void DrawTriangle();
+	void onDisplay();
 
 	SDL_Window *window;
 
-	std::weak_ptr<Shader>sh;
+	std::shared_ptr<Shader>sh;
 
+/*
 	std::shared_ptr<Shader>getShader()
 	{
 		return sh.lock();
 	}
+*/
    
 
 
