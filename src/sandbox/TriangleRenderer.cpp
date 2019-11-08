@@ -40,8 +40,8 @@ TriangleRenderer::~TriangleRenderer()
 void TriangleRenderer::DrawTriangle()
 {
 	std::shared_ptr<PositionComponent>p = getEntity()->addComponent<PositionComponent>();
-	std::shared_ptr<PositionComponent>pc=getEntity()->getComponent<PositionComponent>();
-	pc->createVBO();
+	//std::shared_ptr<PositionComponent>pc=getEntity()->getComponent<PositionComponent>();
+	p->createVBO();
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
 		throw std::exception();
@@ -73,7 +73,7 @@ void TriangleRenderer::DrawTriangle()
 
 	glBindVertexArray(vaoId);
 
-	GLuint vertexShaderId = glCreateShader(GL_VERTEX_SHADER);
+	
 	glShaderSource(vertexShaderId, 1, &vertexShaderSrc, NULL);
 	glCompileShader(vertexShaderId);
 	GLint success = 0;

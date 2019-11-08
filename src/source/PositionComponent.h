@@ -22,9 +22,9 @@ public:
 	  0.0f, 0.0f, 1.0f, 1.0f
 	};
 
-	GLuint positionsVboId = 0;
+	GLuint positionsVboId ;
 
-	GLuint colorsVboId = 0;
+	GLuint colorsVboId;
 
 	void createVBO();
 	
