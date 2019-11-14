@@ -1,7 +1,8 @@
 #include "TriangleRenderer.h"
 #include "source/PositionComponent.h"
+#include<sr1/memory>
 
-
+using namespace rend;
 
 const GLchar* vertexShaderSrc =
 "attribute vec3 in_Position;" \
@@ -48,10 +49,22 @@ TriangleRenderer::TriangleRenderer()
                 throw std::exception();
         }
 
-	// create the shader sh = make_shared<Shader>();
-	// make rend context
-	// set source
-	// create buffer
+		SDL_GLContext glContext = SDL_GL_CreateContext(window);
+
+		if (!glContext)
+		{
+			std::cout << "Failed to create OpenGL context" << std::endl;
+		}
+
+
+	std::shared_ptr<Context> context = Context::initialize(); // make rend context
+	std::sr1::shared_ptr<Shader> sh = context->createShader(); // create the shader sh = make_shared<Shader>();
+	sh->setSource(vertexShaderSrc);
+	sh->setSource(fragmentShaderSrc);	// set source
+	std::sr1::shared_ptr<Buffer>b = context->createBuffer(); // create buffer
+	
+	
+	
 }
 TriangleRenderer::~TriangleRenderer()
 {
@@ -98,7 +111,7 @@ void TriangleRenderer::onDisplay()
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		// sh is NULL. Expect crash
-		glUseProgram(sh->programId);
+		glUseProgram(programId);
 		glBindVertexArray(vaoId);
 
 		glDrawArrays(GL_TRIANGLES, 0, 3);

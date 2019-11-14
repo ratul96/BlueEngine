@@ -1,12 +1,11 @@
 #pragma once
+#include<rend/rend.h>
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 #include "source/Component.h"
 #include "source/Entity.h"
 #include "source/PositionComponent.h"
-#include "source/Shader.h"
 #include<memory>
-
 #include <exception>
 
 #define WINDOW_WIDTH 640
@@ -25,7 +24,7 @@ public:
 
 	SDL_Window *window;
 
-	std::shared_ptr<Shader>sh;
+	
 
 /*
 	std::shared_ptr<Shader>getShader()
