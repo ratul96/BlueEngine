@@ -18,8 +18,6 @@ src/source/MaterialComponent.h
 src/source/MaterialComponent.cpp
 src/source/Camera.h
 src/source/Camera.cpp
-src/source/Shader.h
-src/source/Shader.cpp
 src/source/blueengine.h
 )
 
