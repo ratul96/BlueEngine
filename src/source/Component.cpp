@@ -21,6 +21,7 @@ void Component::onBegin()
 }*/
 
 void Component::onUpdate() { }
+void Component::onInit() { }
 void Component::onDisplay() { }
 
 std::shared_ptr<Entity> Component::getEntity()

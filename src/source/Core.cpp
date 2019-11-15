@@ -32,6 +32,11 @@ void Core::run()
 
 		for (int i = 0; i < entities.size(); i++)
 		{
+			entities.at(i)->onInit();
+		}
+
+		for (int i = 0; i < entities.size(); i++)
+		{
 			entities.at(i)->onDisplay();
 		}
 	}

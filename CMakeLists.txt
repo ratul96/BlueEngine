@@ -3,29 +3,51 @@ project(BlueEngine)
 
 include_directories(src)
 
+add_library(rend
+src/rend/Buffer.h
+src/rend/Buffer.cpp
+src/rend/Context.h
+src/rend/Context.cpp
+src/rend/Exception.h
+src/rend/Exception.cpp
+src/rend/RenderTexture.h
+src/rend/RenderTexture.cpp
+src/rend/Shader.h
+src/rend/Shader.cpp
+src/rend/Texture.h
+src/rend/Texture.cpp
+src/rend/TextureAdapter.h
+src/rend/Util.h
+src/rend/Util.cpp
+)
+
+if(MSVC)
+  target_link_libraries(rend glew32 SDL2 OpenGL32)
+else()
+  target_link_libraries(rend SDL2 GLEW GL)
+endif()
+
 add_library(BlueEngine
 src/source/Core.h
 src/source/Component.h
 src/source/Component.cpp
 src/source/Entity.h
-src/source/PositionComponent.h
 src/source/Core.cpp
 src/source/MeshComponent.h
 src/source/MeshComponent.cpp
-src/source/PositionComponent.cpp
 src/source/Entity.cpp
 src/source/MaterialComponent.h
 src/source/MaterialComponent.cpp
+src/source/Transform.h
+src/source/Transform.cpp
 src/source/Camera.h
 src/source/Camera.cpp
 src/source/blueengine.h
 )
 
-if(MSVC)
-  target_link_libraries(BlueEngine glew32 SDL2 OpenGL32)
-else()
-  target_link_libraries(BlueEngine SDL2 GLEW GL)
-endif()
+ target_link_libraries(BlueEngine rend)
+
+
 
 
 add_executable(sandbox

@@ -19,7 +19,9 @@ public:
 	//void ontick();
 
 	virtual void onUpdate();
+	virtual void onInit();
 	virtual void onDisplay();
+	
 
 	//virtual void createVBO();
 	//std::shared_ptr<PositionComponent>getTransform();
