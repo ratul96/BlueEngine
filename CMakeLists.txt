@@ -10,6 +10,10 @@ src/rend/Context.h
 src/rend/Context.cpp
 src/rend/Exception.h
 src/rend/Exception.cpp
+src/rend/mathutil.h
+src/rend/Mesh.cpp
+src/rend/Mesh.h
+src/rend/rend.h
 src/rend/RenderTexture.h
 src/rend/RenderTexture.cpp
 src/rend/Shader.h

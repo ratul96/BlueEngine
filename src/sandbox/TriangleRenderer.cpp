@@ -79,6 +79,8 @@ void TriangleRenderer::onInit()
 	b->add(vec3(0.0f, 0.5f, 0.0f));
 	b->add(vec3(-0.5f, -0.5f, 0.0f));
 	b->add(vec3(0.5f, -0.5f, 0.0f));
+
+	object->parse(mesh->obj);
 }
 void TriangleRenderer::onDisplay()
 {

@@ -1,9 +1,0 @@
-﻿  Checking Build System
-  CMake is re-running because W:/gep_sdk-20191003/gep_sdk/BlueEngine/build/CMakeFiles/generate.stamp is out-of-date.
-    the file 'W:/gep_sdk-20191003/gep_sdk/BlueEngine/CMakeLists.txt'
-    is newer than 'W:/gep_sdk-20191003/gep_sdk/BlueEngine/build/CMakeFiles/generate.stamp.depend'
-    result='-1'
-  -- Selecting Windows SDK version 10.0.17134.0 to target Windows 10.0.18362.
-  -- Configuring done
-  -- Generating done
-  -- Build files have been written to: W:/gep_sdk-20191003/gep_sdk/BlueEngine/build
