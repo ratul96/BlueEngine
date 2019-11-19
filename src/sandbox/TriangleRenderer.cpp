@@ -4,24 +4,33 @@
 
 
 const GLchar* shaderSrc =
-"#ifdef VERTEX\n"
-"attribute vec3 in_Position;" \
-"attribute vec4 in_Color;" \
-"" \
-"varying vec4 ex_Color;" \
-"" \
-"void main()" \
-"{" \
-"  gl_Position = vec4(in_Position, 1.0);" \
-"  ex_Color = in_Color;" \
-"}" \
-"\n#else\n" \
-"varying vec4 ex_Color;" \
-"void main()" \
-"{" \
-"  gl_FragColor = ex_Color;" \
-"}" \
-"\n#endif\n";
+"#ifdef VERTEX                                 \n" \
+"                                              \n" \
+"attribute vec3 v_Position;                    \n" \
+"attribute vec2 TexCoord;						\n" \
+"                                              \n" \
+"uniform mat4 Projection;                      \n" \
+"uniform mat4 Model;                           \n" \
+"varying vec2 v_TexCoord;                      \n" \
+"                                              \n" \
+"void main()                                   \n" \
+"{                                             \n" \
+"  vec3 pos = v_Position;					   \n" \
+"  gl_Position = v_Projection * vec4(pos, 1);  \n" \
+"  v_TexCoord = a_TexCoord;                    \n" \
+"}                                             \n" \
+"                                              \n" \
+"#endif                                        \n" \
+"#ifdef FRAGMENT                               \n" \
+"                                              \n" \
+"varying vec2 v_TexCoord;                      \n" \
+"                                              \n" \
+"void main()                                   \n" \
+"{                                             \n" \
+"  gl_FragColor = vec4(v_TexCoord, 0, 1);      \n" \
+"}                                             \n" \
+"                                              \n" \
+"#endif                                        \n";
 
 
 
@@ -80,6 +89,7 @@ void TriangleRenderer::onInit()
 	b->add(vec3(-0.5f, -0.5f, 0.0f));
 	b->add(vec3(0.5f, -0.5f, 0.0f));
 
+	object = context->createMesh();
 	object->parse(mesh->obj);
 }
 void TriangleRenderer::onDisplay()
@@ -122,6 +132,7 @@ void TriangleRenderer::onDisplay()
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		sh->setAttribute("in_Position", b);
+		sh->setMesh(object);
 		sh->render();
 
 		// sh is NULL. Expect crash

@@ -7,7 +7,7 @@ Transform::~Transform()
 {
 
 }
-void Transform::createVBO()
+/*void Transform::createVBO()
 {
 	// Create a new VBO on the GPU and bind it
 	glGenBuffers(1, &positionsVboId);
@@ -58,4 +58,4 @@ void Transform::createVBO()
 	// Reset the state
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
-}
+}*/
