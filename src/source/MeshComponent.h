@@ -2,6 +2,8 @@
 #include "Component.h"
 #include "GL/glew.h"
 #include<glm/glm.hpp>
+#include <rend/rend.h>
+#include<sr1/memory>
 #include<iostream>
 
 class MeshComponent :public Component
@@ -21,8 +23,10 @@ public:
 	  0.0f, 1.0f, 0.0f, 1.0f,
 	  0.0f, 0.0f, 1.0f, 1.0f
 	};
-
-	const char* obj = "wingedTeapot.obj";
+	const char* obj;
+	
+		
+		
 		
 	
 };

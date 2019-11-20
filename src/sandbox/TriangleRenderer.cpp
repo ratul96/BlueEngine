@@ -16,7 +16,7 @@ const GLchar* shaderSrc =
 "void main()                                   \n" \
 "{                                             \n" \
 "  vec3 pos = v_Position;					   \n" \
-"  gl_Position = v_Projection * vec4(pos, 1);  \n" \
+"  gl_Position = Projection * vec4(pos, 1);  \n" \
 "  v_TexCoord = TexCoord;                      \n" \
 "}                                             \n" \
 "                                              \n" \
@@ -37,7 +37,7 @@ const GLchar* shaderSrc =
 
 TriangleRenderer::TriangleRenderer()
 {
-	
+	mesh = std::make_shared<MeshComponent>();
 	
 	
 	
@@ -85,9 +85,9 @@ void TriangleRenderer::onInit()
 	sh->setSource(shaderSrc);	// set source
 
 
-	b->add(vec3(0.0f, 0.5f, 0.0f));
-	b->add(vec3(-0.5f, -0.5f, 0.0f));
-	b->add(vec3(0.5f, -0.5f, 0.0f));
+	//b->add(vec3(0.0f, 0.5f, 0.0f));
+	//b->add(vec3(-0.5f, -0.5f, 0.0f));
+	//b->add(vec3(0.5f, -0.5f, 0.0f));
 
 	object = context->createMesh();
 	object->parse(mesh->obj);
@@ -131,7 +131,7 @@ void TriangleRenderer::onDisplay()
 		glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		sh->setAttribute("v_Position", b);
+		//sh->setAttribute("v_Position", b);
 		sh->setUniform("Model", tr->getModelMat());
 		sh->setUniform("Projection", perspective(radians(45.0f), 1.0f, 0.1f, 1000.0f));
 		sh->setMesh(object);
