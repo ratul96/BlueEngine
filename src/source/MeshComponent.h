@@ -22,18 +22,7 @@ public:
 	  0.0f, 0.0f, 1.0f, 1.0f
 	};
 
-	const char* obj =
-		"v -1 1 0           \n" \
-		"v -1 -1 0          \n" \
-		"v 1 -1 0           \n" \
-		"v 1 1 0            \n" \
-		"                   \n" \
-		"vt 0 1             \n" \
-		"vt 0 0             \n" \
-		"vt 1 0             \n" \
-		"vt 1 1             \n" \
-		"                   \n" \
-		"f 1/1 2/2 3/3 4/4  \n" \
-		"                   \n";
+	const char* obj = "wingedTeapot.obj";
+		
 	
 };

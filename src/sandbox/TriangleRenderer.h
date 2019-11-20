@@ -6,6 +6,7 @@
 #include "source/Entity.h"
 #include "source/Transform.h"
 #include "source/MeshComponent.h"
+#include "source/Transform.h"
 #include<sr1/memory>
 #include <exception>
 
@@ -33,6 +34,7 @@ public:
 	std::sr1::shared_ptr<rend::Buffer>b;
 	std::sr1::shared_ptr<Mesh>object;
 	std::shared_ptr<MeshComponent> mesh;
+	
 /*
 	std::shared_ptr<Shader>getShader()
 	{

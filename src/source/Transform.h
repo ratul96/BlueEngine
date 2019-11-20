@@ -2,6 +2,7 @@
 #include "Component.h"
 #include "GL/glew.h"
 #include<glm/glm.hpp>
+#include<glm/gtc/matrix_transform.hpp>
 #include<iostream>
 
 class Transform:public Component
@@ -15,7 +16,7 @@ public:
 
 	GLuint colorsVboId;
 
-	void createVBO();
+	//void createVBO();
 
 	
 	
@@ -29,15 +30,17 @@ public:
 
 	glm::mat4 modelMatrix;
 
-	glm::mat4 getModelMat();
+	glm::mat4 getModelMat()
 	{
 		modelMatrix = glm::translate(glm::mat4(1.0f), position);
+
+		return modelMatrix;
 	}
 
 	
 	// rotation
 	// scale
-	return m;
+	//return m;
 
 	
 };
