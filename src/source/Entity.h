@@ -39,11 +39,12 @@ public:
 			{
 				return rtn1;
 			}
-			else
-			{
-				std::cout << "Does not Exist" << std::endl;
-			}
 		}
+
+		std::cout << "Does not Exist" << std::endl;
+		//return std::shared_ptr<T>();
+		// TODO: Throw non-generic Exception
+		throw std::exception();
 	}
 	std::vector<std::shared_ptr<Component>> components;
 	

@@ -26,8 +26,6 @@ public:
 
 	SDL_Window *window;
 
-	std::shared_ptr<Transform>tr;
-
 	std::shared_ptr<Context> context; // make rend context
 	
 	std::sr1::shared_ptr<rend::Shader> sh;

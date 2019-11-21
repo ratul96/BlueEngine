@@ -16,7 +16,7 @@ const GLchar* shaderSrc =
 "void main()                                   \n" \
 "{                                             \n" \
 "  vec3 pos = v_Position;					   \n" \
-"  gl_Position = Projection * vec4(pos, 1);  \n" \
+"  gl_Position = Projection * Model * vec4(pos, 1);  \n" \
 "  v_TexCoord = TexCoord;                      \n" \
 "}                                             \n" \
 "                                              \n" \
@@ -79,15 +79,12 @@ void TriangleRenderer::onInit()
 	context = Context::initialize(); 
 
 	sh = context->createShader(); // create the shader sh = make_shared<Shader>();
-	b = context->createBuffer(); // create buffer
-
-
 	sh->setSource(shaderSrc);	// set source
 
-
-	//b->add(vec3(0.0f, 0.5f, 0.0f));
-	//b->add(vec3(-0.5f, -0.5f, 0.0f));
-	//b->add(vec3(0.5f, -0.5f, 0.0f));
+	b = context->createBuffer(); // create buffer
+	b->add(vec3(0.0f, 0.5f, 0.0f));
+	b->add(vec3(-0.5f, -0.5f, 0.0f));
+	b->add(vec3(0.5f, -0.5f, 0.0f));
 
 	object = context->createMesh();
 	object->parse(mesh->obj);
@@ -132,9 +129,11 @@ void TriangleRenderer::onDisplay()
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		//sh->setAttribute("v_Position", b);
+		std::shared_ptr<Transform> tr = getEntity()->getComponent<Transform>();
 		sh->setUniform("Model", tr->getModelMat());
 		sh->setUniform("Projection", perspective(radians(45.0f), 1.0f, 0.1f, 1000.0f));
-		sh->setMesh(object);
+		sh->setAttribute("v_Position", b);
+		//sh->setMesh(object);
 		sh->render();
 
 		// sh is NULL. Expect crash

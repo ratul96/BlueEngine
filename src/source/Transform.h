@@ -32,6 +32,8 @@ public:
 
 	glm::mat4 getModelMat()
 	{
+		// TODO
+		position = glm::vec3(0, 0, -10);
 		modelMatrix = glm::translate(glm::mat4(1.0f), position);
 
 		return modelMatrix;

@@ -1,4 +1,5 @@
 #include "Core.h"
+#include "Transform.h"
 
 std::shared_ptr<Core> Core::initialize()
 {
@@ -11,10 +12,12 @@ std::shared_ptr<Entity> Core::addEntity()
 {
 	std::shared_ptr<Entity> rtn = std::make_shared<Entity>();
 
-	entities.push_back(rtn);
-
 	rtn->self = rtn;
 	rtn->core = self;
+
+	entities.push_back(rtn);
+
+	rtn->addComponent<Transform>();
 
 	return rtn;
 }
