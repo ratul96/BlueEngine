@@ -7,28 +7,33 @@
 const GLchar* shaderSrc =
 "#ifdef VERTEX                                 \n" \
 "                                              \n" \
-"attribute vec3 v_Position;                    \n" \
-"attribute vec2 TexCoord;					   \n" \
+"attribute vec3 a_Position;                    \n" \
+"attribute vec2 a_TexCoord;					   \n" \
+"attribute vec3 a_Normal;					   \n" \
 "                                              \n" \
 "uniform mat4 Projection;                      \n" \
 "uniform mat4 Model;                           \n" \
 "varying vec2 v_TexCoord;                      \n" \
+"varying vec3 v_Normal;                      \n" \
 "                                              \n" \
 "void main()                                   \n" \
 "{                                             \n" \
-"  vec3 pos = v_Position;					   \n" \
+"  vec3 pos = a_Position;					   \n" \
 "  gl_Position = Projection * Model * vec4(pos, 1);  \n" \
-"  v_TexCoord = TexCoord;                      \n" \
+"  v_TexCoord = a_TexCoord;                      \n" \
+"  v_Normal = a_Normal;                      \n" \
 "}                                             \n" \
 "                                              \n" \
 "#endif                                        \n" \
 "#ifdef FRAGMENT                               \n" \
 "                                              \n" \
 "varying vec2 v_TexCoord;                      \n" \
+"varying vec3 v_Normal;                      \n" \
 "                                              \n" \
 "void main()                                   \n" \
 "{                                             \n" \
 "  gl_FragColor = vec4(v_TexCoord, 0, 1);      \n" \
+"  if(gl_FragColor.x == 0.2) gl_FragColor.x = v_Normal.x; \n" \
 "}                                             \n" \
 "                                              \n" \
 "#endif                                        \n";
@@ -88,6 +93,7 @@ void TriangleRenderer::onInit()
 	b->add(vec3(0.5f, -0.5f, 0.0f));
 
 	object = context->createMesh();
+	//std::cout << mesh->obj << std::endl;
 	object->parse(mesh->obj);
 
 	
@@ -135,7 +141,7 @@ void TriangleRenderer::onDisplay()
 		std::shared_ptr<Transform> tr = getEntity()->getComponent<Transform>();
 		sh->setUniform("Model", tr->getModelMat());
 		sh->setUniform("Projection", perspective(radians(45.0f), 1.0f, 0.1f, 1000.0f));
-		sh->setAttribute("v_Position", b);
+		//sh->setAttribute("v_Position", b);
 		sh->setMesh(object);
 		sh->render();
 

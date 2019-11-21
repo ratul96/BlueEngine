@@ -1,18 +1,22 @@
 #include "MeshComponent.h"
 #include <fstream>
-#include<iostream>
+#include <iostream>
+#include <exception>
 
 MeshComponent::MeshComponent()
 {
-	obj = "curuthers.obj";
+	std::ifstream file("curuthers.obj");
 
-	std::ifstream file(obj);
+	if(!file.is_open())
+	{
+		throw std::exception();
+	}
+
 	std::string line;
 	while (!file.eof())
 	{
 		std::getline(file, line);
 		obj += line + "\n";
-
 	}
 	
 		 
