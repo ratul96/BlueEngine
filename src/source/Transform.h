@@ -23,6 +23,13 @@ public:
 
 
 	glm::vec3 position;
+
+	void SetPosition(float positionX, float positionY, float positionZ)
+	{
+		position.x = positionX;
+		position.y = positionY;
+		position.z = positionZ;
+	}
 	
 	glm::vec3 rotation;
 
@@ -33,8 +40,9 @@ public:
 	glm::mat4 getModelMat()
 	{
 		// TODO
-		position = glm::vec3(0, 0, -10);
+		
 		modelMatrix = glm::translate(glm::mat4(1.0f), position);
+		modelMatrix = glm::rotate(modelMatrix, rotation.y, glm::vec3(0, 1, 0));
 
 		return modelMatrix;
 	}

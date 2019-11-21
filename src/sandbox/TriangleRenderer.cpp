@@ -1,4 +1,5 @@
 #include "TriangleRenderer.h"
+#include<sr1/memory>
 
 
 
@@ -88,6 +89,8 @@ void TriangleRenderer::onInit()
 
 	object = context->createMesh();
 	object->parse(mesh->obj);
+
+	
 }
 void TriangleRenderer::onDisplay()
 {
@@ -133,7 +136,7 @@ void TriangleRenderer::onDisplay()
 		sh->setUniform("Model", tr->getModelMat());
 		sh->setUniform("Projection", perspective(radians(45.0f), 1.0f, 0.1f, 1000.0f));
 		sh->setAttribute("v_Position", b);
-		//sh->setMesh(object);
+		sh->setMesh(object);
 		sh->render();
 
 		// sh is NULL. Expect crash
