@@ -4,7 +4,7 @@
 #include "Core.h"
 #include "Component.h"
 #include "Entity.h"
-#include "sandbox/TriangleRenderer.h"
+#include "Renderer.h"
 #include "Transform.h"
 #include "MeshComponent.h"
 

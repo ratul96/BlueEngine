@@ -3,7 +3,7 @@
 #include<iostream>
 #include<SDL2/SDL.h>
 
-class PositionComponent;
+class Transform;
 
 class Entity;
 

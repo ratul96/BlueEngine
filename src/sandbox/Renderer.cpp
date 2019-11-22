@@ -1,4 +1,4 @@
-#include "TriangleRenderer.h"
+#include "Renderer.h"
 #include<sr1/memory>
 
 
@@ -41,20 +41,20 @@ const GLchar* shaderSrc =
 
 
 
-TriangleRenderer::TriangleRenderer()
+Renderer::Renderer()
 {
 	mesh = std::make_shared<MeshComponent>();
 	
 	
 	
 }
-TriangleRenderer::~TriangleRenderer()
+Renderer::~Renderer()
 {
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 
 }
-void TriangleRenderer::onInit()
+void Renderer::onInit()
 {
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
@@ -98,7 +98,7 @@ void TriangleRenderer::onInit()
 
 	
 }
-void TriangleRenderer::onDisplay()
+void Renderer::onDisplay()
 {
 	//std::shared_ptr<Transform>p = getEntity()->addComponent<Transform>();
 	//std::shared_ptr<PositionComponent>pc=getEntity()->getComponent<PositionComponent>();

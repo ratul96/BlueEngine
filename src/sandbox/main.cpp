@@ -11,7 +11,7 @@ int main()
 
 	std::shared_ptr<Entity> entity = core->addEntity();
 	
-	std::shared_ptr<TriangleRenderer> tr = entity->addComponent<TriangleRenderer>();
+	std::shared_ptr<Renderer> tr = entity->addComponent<Renderer>();
 
 	// TODO
 	entity->getComponent<Transform>()->SetPosition(0, 0, -10);

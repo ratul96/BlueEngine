@@ -15,15 +15,15 @@
 
 using namespace rend;
 
-class TriangleRenderer:public Component
+class Renderer:public Component
 {
 public:
-	TriangleRenderer();
-	~TriangleRenderer();
+	Renderer();
+	~Renderer();
 	
 	void onInit();
 	void onDisplay();
-
+	
 	SDL_Window *window;
 
 	std::shared_ptr<Context> context; // make rend context
