@@ -1,5 +1,6 @@
 #pragma once
 #include "Component.h"
+#include "Resources.h"
 #include "GL/glew.h"
 #include<glm/glm.hpp>
 #include <rend/rend.h>
@@ -24,6 +25,8 @@ public:
 	  0.0f, 0.0f, 1.0f, 1.0f
 	};
 	std::string obj;
+
+	
 	
 		
 		

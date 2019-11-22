@@ -22,6 +22,11 @@ std::shared_ptr<Entity> Core::addEntity()
 	return rtn;
 }
 
+std::shared_ptr<Resources>Core::getResources()
+{
+	return resources;
+}
+
 void Core::run()
 {
 	while (true)

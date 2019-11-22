@@ -1,4 +1,5 @@
 #pragma once
+#include "Resources.h"
 #include<memory>
 #include<iostream>
 #include<SDL2/SDL.h>

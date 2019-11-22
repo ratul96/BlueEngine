@@ -1,20 +1,23 @@
 #pragma once
 #include "Resource.h"
-#include"Core.h"
 #include<memory>
 #include<vector>
 #include<iostream>
+
+class Core;
 
 class Resources
 {
 	
 public:
 	template <typename T>
-	std::shared_ptr<T>load(std::string path)
+	std::shared_ptr<T> load(std::string path)
 	{
 		std::shared_ptr<T>re = std::make_shared<T>();
 		re->core = core;
 		re->load(path);
+
+		return re;
 	}
 	template<typename T>
 	std::shared_ptr<T>create()
