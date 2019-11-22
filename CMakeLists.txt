@@ -26,7 +26,7 @@ src/rend/Util.cpp
 )
 
 if(MSVC)
-  target_link_libraries(rend glew32 SDL2 OpenGL32)
+  target_link_libraries(rend glew32 SDL2 OpenGL32 OpenAL32)
 else()
   target_link_libraries(rend SDL2 GLEW GL)
 endif()
@@ -42,6 +42,8 @@ src/source/MeshComponent.cpp
 src/source/Entity.cpp
 src/source/MaterialComponent.h
 src/source/MaterialComponent.cpp
+src/source/Resource.h
+src/source/Resources.h
 src/source/Transform.h
 src/source/Transform.cpp
 src/source/Camera.h
@@ -56,8 +58,10 @@ src/source/blueengine.h
 
 add_executable(sandbox
 src/sandbox/main.cpp
-src/sandbox/TriangleRenderer.h
-src/sandbox/TriangleRenderer.cpp
+src/sandbox/Renderer.h
+src/sandbox/Renderer.cpp
+src/sandbox/Audio.h
+src/sandbox/Audio.cpp
 )
 
 target_link_libraries(sandbox BlueEngine)
