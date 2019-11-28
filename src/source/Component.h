@@ -29,7 +29,7 @@ public:
 	//std::shared_ptr<PositionComponent>getTransform();
 
 	std::shared_ptr<Entity>getEntity();
-	std::shared_ptr<Resources>getResources();
+	//std::shared_ptr<Resources>getResources();
 	
 protected:
 	

@@ -28,6 +28,6 @@ public:
 	}
 
 	std::vector<std::shared_ptr<Resource>>resources;
-	std::weak_ptr<Core>core;
+	
 
 };

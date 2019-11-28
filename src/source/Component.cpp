@@ -28,7 +28,7 @@ std::shared_ptr<Entity> Component::getEntity()
 {
 	return entity.lock();
 }
-std::shared_ptr<Resources>Component::getResources()
+/*std::shared_ptr<Resources>Component::getResources()
 {
-	 getEntity()->getCore()->getResources();
-}
+	 return getEntity()->getCore()->getResources();
+}*/

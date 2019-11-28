@@ -1,7 +1,6 @@
 #pragma once
 #include <rend/rend.h>
-#include "Component.h"
-#include "Resources.h"
+#include "Resource.h"
 #include "GL/glew.h"
 #include<glm/glm.hpp>
 #include<sr1/memory>
@@ -9,7 +8,7 @@
 
 using namespace rend;
 
-class MeshComponent :public Component
+class MeshComponent :public Resource
 {
 public:
 	MeshComponent();
@@ -18,7 +17,7 @@ public:
 	std::shared_ptr<Context> context;
 	std::shared_ptr<Shader>shader;
 	std::shared_ptr<Mesh>mesh;
-	void load(std::string path);
+	void onLoad(std::string path);
 
 	
 	
