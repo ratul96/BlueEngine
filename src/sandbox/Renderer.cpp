@@ -43,7 +43,7 @@ const GLchar* shaderSrc =
 
 Renderer::Renderer()
 {
-	mesh = std::make_shared<MeshComponent>();
+	
 	
 	
 	
@@ -92,10 +92,7 @@ void Renderer::onInit()
 	b->add(vec3(-0.5f, -0.5f, 0.0f));
 	b->add(vec3(0.5f, -0.5f, 0.0f));
 
-	object = context->createMesh();
-	//std::cout << mesh->obj << std::endl;
-	object->parse(mesh->obj);
-
+	
 	
 }
 void Renderer::onDisplay()
@@ -142,7 +139,7 @@ void Renderer::onDisplay()
 		sh->setUniform("Model", tr->getModelMat());
 		sh->setUniform("Projection", perspective(radians(45.0f), 1.0f, 0.1f, 1000.0f));
 		//sh->setAttribute("v_Position", b);
-		sh->setMesh(object);
+		//sh->setMesh(object);
 		sh->render();
 
 		// sh is NULL. Expect crash

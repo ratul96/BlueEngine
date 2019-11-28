@@ -1,11 +1,13 @@
 #pragma once
+#include <rend/rend.h>
 #include "Component.h"
 #include "Resources.h"
 #include "GL/glew.h"
 #include<glm/glm.hpp>
-#include <rend/rend.h>
 #include<sr1/memory>
 #include<iostream>
+
+using namespace rend;
 
 class MeshComponent :public Component
 {
@@ -13,18 +15,10 @@ public:
 	MeshComponent();
 	~MeshComponent();
 
-	const GLfloat positions[25] = {
-  0.0f, 0.5f, 0.0f,
-  -0.5f, -0.5f, 0.0f,
-  0.5f, -0.5f, 0.0f
-	};
-
-	const GLfloat colors[25] = {
-	  1.0f, 0.0f, 0.0f, 1.0f,
-	  0.0f, 1.0f, 0.0f, 1.0f,
-	  0.0f, 0.0f, 1.0f, 1.0f
-	};
-	std::string obj;
+	std::shared_ptr<Context> context;
+	std::shared_ptr<Shader>shader;
+	std::shared_ptr<Mesh>mesh;
+	void load(std::string path);
 
 	
 	

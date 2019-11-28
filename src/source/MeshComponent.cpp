@@ -5,9 +5,19 @@
 
 MeshComponent::MeshComponent()
 {
-	std::ifstream file("curuthers.obj");
+	
+	
+		 
+}
+MeshComponent::~MeshComponent()
+{
 
-	if(!file.is_open())
+}
+void MeshComponent::load(std::string path)
+{
+	std::ifstream file(path);
+
+	if (!file.is_open())
 	{
 		throw std::exception();
 	}
@@ -16,12 +26,9 @@ MeshComponent::MeshComponent()
 	while (!file.eof())
 	{
 		std::getline(file, line);
-		obj += line + "\n";
+		path += line + "\n";
 	}
-	
-		 
-}
-MeshComponent::~MeshComponent()
-{
-
+	mesh = context->createMesh();
+	mesh->parse(path);
+	shader->setMesh(mesh);
 }

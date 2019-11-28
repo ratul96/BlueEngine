@@ -6,11 +6,12 @@
 
 class Transform;
 
-class Entity;
+//class Entity;
 
 class Component
 {
 public:
+	friend class Entity;
 	Component();
 	~Component();
 
@@ -28,9 +29,10 @@ public:
 	//std::shared_ptr<PositionComponent>getTransform();
 
 	std::shared_ptr<Entity>getEntity();
+	std::shared_ptr<Resources>getResources();
 	
 protected:
-	friend class Entity;
+	
 
 	std::weak_ptr<Entity>entity;
 

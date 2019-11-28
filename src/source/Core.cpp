@@ -1,5 +1,6 @@
 #include "Core.h"
 #include "Transform.h"
+#include "MeshComponent.h"
 
 std::shared_ptr<Core> Core::initialize()
 {
@@ -18,6 +19,7 @@ std::shared_ptr<Entity> Core::addEntity()
 	entities.push_back(rtn);
 
 	rtn->addComponent<Transform>();
+	rtn->addComponent<MeshComponent>();
 
 	return rtn;
 }
