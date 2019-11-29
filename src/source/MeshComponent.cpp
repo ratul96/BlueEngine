@@ -29,6 +29,7 @@ void MeshComponent::onLoad(std::string path)
 		path += line + "\n";
 	}
 	
+	
 	mesh->parse(path);
 	shader->setMesh(mesh);
 }

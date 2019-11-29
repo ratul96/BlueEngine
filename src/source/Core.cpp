@@ -34,6 +34,10 @@ std::shared_ptr<Resources>Core::getResources()
 {
 	return resources;
 }
+std::shared_ptr<Context>Core::getContext()
+{
+	return graphicsContext;
+}
 
 void Core::run()
 {
