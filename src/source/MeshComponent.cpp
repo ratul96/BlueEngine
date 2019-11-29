@@ -5,8 +5,8 @@
 
 MeshComponent::MeshComponent()
 {
-	
-	
+	// use on init
+	/*mesh = context->createMesh();*/
 		 
 }
 MeshComponent::~MeshComponent()
@@ -21,14 +21,14 @@ void MeshComponent::onLoad(std::string path)
 	{
 		throw std::exception();
 	}
-
+	path = "";
 	std::string line;
 	while (!file.eof())
 	{
 		std::getline(file, line);
 		path += line + "\n";
 	}
-	mesh = context->createMesh();
+	
 	mesh->parse(path);
 	shader->setMesh(mesh);
 }

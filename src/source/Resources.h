@@ -15,7 +15,7 @@ public:
 	{
 		std::shared_ptr<T>re = std::make_shared<T>();
 		re->core = core;
-		re->load(path);
+		re->onLoad(path);
 
 		return re;
 	}
@@ -28,6 +28,7 @@ public:
 	}
 
 	std::vector<std::shared_ptr<Resource>>resources;
+	std::weak_ptr<Core>core;
 	
 
 };

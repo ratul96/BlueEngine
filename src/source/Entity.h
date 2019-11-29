@@ -25,6 +25,7 @@ public:
 		components.push_back(rtn);
 
 		rtn->entity=self;//Reference of entity stored in Component
+		rtn->onInit();
 
 		return rtn;
 	}

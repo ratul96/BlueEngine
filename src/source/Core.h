@@ -1,12 +1,13 @@
 #pragma once
-#include "Entity.h"
-#include "Resources.h"
-#include "Component.h"
 #include"GL/glew.h"
 #include<SDL2/SDL.h>
+#include<vector>
 #include<memory>
 #include<iostream>
 
+class Entity;
+class Component;
+class Resources;
 
 class Core
 {

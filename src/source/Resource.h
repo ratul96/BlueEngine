@@ -1,8 +1,10 @@
 #pragma once
-#include "Core.h"
+
 #include<iostream>
 #include<string>
 #include<memory>
+
+class Core;
 
 class Resource
 {

@@ -1,5 +1,5 @@
 #include "source/blueengine.h"
-
+#include "Renderer.h"
 #include <iostream>
 #include <memory>
 
@@ -13,7 +13,7 @@ int main()
 	
 	std::shared_ptr<Renderer> tr = entity->addComponent<Renderer>();
 	//call load function here
-	
+	std::shared_ptr<MeshComponent>me = core->getResources()->load<MeshComponent>("W:/gep_sdk-20191121/gep_sdk/BlueEngine/curuthers.obj");
 	// TODO
 	entity->getComponent<Transform>()->SetPosition(0, 0, -10);
 	

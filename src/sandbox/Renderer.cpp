@@ -88,10 +88,10 @@ void Renderer::onInit()
 	sh->setSource(shaderSrc);	// set source
 
 	b = context->createBuffer(); // create buffer
-	b->add(vec3(0.0f, 0.5f, 0.0f));
+	/*b->add(vec3(0.0f, 0.5f, 0.0f));
 	b->add(vec3(-0.5f, -0.5f, 0.0f));
 	b->add(vec3(0.5f, -0.5f, 0.0f));
-
+*/
 	
 	
 }

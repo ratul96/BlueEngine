@@ -4,8 +4,10 @@
 #include "Core.h"
 #include "Component.h"
 #include "Entity.h"
-#include "Renderer.h"
+//todo
+//#include "Renderer.h"
 #include "Transform.h"
 #include "MeshComponent.h"
+#include "Resources.h"
 
 #endif
