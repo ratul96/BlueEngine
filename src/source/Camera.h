@@ -4,9 +4,12 @@
 #include<glm/glm.hpp>
 #include<sr1/memory>
 #include<iostream>
+#include <GLM/gtc/matrix_transform.hpp>
+#include <GLM/gtc/type_ptr.hpp>
 
-class Camera::public Component
+class Camera:public Component
 {
+public:
 	Camera();
 	~Camera();
 
@@ -17,6 +20,8 @@ class Camera::public Component
 	glm:: mat4 getProjection();
 
 	glm::mat4  getViewMatrix();
+
+	float cameraX, cameraY;
 	
 
 
