@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="F:\gep_sdk-20191121\gep_sdk\BlueEngine\build\CMakeFiles\46bb34098374966a49e327e09dcd8ac5\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{54C8F3BC-B330-38C8-B9C2-BB012D1A8D47}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
