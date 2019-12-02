@@ -13,6 +13,10 @@ MeshComponent::~MeshComponent()
 {
 
 }
+void MeshComponent::onInit()
+{
+
+}
 void MeshComponent::onLoad(std::string path)
 {
 	std::ifstream file(path);

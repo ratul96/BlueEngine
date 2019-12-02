@@ -19,6 +19,8 @@ struct Context
   std::sr1::shared_ptr<Mesh> createMesh();
   std::sr1::shared_ptr<RenderTexture> createRenderTexture();
 
+ 
+
 private:
   std::sr1::weak_ptr<Context> self;
 

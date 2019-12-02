@@ -22,6 +22,8 @@ std::sr1::shared_ptr<Context> Context::initialize()
 
   rtn->self = rtn;
 
+  
+
   return rtn;
 }
 
@@ -102,7 +104,6 @@ std::sr1::shared_ptr<Mesh> Context::createMesh()
 {
   std::sr1::shared_ptr<Mesh> rtn = std::sr1::make_shared<Mesh>();
   rtn->context = self.lock();
-
   return rtn;
 }
 

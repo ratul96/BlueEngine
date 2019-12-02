@@ -9,6 +9,9 @@ std::shared_ptr<Core> Core::initialize()
 	std::shared_ptr<Core> c = std::make_shared<Core>();
 	c->self = c;
 
+	c->graphicsContext = Context::initialize();
+	
+
 	c->resources = std::make_shared<Resources>();
 	c->resources->core = c;
 
