@@ -24,7 +24,7 @@ public:
 	virtual void onUpdate();
 	virtual void onInit();
 	virtual void onDisplay();
-	
+	virtual void onaudioInit();
 
 	//virtual void createVBO();
 	//std::shared_ptr<PositionComponent>getTransform();
