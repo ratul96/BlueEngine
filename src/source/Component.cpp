@@ -23,6 +23,8 @@ void Component::onBegin()
 void Component::onUpdate() { }
 void Component::onInit() { }
 void Component::onDisplay() { }
+void Component::onaudioInit() {}
+
 
 std::shared_ptr<Entity> Component::getEntity()
 {
