@@ -22,5 +22,6 @@ public:
 	ALCcontext* context;
 	ALuint bufferId;
 	ALuint sourceID;
-	void onaudioIniti();
+	void onaudioInit();
+	void load();
 };
