@@ -16,6 +16,7 @@ int main()
 	core->getContext()->createMesh();
 	std::shared_ptr<MeshComponent>me = core->getResources()->load<MeshComponent>("W:/gep_sdk-20191121/gep_sdk/BlueEngine/curuthers.obj");
 	// TODO
+	tr->setMesh(me);
 	entity->getComponent<Transform>()->SetPosition(0, 0, -10);
 	
 

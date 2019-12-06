@@ -31,7 +31,7 @@ public:
 	std::sr1::shared_ptr<rend::Shader> sh;
 	std::sr1::shared_ptr<rend::Buffer>b;
 	//std::sr1::shared_ptr<Mesh>object;
-	//std::shared_ptr<MeshComponent> mesh;
+	void setMesh(std::shared_ptr<MeshComponent>mesh);
 	
 /*
 	std::shared_ptr<Shader>getShader()

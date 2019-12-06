@@ -153,8 +153,10 @@ void Renderer::onDisplay()
 
 		SDL_GL_SwapWindow(window);
 	}
+void Renderer::setMesh(std::shared_ptr<MeshComponent>mesh)
 
 
+}
 
 	
 }
