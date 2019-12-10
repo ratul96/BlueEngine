@@ -35,5 +35,5 @@ void MeshComponent::onLoad(std::string path)
 	
 	
 	mesh->parse(path);
-	shader->setMesh(mesh);
+	
 }

@@ -23,5 +23,5 @@ public:
 	ALuint bufferId;
 	ALuint sourceID;
 	void onaudioInit();
-	void load();
+	void onPlay();
 };

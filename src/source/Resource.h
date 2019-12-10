@@ -12,4 +12,5 @@ public:
 	std::weak_ptr<Core>core;
 	virtual void onLoad(std::string &path){}
 	
+	
 };

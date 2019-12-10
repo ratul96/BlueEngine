@@ -26,7 +26,6 @@ std::sr1::shared_ptr<Context> Context::initialize()
 
   return rtn;
 }
-
 std::sr1::shared_ptr<Shader> Context::createShader()
 {
   GLuint id = 0;

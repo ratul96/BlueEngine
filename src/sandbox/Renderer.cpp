@@ -82,7 +82,7 @@ void Renderer::onInit()
 		std::cout << "Failed to create OpenGL context" << std::endl;
 	}
 
-	context = Context::initialize(); 
+	//context = Context::initialize(); 
 
 	sh = context->createShader(); // create the shader sh = make_shared<Shader>();
 	sh->setSource(shaderSrc);	// set source
@@ -100,7 +100,7 @@ void Renderer::onDisplay()
 	//std::shared_ptr<Transform>p = getEntity()->addComponent<Transform>();
 	//std::shared_ptr<PositionComponent>pc=getEntity()->getComponent<PositionComponent>();
 	//p->createVBO();
-	
+
 	//GLuint vaoId = 0;
 
 	// Create a new VAO on the GPU and bind it
@@ -113,7 +113,7 @@ void Renderer::onDisplay()
 
 	glBindVertexArray(vaoId);*/
 
-	
+
 	// set buffer in attribute stream
 	// call render
 
@@ -153,13 +153,17 @@ void Renderer::onDisplay()
 
 		SDL_GL_SwapWindow(window);
 	}
-void Renderer::setMesh(std::shared_ptr<MeshComponent>mesh)
+
+}
+void Renderer::setMesh(std::shared_ptr<MeshComponent>_mesh)
+{
+	mesh = _mesh;
 
 
 }
 
 	
-}
+
 
 
 
