@@ -41,7 +41,7 @@ std::shared_ptr<Context>Core::getContext()
 {
 	return graphicsContext;
 }
-
+void 
 void Core::run()
 {
 	while (true)

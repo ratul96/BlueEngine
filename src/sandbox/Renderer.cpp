@@ -157,7 +157,10 @@ void Renderer::onDisplay()
 }
 void Renderer::setMesh(std::shared_ptr<MeshComponent>_mesh)
 {
-	mesh = _mesh;
+	
+	this->rendMesh = _mesh->mesh;
+	
+
 
 
 }
