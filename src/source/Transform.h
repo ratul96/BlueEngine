@@ -12,16 +12,6 @@ public:
 	~Transform();
 	
 	
-	GLuint positionsVboId ;
-
-	GLuint colorsVboId;
-
-	//void createVBO();
-
-	
-	
-
-
 	glm::vec3 position;
 
 	void SetPosition(float positionX, float positionY, float positionZ)
