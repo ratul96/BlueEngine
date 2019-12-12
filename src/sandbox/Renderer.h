@@ -5,13 +5,12 @@
 #include "source/Component.h"
 #include "source/Entity.h"
 #include "source/Transform.h"
-#include "source/MeshComponent.h"
+#include "source/Mesh.h"
 #include "source/Transform.h"
 #include<sr1/memory>
 #include <exception>
 
-#define WINDOW_WIDTH 640
-#define WINDOW_HEIGHT 480
+
 
 using namespace rend;
 
@@ -24,7 +23,7 @@ public:
 	void onInit();
 	void onDisplay();
 	
-	SDL_Window *window;
+
 
 	std::shared_ptr<Context> context; // make rend context
 	

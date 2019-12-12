@@ -33,15 +33,17 @@ endif()
 
 add_library(BlueEngine
 src/source/Core.h
+src/source/Screen.h
+src/source/Screen.cpp
 src/source/Component.h
 src/source/Component.cpp
 src/source/Entity.h
 src/source/Core.cpp
-src/source/MeshComponent.h
-src/source/MeshComponent.cpp
+src/source/Mesh.h
+src/source/Mesh.cpp
 src/source/Entity.cpp
-src/source/MaterialComponent.h
-src/source/MaterialComponent.cpp
+src/source/Material.h
+src/source/Material.cpp
 src/source/Resource.h
 src/source/Resources.h
 src/source/Transform.h

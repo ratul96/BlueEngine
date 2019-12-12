@@ -7,7 +7,7 @@
 //todo
 //#include "Renderer.h"
 #include "Transform.h"
-#include "MeshComponent.h"
+#include "Mesh.h"
 #include "Resources.h"
 
 #endif

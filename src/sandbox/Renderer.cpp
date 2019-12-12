@@ -50,8 +50,8 @@ Renderer::Renderer()
 }
 Renderer::~Renderer()
 {
-	SDL_DestroyWindow(window);
-	SDL_Quit();
+	/*SDL_DestroyWindow(window);
+	SDL_Quit();*/
 
 }
 void Renderer::onInit()
@@ -61,26 +61,9 @@ void Renderer::onInit()
 		throw std::exception();
 	}
 
-	window = SDL_CreateWindow("Lab 4 - Architecture",
-		SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-		WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
+	
 
-	if (!SDL_GL_CreateContext(window))
-	{
-		throw std::exception();
-	}
-
-	if (glewInit() != GLEW_OK)
-	{
-		throw std::exception();
-	}
-
-	SDL_GLContext glContext = SDL_GL_CreateContext(window);
-
-	if (!glContext)
-	{
-		std::cout << "Failed to create OpenGL context" << std::endl;
-	}
+	
 
 	//context = Context::initialize(); 
 
@@ -151,7 +134,7 @@ void Renderer::onDisplay()
 		//glBindVertexArray(0);
 		//glUseProgram(0);
 
-		SDL_GL_SwapWindow(window);
+		//SDL_GL_SwapWindow(window);
 	}
 
 }

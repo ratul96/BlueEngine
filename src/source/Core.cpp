@@ -1,6 +1,6 @@
 #include "Core.h"
 #include "Transform.h"
-#include "MeshComponent.h"
+#include "Mesh.h"
 #include "Entity.h"
 #include "Resources.h"
 
@@ -8,6 +8,8 @@ std::shared_ptr<Core> Core::initialize()
 {
 	std::shared_ptr<Core> c = std::make_shared<Core>();
 	c->self = c;
+
+	
 
 	c->graphicsContext = Context::initialize();
 	
@@ -41,7 +43,7 @@ std::shared_ptr<Context>Core::getContext()
 {
 	return graphicsContext;
 }
-void 
+ 
 void Core::run()
 {
 	while (true)
