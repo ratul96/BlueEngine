@@ -1,6 +1,6 @@
 #include "Screen.h"
 
-void Screen::init()
+void Screen::ScreenInit()
 {
 	window = SDL_CreateWindow("Lab 4 - Architecture",
 		SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
@@ -15,8 +15,11 @@ void Screen::init()
 	{
 		throw std::exception();
 	}
+}
+void Screen::ScreenContext()
+{
 
-	SDL_GLContext glContext = SDL_GL_CreateContext(window);
+	 glContext = SDL_GL_CreateContext(window);
 
 	if (!glContext)
 	{
@@ -24,4 +27,7 @@ void Screen::init()
 	}
 
 }
-
+std::shared_ptr<Core>Screen::getCore()
+{
+	return core.lock();
+}
