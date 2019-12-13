@@ -1,28 +1,15 @@
 #pragma once
 #include "Audio.h"
-void Audio::onInit()
+#include "source/newSound.h"
+void Audio::setSound(std::shared_ptr<newSound>_sn)
 {
+	alGenSources(1, &sourceId);
+
+	alSource3f(sourceId, AL_POSITION, 0.0f, 0.0f, 0.0f);
+	alSourcei(sourceId, AL_BUFFER, _sn->bufferId);
+	alSourcePlay(sourceId);
+
 	
-
-	if (device == NULL)
-	{
-		throw std::exception();
-	}
-	ALCcontext* context = alcCreateContext(device, NULL);
-
-	if (context == NULL)
-	{
-		alcCloseDevice(device);
-		throw std::exception();
-	}
-
-	// Set as current context
-	if (!alcMakeContextCurrent(context))
-	{
-		alcDestroyContext(context);
-		alcCloseDevice(device);
-		throw std::exception();
-	}
 
 }
 

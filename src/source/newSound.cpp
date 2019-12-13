@@ -1,7 +1,9 @@
 #pragma once
-#include "Sound.h"
+#include "newSound.h"
+#include "stb_vorbis.h"
 
-void Sound::onLoad(const std::string& fileName)
+
+void newSound::onLoad(const std::string& fileName)
 {
 	ALuint bufferId = 0;
 	alGenBuffers(1, &bufferId);

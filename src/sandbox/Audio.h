@@ -1,12 +1,13 @@
 #pragma once
-#ifdef _WIN32
-#include <windows.h>
-#else
-#include <unistd.h>
-#endif
+//#ifdef _WIN32
+//#include <windows.h>
+//#else
+//#include <unistd.h>
+//#endif
 
 
 #include "source/Component.h"
+
 
 #include <AL/al.h>
 #include <AL/alc.h>
@@ -14,15 +15,16 @@
 #include <iostream>
 #include <vector>
 #include <exception>
-#include "source/stb_vorbis.h"
+#include<memory>
+
+
+class newSound;
 
 class Audio :public Component
 {
 public:
 	
-	ALCcontext* context;
-	ALuint bufferId;
-	ALuint sourceID;
-	void onInit();
-	/*void onPlay();*/
+	ALuint sourceId;
+	void setSound(std::shared_ptr<newSound>_sn);
+	
 };

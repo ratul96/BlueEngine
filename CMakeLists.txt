@@ -35,8 +35,8 @@ add_library(BlueEngine
 src/source/Core.h
 src/source/Screen.h
 src/source/Screen.cpp
-src/source/Sound.h
-src/source/Sound.cpp
+src/source/newSound.h
+src/source/newSound.cpp
 src/source/Component.h
 src/source/Component.cpp
 src/source/Entity.h

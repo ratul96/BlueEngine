@@ -6,10 +6,9 @@
 #include <iostream>
 #include <vector>
 #include <exception>
-#include "stb_vorbis.h"
 
 
-class Sound :public Resource
+class newSound :public Resource
 {
 public:
 
