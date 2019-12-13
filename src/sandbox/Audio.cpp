@@ -1,8 +1,8 @@
 #pragma once
 #include "Audio.h"
-void Audio::onaudioInit()
+void Audio::onInit()
 {
-	ALCdevice* device = alcOpenDevice(NULL);
+	
 
 	if (device == NULL)
 	{

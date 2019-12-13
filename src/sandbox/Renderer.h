@@ -4,10 +4,11 @@
 #include <GL/glew.h>
 #include "source/Component.h"
 #include "source/Entity.h"
+#include "source//Core.h"
 #include "source/Transform.h"
 #include "source/Mesh.h"
 #include "source/Transform.h"
-#include<sr1/memory>
+#include<memory>
 #include <exception>
 
 
@@ -25,12 +26,16 @@ public:
 	
 
 
-	std::shared_ptr<Context> context; // make rend context
+	//std::shared_ptr<Context> context; // make rend context
 	
 	std::sr1::shared_ptr<rend::Shader> sh;
 	std::sr1::shared_ptr<rend::Buffer>b;
 	std::sr1::shared_ptr<rend::Mesh>rendMesh;
 	void setMesh(std::shared_ptr<MeshComponent>_mesh);
+
+	//std::weak_ptr<Core>core;
+
+	//std::shared_ptr<Core>getCore();
 	
 /*
 	std::shared_ptr<Shader>getShader()

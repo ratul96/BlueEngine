@@ -9,7 +9,8 @@ std::shared_ptr<Core> Core::initialize()
 	std::shared_ptr<Core> c = std::make_shared<Core>();
 	c->self = c;
 
-	
+	c->createScreen();
+	c->audioInit();
 
 	c->graphicsContext = Context::initialize();
 	
@@ -43,12 +44,67 @@ std::shared_ptr<Context>Core::getContext()
 {
 	return graphicsContext;
 }
- 
+void Core::createScreen()
+{
+	if (SDL_Init(SDL_INIT_VIDEO) < 0)
+	{
+		throw std::exception();
+	}
+
+	screen = std::make_shared<Screen>();
+	screen->window = SDL_CreateWindow("Lab 4 - Architecture",
+		SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+		WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
+
+	screen->glContext = SDL_GL_CreateContext(screen->window);
+
+
+	if (!screen->glContext)
+	{
+		throw std::exception();
+	}
+
+
+}
+void Core::audioInit()
+{
+	device = alcOpenDevice(NULL);
+
+	if (device == NULL)
+	{
+		throw std::exception();
+	}
+
+	context = alcCreateContext(device, NULL);
+
+	if (context == NULL)
+	{
+		alcCloseDevice(device);
+		throw std::exception();
+	}
+
+	if (!alcMakeContextCurrent(context))
+	{
+		alcDestroyContext(context);
+		alcCloseDevice(device);
+		throw std::exception();
+	}
+
+}
 void Core::run()
 {
-	while (true)
+	bool quit = false;
+	while (!quit)
 	{
-		// go through.. call update
+		SDL_Event event = { 0 };
+		while (SDL_PollEvent(&event))
+		{
+			if (event.type == SDL_QUIT)
+			{
+				quit = true;
+			}
+		}
+
 
 		for (int i = 0; i < entities.size(); i++)
 		{
@@ -60,9 +116,15 @@ void Core::run()
 			entities.at(i)->onInit();
 		}
 
+		glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
 		for (int i = 0; i < entities.size(); i++)
 		{
 			entities.at(i)->onDisplay();
 		}
+
+
+		SDL_GL_SwapWindow(screen->window);
 	}
 }

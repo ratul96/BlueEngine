@@ -2,7 +2,7 @@
 #include "GL/glew.h"
 #include "Component.h"
 #include<glm/glm.hpp>
-#include<sr1/memory>
+#include<memory>
 #include<iostream>
 #include <GLM/gtc/matrix_transform.hpp>
 #include <GLM/gtc/type_ptr.hpp>

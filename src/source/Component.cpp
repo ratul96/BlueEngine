@@ -1,6 +1,6 @@
 #include "Component.h"
 #include "Mesh.h"
-
+#include "Entity.h"
 
 
 Component::Component()
@@ -23,14 +23,14 @@ void Component::onBegin()
 void Component::onUpdate() { }
 void Component::onInit() { }
 void Component::onDisplay() { }
-void Component::onaudioInit() {}
+
 
 
 std::shared_ptr<Entity> Component::getEntity()
 {
 	return entity.lock();
 }
-/*std::shared_ptr<Resources>Component::getResources()
+std::shared_ptr<Core>Component::getCore()
 {
-	 return getEntity()->getCore()->getResources();
-}*/
+	return getEntity()->getCore();
+}

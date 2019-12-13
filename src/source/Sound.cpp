@@ -3,9 +3,12 @@
 
 void Sound::onLoad(const std::string& fileName)
 {
+	ALuint bufferId = 0;
+	alGenBuffers(1, &bufferId);
+
 	std::vector<char> buffer;
-	ALenum format;
-	ALsizei freq;
+	ALenum format=0;
+	ALsizei freq=0;
 
 	int channels = 0;
 	int sampleRate = 0;

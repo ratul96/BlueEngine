@@ -1,4 +1,5 @@
 #include "Mesh.h"
+#include "Core.h"
 #include <fstream>
 #include <iostream>
 #include <exception>
@@ -17,6 +18,10 @@ void MeshComponent::onInit()
 {
 
 }
+std::shared_ptr<Core>MeshComponent::getCore()
+{
+	return core.lock();
+}
 void MeshComponent::onLoad(std::string path)
 {
 	std::ifstream file(path);
@@ -33,7 +38,7 @@ void MeshComponent::onLoad(std::string path)
 		path += line + "\n";
 	}
 	
-	
+	mesh=getCore()->getContext()->createMesh();
 	mesh->parse(path);
 	
 }

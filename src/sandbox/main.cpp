@@ -13,7 +13,7 @@ int main()
 	
 	std::shared_ptr<Renderer> tr = entity->addComponent<Renderer>();
 	//call load function here
-	core->getContext()->createMesh();
+	//core->getContext()->createMesh();
 	std::shared_ptr<MeshComponent>me = core->getResources()->load<MeshComponent>("W:/gep_sdk-20191121/gep_sdk/BlueEngine/curuthers.obj");
 	// TODO
 	tr->setMesh(me);

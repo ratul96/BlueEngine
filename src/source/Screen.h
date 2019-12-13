@@ -12,13 +12,6 @@ class Core;
 class Screen
 {
 public:
-	static SDL_Window *window;
+	 SDL_Window *window;
 	SDL_GLContext glContext;
-
-	void ScreenInit();
-	void ScreenContext();
-	std::weak_ptr<Core> core;
-
-
-	
 };

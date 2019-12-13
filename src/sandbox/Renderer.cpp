@@ -1,5 +1,5 @@
 #include "Renderer.h"
-#include<sr1/memory>
+#include<memory>
 
 
 
@@ -56,21 +56,19 @@ Renderer::~Renderer()
 }
 void Renderer::onInit()
 {
-	if (SDL_Init(SDL_INIT_VIDEO) < 0)
-	{
-		throw std::exception();
-	}
+
 
 	
 
 	
 
 	//context = Context::initialize(); 
-
-	sh = context->createShader(); // create the shader sh = make_shared<Shader>();
+	sh = std::make_shared<rend::Shader>();
+	b = std::make_shared<rend::Buffer>();
+	sh = getCore()->getContext()->createShader(); // create the shader sh = make_shared<Shader>();
 	sh->setSource(shaderSrc);	// set source
 
-	b = context->createBuffer(); // create buffer
+	b = getCore()->getContext()->createBuffer(); // create buffer
 	/*b->add(vec3(0.0f, 0.5f, 0.0f));
 	b->add(vec3(-0.5f, -0.5f, 0.0f));
 	b->add(vec3(0.5f, -0.5f, 0.0f));
@@ -100,29 +98,17 @@ void Renderer::onDisplay()
 	// set buffer in attribute stream
 	// call render
 
-	bool quit = false;
+	
 
-	while (!quit)
-	{
-		SDL_Event event = { 0 };
-
-		while (SDL_PollEvent(&event))
-		{
-			if (event.type == SDL_QUIT)
-			{
-				quit = true;
-			}
-		}
-
-		glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	
 
 		//sh->setAttribute("v_Position", b);
 		std::shared_ptr<Transform> tr = getEntity()->getComponent<Transform>();
 		sh->setUniform("Model", tr->getModelMat());
 		sh->setUniform("Projection", perspective(radians(45.0f), 1.0f, 0.1f, 1000.0f));
+		//sh->setUniform("View", glm::mat4(1.0f));
 		//sh->setAttribute("v_Position", b);
-		//sh->setMesh(object);
+		sh->setMesh(rendMesh);
 		sh->render();
 
 		// sh is NULL. Expect crash
@@ -134,18 +120,14 @@ void Renderer::onDisplay()
 		//glBindVertexArray(0);
 		//glUseProgram(0);
 
-		//SDL_GL_SwapWindow(window);
-	}
+		
+	
 
 }
 void Renderer::setMesh(std::shared_ptr<MeshComponent>_mesh)
 {
-	
+
 	this->rendMesh = _mesh->mesh;
-	
-
-
-
 }
 
 	

@@ -35,6 +35,8 @@ add_library(BlueEngine
 src/source/Core.h
 src/source/Screen.h
 src/source/Screen.cpp
+src/source/Sound.h
+src/source/Sound.cpp
 src/source/Component.h
 src/source/Component.cpp
 src/source/Entity.h
@@ -51,6 +53,7 @@ src/source/Transform.cpp
 src/source/Camera.h
 src/source/Camera.cpp
 src/source/blueengine.h
+src/source/stb_vorbis.h
 )
 
  target_link_libraries(BlueEngine rend)

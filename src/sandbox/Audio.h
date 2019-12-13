@@ -5,7 +5,7 @@
 #include <unistd.h>
 #endif
 
-#include "source/stb_vorbis.h"
+
 #include "source/Component.h"
 
 #include <AL/al.h>
@@ -14,14 +14,15 @@
 #include <iostream>
 #include <vector>
 #include <exception>
+#include "source/stb_vorbis.h"
 
 class Audio :public Component
 {
 public:
-	ALCdevice* device;
+	
 	ALCcontext* context;
 	ALuint bufferId;
 	ALuint sourceID;
-	void onaudioInit();
-	void onPlay();
+	void onInit();
+	/*void onPlay();*/
 };

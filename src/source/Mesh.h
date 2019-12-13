@@ -3,10 +3,10 @@
 #include "Resource.h"
 #include "GL/glew.h"
 #include<glm/glm.hpp>
-#include<sr1/memory>
+#include<memory>
 #include<iostream>
 
-
+class Core;
 
 using namespace rend;
 
@@ -20,7 +20,7 @@ public:
 	std::shared_ptr<Mesh>mesh;
 	void onLoad(std::string path);
 	void onInit();
-	
+	std::shared_ptr<Core>getCore();
 
 
 	

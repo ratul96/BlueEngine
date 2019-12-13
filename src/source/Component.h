@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Core.h"
 #include<memory>
 #include<iostream>
 #include<SDL2/SDL.h>
@@ -24,13 +24,13 @@ public:
 	virtual void onUpdate();
 	virtual void onInit();
 	virtual void onDisplay();
-	virtual void onaudioInit();
+	
 
 	//virtual void createVBO();
 	//std::shared_ptr<PositionComponent>getTransform();
 
 	std::shared_ptr<Entity>getEntity();
-	//std::shared_ptr<Resources>getResources();
+	std::shared_ptr<Core>getCore();
 	
 protected:
 	
