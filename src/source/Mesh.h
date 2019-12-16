@@ -19,7 +19,6 @@ public:
 	std::shared_ptr<Context> context;
 	std::shared_ptr<Mesh>mesh;
 	void onLoad(std::string path);
-	void onInit();
 	std::shared_ptr<Core>getCore();
 
 

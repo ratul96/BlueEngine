@@ -21,7 +21,7 @@ public:
 	//void onBegin();
 	//void ontick();
 
-	virtual void onUpdate();
+	virtual void onUpdate(float deltaTs);
 	virtual void onInit();
 	virtual void onDisplay();
 	

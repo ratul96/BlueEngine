@@ -5,9 +5,10 @@
 #include "source/Component.h"
 #include "source/Entity.h"
 #include "source//Core.h"
-#include "source/Transform.h"
 #include "source/Mesh.h"
 #include "source/Transform.h"
+#include "source/Camera.h"
+#include "source/Material.h"
 #include<memory>
 #include <exception>
 
@@ -23,6 +24,7 @@ public:
 	
 	void onInit();
 	void onDisplay();
+	void onUpdate(float deltaTs);
 	
 
 
@@ -31,7 +33,9 @@ public:
 	std::sr1::shared_ptr<rend::Shader> sh;
 	std::sr1::shared_ptr<rend::Buffer>b;
 	std::sr1::shared_ptr<rend::Mesh>rendMesh;
+	std::sr1::shared_ptr<rend::Texture>rendTex;
 	void setMesh(std::shared_ptr<MeshComponent>_mesh);
+	void setMaterial(std::shared_ptr<Material>material);
 
 	//std::weak_ptr<Core>core;
 

@@ -27,20 +27,27 @@ public:
 
 	glm::mat4 modelMatrix;
 
+	glm::mat4 invmodelMatrix;
+
 	glm::mat4 getModelMat()
 	{
 		// TODO
 		
 		modelMatrix = glm::translate(glm::mat4(1.0f), position);
 		modelMatrix = glm::rotate(modelMatrix, rotation.y, glm::vec3(0, 1, 0));
-
+		
 		return modelMatrix;
 	}
 
-	
-	// rotation
-	// scale
-	//return m;
+	glm::mat4 getInvModelMat()
+	{
+		invmodelMatrix = glm::rotate(glm::mat4(1.0f), -rotation.y, glm::vec3(0, 1, 0));
 
+		return invmodelMatrix;
+
+	}
+
+	void Update(float deltaTs);
+	
 	
 };

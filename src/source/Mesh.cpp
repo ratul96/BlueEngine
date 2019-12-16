@@ -14,10 +14,6 @@ MeshComponent::~MeshComponent()
 {
 
 }
-void MeshComponent::onInit()
-{
-
-}
 std::shared_ptr<Core>MeshComponent::getCore()
 {
 	return core.lock();

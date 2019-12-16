@@ -26,7 +26,6 @@ public:
 
 		rtn->entity=self;//Reference of entity stored in Component
 		rtn->onInit();
-
 		return rtn;
 	}
 
@@ -49,9 +48,7 @@ public:
 	}
 	std::vector<std::shared_ptr<Component>> components;
 	
-	//std::shared_ptr<MeshComponent>getTransform();
 
-	//std::weak_ptr<MeshComponent>mesh;
 	
 	std::weak_ptr<Core>core;
 
@@ -60,7 +57,7 @@ public:
 	std::shared_ptr<Core>getCore();
 	
 	// onUpdate
-	void onUpdate();
+	void onUpdate(float deltaTs);
 	void onInit();
 	void onDisplay();
 

@@ -3,6 +3,7 @@
 #include "Mesh.h"
 #include "Entity.h"
 #include "Resources.h"
+#include "Camera.h"
 
 std::shared_ptr<Core> Core::initialize()
 {
@@ -10,7 +11,7 @@ std::shared_ptr<Core> Core::initialize()
 	c->self = c;
 
 	c->createScreen();
-	c->audioInit();
+	//c->audioInit();
 
 	c->graphicsContext = Context::initialize();
 	
@@ -31,6 +32,7 @@ std::shared_ptr<Entity> Core::addEntity()
 	entities.push_back(rtn);
 
 	rtn->addComponent<Transform>();
+	rtn->addComponent<Camera>();
 	
 
 	return rtn;
@@ -103,17 +105,22 @@ void Core::run()
 			{
 				quit = true;
 			}
+			if (SDL_KEYDOWN)
+			{
+				if (event.key.keysym.sym)
+				{
+					 
+				}
+			}
 		}
-
-
-		for (int i = 0; i < entities.size(); i++)
-		{
-			entities.at(i)->onUpdate();
-		}
-
 		for (int i = 0; i < entities.size(); i++)
 		{
 			entities.at(i)->onInit();
+		}
+
+		for (int i = 0; i < entities.size(); i++)
+		{
+			entities.at(i)->onUpdate(deltaTs);
 		}
 
 		glClearColor(1.0f, 1.0f, 0.0f, 1.0f);

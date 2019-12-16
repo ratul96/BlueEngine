@@ -34,6 +34,7 @@ endif()
 add_library(BlueEngine
 src/source/Core.h
 src/source/Screen.h
+src/source/Keyboard.h
 src/source/Screen.cpp
 src/source/newSound.h
 src/source/newSound.cpp
@@ -54,6 +55,7 @@ src/source/Camera.h
 src/source/Camera.cpp
 src/source/blueengine.h
 src/source/stb_vorbis.h
+src/source/stb_image.h
 )
 
  target_link_libraries(BlueEngine rend)

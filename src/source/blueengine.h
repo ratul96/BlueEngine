@@ -10,5 +10,6 @@
 #include "Mesh.h"
 #include "Resources.h"
 #include "newSound.h"
+#include "Material.h"
 
 #endif

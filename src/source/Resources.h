@@ -20,6 +20,16 @@ public:
 		return re;
 	}
 	template<typename T>
+	std::shared_ptr<T>loadTexture(const char *path)
+	{
+		std::shared_ptr<T>re = std::make_shared<T>();
+		re->core = core;
+		re->onTextureLoad(path);
+
+		return re;
+	}
+
+	template<typename T>
 	std::shared_ptr<T>create()
 	{
 		std::shared_ptr<T>re1 = std::make_shared<T>();

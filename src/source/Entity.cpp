@@ -3,11 +3,11 @@
 
 
 
-void Entity::onUpdate()
+void Entity::onUpdate(float deltaTs)
 {
 	for (int i=0;i<components.size();i++)
 	{
-		components.at(i)->onUpdate();
+		components.at(i)->onUpdate(deltaTs);
 	}
 }
 void Entity::onInit()
