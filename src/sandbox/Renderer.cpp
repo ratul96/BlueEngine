@@ -20,7 +20,7 @@ const GLchar* shaderSrc =
 "void main()                                   \n" \
 "{                                             \n" \
 "  vec3 pos = a_Position;					   \n" \
-"  gl_Position = Projection*Model*View*vec4(pos, 1);  \n" \
+"  gl_Position = Projection*View*Model*vec4(pos, 1);  \n" \
 "  v_TexCoord = a_TexCoord;                      \n" \
 "  v_Normal = a_Normal;                          \n" \
 "}                                             \n" \
@@ -83,12 +83,13 @@ void Renderer::onDisplay()
 
 		//sh->setAttribute("v_Position", b);
 		std::shared_ptr<Transform> tr = getEntity()->getComponent<Transform>();
-		std::shared_ptr<Camera>cam = getEntity()->getComponent<Camera>();
+		//std::shared_ptr<Camera>cam = getEntity()->getComponent<Camera>();
+		std::shared_ptr<Camera>cam = getEntity()->getCore()->getCurrentCamera();
 		sh->setUniform("Model", tr->getModelMat());
 		sh->setUniform("Projection", cam->getProjection());
 		sh->setUniform("View", cam->getViewMatrix());
 		rendMesh->setTexture("u_Texture", rendTex);
-		tr->SetPosition(0, 0, -10);
+		//tr->SetPosition(0, 0, -10);
 		//tr->Update();
 		//sh->setAttribute("v_Position", b);
 		sh->setMesh(rendMesh);
@@ -103,12 +104,13 @@ void Renderer::onDisplay()
 void Renderer::onUpdate(float deltaTs)
 {
 	std::shared_ptr<Transform>tr = getEntity()->getComponent<Transform>();
-	std::shared_ptr<Camera>cam = getEntity()->getComponent<Camera>();
+	//std::shared_ptr<Camera>cam = getEntity()->getComponent<Camera>();
+	std::shared_ptr<Camera>cam = getEntity()->getCore()->getCurrentCamera();
 	tr->Update(deltaTs);
 
 	while (getKeyBoard()->getKeyLeft())
 	{
-		cam->ChangeCameraAngleX(deltaTs);
+		//cam->ChangeCameraAngleX(deltaTs);
 	}
 }
 void Renderer::setMesh(std::shared_ptr<MeshComponent>_mesh)

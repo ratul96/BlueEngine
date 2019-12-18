@@ -28,7 +28,7 @@ src/rend/Util.cpp
 if(MSVC)
   target_link_libraries(rend glew32 SDL2 OpenGL32 OpenAL32)
 else()
-  target_link_libraries(rend SDL2 GLEW GL)
+  target_link_libraries(rend SDL2 GLEW GL openal)
 endif()
 
 add_library(BlueEngine

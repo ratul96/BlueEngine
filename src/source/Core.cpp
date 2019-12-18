@@ -11,7 +11,7 @@ std::shared_ptr<Core> Core::initialize()
 	c->self = c;
 
 	c->createScreen();
-	//c->audioInit();
+	c->audioInit();
 
 	c->graphicsContext = Context::initialize();
 	
@@ -32,7 +32,7 @@ std::shared_ptr<Entity> Core::addEntity()
 	entities.push_back(rtn);
 
 	rtn->addComponent<Transform>();
-	rtn->addComponent<Camera>();
+	//rtn->addComponent<Camera>();
 	
 
 	return rtn;
@@ -97,6 +97,12 @@ void Core::audioInit()
 	}
 
 }
+
+std::shared_ptr<Camera> Core::getCurrentCamera()
+{
+	return cameras.at(0).lock();
+}
+
 void Core::run()
 {
 	keyboard = std::make_shared<Keyboard>();
@@ -121,10 +127,10 @@ void Core::run()
 			}
 			
 		}
-		for (int i = 0; i < entities.size(); i++)
-		{
-			entities.at(i)->onInit();
-		}
+		//for (int i = 0; i < entities.size(); i++)
+		//{
+		//	entities.at(i)->onInit();
+		//}
 		unsigned int current = SDL_GetTicks();
 		float deltaTs = (float)(current - lastTime) / 1000.0f;
 		lastTime = current;

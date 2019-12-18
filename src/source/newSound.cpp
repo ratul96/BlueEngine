@@ -1,4 +1,3 @@
-#pragma once
 #include "newSound.h"
 #include "stb_vorbis.h"
 
@@ -6,14 +5,12 @@
 void newSound::onLoad(const std::string& fileName)
 {
 	alListener3f(AL_POSITION, 0.0f, 0.0f, 0.0f);
-	ALuint bufferId = 0;
+	bufferId = 0;
 	alGenBuffers(1, &bufferId);
 
 	std::vector<char> buffer;
 	ALenum format=0;
 	ALsizei freq=0;
-	alBufferData(bufferId, format, &buffer.at(0),
-		static_cast<ALsizei>(buffer.size()), freq);
 
 	int channels = 0;
 	int sampleRate = 0;
@@ -51,4 +48,7 @@ void newSound::onLoad(const std::string& fileName)
 
 	// Clean up the read data
 	free(output);
+
+	alBufferData(bufferId, format, &buffer.at(0),
+		static_cast<ALsizei>(buffer.size()), freq);
 }

@@ -20,6 +20,8 @@ public:
 		position.y = positionY;
 		position.z = positionZ;
 	}
+
+	void SetRotation(float x, float y, float z);
 	
 	glm::vec3 rotation;
 
@@ -33,10 +35,16 @@ public:
 	{
 		// TODO
 		
-		modelMatrix = glm::translate(glm::mat4(1.0f), position);
-		modelMatrix = glm::rotate(modelMatrix, rotation.y, glm::vec3(0, 1, 0));
+		glm::mat4 rtn(1.0f);
+
+		rtn = glm::translate(rtn, position);
+		rtn = glm::rotate(rtn, rotation.y, glm::vec3(0, 1, 0));
+		// TODO: xrot
+		// TODO: zrot
+		// TODO: scale
+		// TODO: Remember to initilize scale to 1, 1, 1 in onInit!!
 		
-		return modelMatrix;
+		return rtn;
 	}
 
 	glm::mat4 getInvModelMat()

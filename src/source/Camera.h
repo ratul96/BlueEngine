@@ -1,17 +1,19 @@
 #pragma once
 #include "GL/glew.h"
 #include "Component.h"
-#include<glm/glm.hpp>
-#include<memory>
-#include<iostream>
-#include <GLM/gtc/matrix_transform.hpp>
-#include <GLM/gtc/type_ptr.hpp>
+#include <glm/glm.hpp>
+#include <memory>
+#include <iostream>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 class Camera:public Component
 {
 public:
 	Camera();
 	~Camera();
+
+	void onInit();
 
 	glm::mat4 viewMatrix;
 
@@ -22,8 +24,5 @@ public:
 	glm::mat4  getViewMatrix();
 
 	float cameraX, cameraY;
-	
-	void ChangeCameraAngleX(float value) { cameraX += value; }
-	void ChangeCameraAngleY(float value) { cameraY += value; }
 
 };
