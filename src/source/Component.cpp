@@ -34,3 +34,7 @@ std::shared_ptr<Core>Component::getCore()
 {
 	return getEntity()->getCore();
 }
+std::shared_ptr<Keyboard>Component::getKeyBoard()
+{
+	return getCore()->getKeyboard();
+}

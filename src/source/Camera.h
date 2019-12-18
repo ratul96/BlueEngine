@@ -23,6 +23,7 @@ public:
 
 	float cameraX, cameraY;
 	
-
+	void ChangeCameraAngleX(float value) { cameraX += value; }
+	void ChangeCameraAngleY(float value) { cameraY += value; }
 
 };

@@ -35,6 +35,7 @@ add_library(BlueEngine
 src/source/Core.h
 src/source/Screen.h
 src/source/Keyboard.h
+src/source/Keyboard.cpp
 src/source/Screen.cpp
 src/source/newSound.h
 src/source/newSound.cpp

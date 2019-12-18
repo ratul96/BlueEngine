@@ -1,5 +1,6 @@
 #pragma once
 #include "Core.h"
+#include "Keyboard.h"
 #include<memory>
 #include<iostream>
 #include<SDL2/SDL.h>
@@ -31,6 +32,7 @@ public:
 
 	std::shared_ptr<Entity>getEntity();
 	std::shared_ptr<Core>getCore();
+	std::shared_ptr<Keyboard>getKeyBoard();
 	
 protected:
 	

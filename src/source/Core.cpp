@@ -46,6 +46,10 @@ std::shared_ptr<Context>Core::getContext()
 {
 	return graphicsContext;
 }
+std::shared_ptr<Keyboard>Core::getKeyboard()
+{
+	return keyboard;
+}
 void Core::createScreen()
 {
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
@@ -95,6 +99,8 @@ void Core::audioInit()
 }
 void Core::run()
 {
+	keyboard = std::make_shared<Keyboard>();
+	unsigned int lastTime = SDL_GetTicks();
 	bool quit = false;
 	while (!quit)
 	{
@@ -104,20 +110,24 @@ void Core::run()
 			if (event.type == SDL_QUIT)
 			{
 				quit = true;
+				
 			}
-			if (SDL_KEYDOWN)
+			else if (event.type==SDL_KEYDOWN)
 			{
-				if (event.key.keysym.sym)
+				/*if (event.key.keysym.sym)
 				{
-					 
-				}
+					keyboard->getKeyLeft();
+				}*/
 			}
+			
 		}
 		for (int i = 0; i < entities.size(); i++)
 		{
 			entities.at(i)->onInit();
 		}
-
+		unsigned int current = SDL_GetTicks();
+		float deltaTs = (float)(current - lastTime) / 1000.0f;
+		lastTime = current;
 		for (int i = 0; i < entities.size(); i++)
 		{
 			entities.at(i)->onUpdate(deltaTs);

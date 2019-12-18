@@ -102,7 +102,14 @@ void Renderer::onDisplay()
 }
 void Renderer::onUpdate(float deltaTs)
 {
- 
+	std::shared_ptr<Transform>tr = getEntity()->getComponent<Transform>();
+	std::shared_ptr<Camera>cam = getEntity()->getComponent<Camera>();
+	tr->Update(deltaTs);
+
+	while (getKeyBoard()->getKeyLeft())
+	{
+		cam->ChangeCameraAngleX(deltaTs);
+	}
 }
 void Renderer::setMesh(std::shared_ptr<MeshComponent>_mesh)
 {

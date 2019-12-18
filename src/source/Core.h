@@ -1,6 +1,7 @@
 #pragma once
 #include"GL/glew.h"
 #include "Screen.h"
+#include "Keyboard.h"
 #include<rend/rend.h>
 #include<SDL2/SDL.h>
 #include<vector>
@@ -29,6 +30,8 @@ public:
 	std::shared_ptr<Entity> addEntity();
 	std::vector<std::shared_ptr<Entity>>entities;
 	std::shared_ptr<Screen>screen;
+	std::shared_ptr<Keyboard>keyboard;
+	std::shared_ptr<Keyboard>getKeyboard();
 	static std::shared_ptr<Core> initialize();
 	void createScreen();
 	void audioInit();

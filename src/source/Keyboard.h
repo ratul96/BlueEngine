@@ -7,8 +7,7 @@
 class Keyboard
 {
 public:
-	bool RotateLeft = false, RotateRight = false, RotateUp = false, RotateDown = false;
-
-
+	bool RotateLeft = false; bool RotateRight = false; bool RotateUp = false; bool RotateDown = false;
+	bool getKeyLeft();
 
 };

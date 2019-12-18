@@ -3,13 +3,7 @@
 
 
 
-void Entity::onUpdate(float deltaTs)
-{
-	for (int i=0;i<components.size();i++)
-	{
-		components.at(i)->onUpdate(deltaTs);
-	}
-}
+
 void Entity::onInit()
 {
 	for (int i = 0; i < components.size(); i++)
@@ -18,6 +12,13 @@ void Entity::onInit()
 	}
 }
 
+void Entity::onUpdate(float deltaTs)
+{
+	for (int i = 0; i < components.size(); i++)
+	{
+		components.at(i)->onUpdate(deltaTs);
+	}
+}
 void Entity::onDisplay()
 {
 	for (int i=0;i<components.size();i++)
