@@ -37,8 +37,8 @@ src/source/Screen.h
 src/source/Keyboard.h
 src/source/Keyboard.cpp
 src/source/Screen.cpp
-src/source/newSound.h
-src/source/newSound.cpp
+src/source/NewSound.h
+src/source/NewSound.cpp
 src/source/Component.h
 src/source/Component.cpp
 src/source/Entity.h
@@ -50,6 +50,8 @@ src/source/Material.h
 src/source/Material.cpp
 src/source/Resource.h
 src/source/Resources.h
+src/source/Rotation.h
+src/source/Rotation.cpp
 src/source/Transform.h
 src/source/Transform.cpp
 src/source/Camera.h

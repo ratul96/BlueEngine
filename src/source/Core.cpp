@@ -127,10 +127,10 @@ void Core::run()
 			}
 			
 		}
-		//for (int i = 0; i < entities.size(); i++)
-		//{
-		//	entities.at(i)->onInit();
-		//}
+		/*for (int i = 0; i < entities.size(); i++)
+		{
+			entities.at(i)->onInit();
+		}*/
 		unsigned int current = SDL_GetTicks();
 		float deltaTs = (float)(current - lastTime) / 1000.0f;
 		lastTime = current;

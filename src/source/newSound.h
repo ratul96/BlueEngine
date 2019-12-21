@@ -8,7 +8,7 @@
 #include <exception>
 
 
-class newSound :public Resource
+class NewSound :public Resource
 {
 public:
 

@@ -19,9 +19,9 @@ public:
 
 	glm::mat4 projMatrix;
 
-	glm:: mat4 getProjection();
+	glm:: mat4 getProjectionMat();
 
-	glm::mat4  getViewMatrix();
+	glm::mat4  getViewMat();
 
 	float cameraX, cameraY;
 

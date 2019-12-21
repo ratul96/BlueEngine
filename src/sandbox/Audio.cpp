@@ -1,6 +1,6 @@
 #include "Audio.h"
 #include "source/newSound.h"
-void Audio::setSound(std::shared_ptr<newSound>_sn)
+void Audio::setSound(std::shared_ptr<NewSound>_sn)
 {
 	sourceId = 0;
 	alGenSources(1, &sourceId);

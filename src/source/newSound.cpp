@@ -2,7 +2,7 @@
 #include "stb_vorbis.h"
 
 
-void newSound::onLoad(const std::string& fileName)
+void NewSound::onLoad(const std::string& fileName)
 {
 	alListener3f(AL_POSITION, 0.0f, 0.0f, 0.0f);
 	bufferId = 0;

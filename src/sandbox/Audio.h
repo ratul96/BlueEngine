@@ -18,13 +18,13 @@
 #include<memory>
 
 
-class newSound;
+class NewSound;
 
 class Audio :public Component
 {
 public:
 	
 	ALuint sourceId;
-	void setSound(std::shared_ptr<newSound>_sn);
+	void setSound(std::shared_ptr<NewSound>_sn);
 	
 };

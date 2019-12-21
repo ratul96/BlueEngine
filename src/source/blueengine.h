@@ -9,7 +9,8 @@
 #include "Transform.h"
 #include "Mesh.h"
 #include "Resources.h"
-#include "newSound.h"
+#include "NewSound.h"
 #include "Material.h"
+#include "Rotation.h"
 
 #endif

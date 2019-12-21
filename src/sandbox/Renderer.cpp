@@ -81,17 +81,13 @@ void Renderer::onDisplay()
 
 	
 
-		//sh->setAttribute("v_Position", b);
+		
 		std::shared_ptr<Transform> tr = getEntity()->getComponent<Transform>();
-		//std::shared_ptr<Camera>cam = getEntity()->getComponent<Camera>();
 		std::shared_ptr<Camera>cam = getEntity()->getCore()->getCurrentCamera();
 		sh->setUniform("Model", tr->getModelMat());
-		sh->setUniform("Projection", cam->getProjection());
-		sh->setUniform("View", cam->getViewMatrix());
+		sh->setUniform("Projection", cam->getProjectionMat());
+		sh->setUniform("View", cam->getViewMat());
 		rendMesh->setTexture("u_Texture", rendTex);
-		//tr->SetPosition(0, 0, -10);
-		//tr->Update();
-		//sh->setAttribute("v_Position", b);
 		sh->setMesh(rendMesh);
 		sh->render();
 
@@ -104,7 +100,6 @@ void Renderer::onDisplay()
 void Renderer::onUpdate(float deltaTs)
 {
 	std::shared_ptr<Transform>tr = getEntity()->getComponent<Transform>();
-	//std::shared_ptr<Camera>cam = getEntity()->getComponent<Camera>();
 	std::shared_ptr<Camera>cam = getEntity()->getCore()->getCurrentCamera();
 	tr->Update(deltaTs);
 
