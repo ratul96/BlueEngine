@@ -4,6 +4,7 @@
 #include "Entity.h"
 #include "Resources.h"
 #include "Camera.h"
+#include "Collision.h"
 
 std::shared_ptr<Core> Core::initialize()
 {
@@ -12,12 +13,18 @@ std::shared_ptr<Core> Core::initialize()
 
 	c->createScreen();
 	c->audioInit();
+	
+	
 
 	c->graphicsContext = Context::initialize();
 	
 
 	c->resources = std::make_shared<Resources>();
 	c->resources->core = c;
+
+	//need to get environment reference here
+	c->environment = std::make_shared<Environment>();
+	c->environment->core = c;
 
 	return c;
 }
@@ -32,15 +39,20 @@ std::shared_ptr<Entity> Core::addEntity()
 	entities.push_back(rtn);
 
 	rtn->addComponent<Transform>();
-	//rtn->addComponent<Camera>();
+	
 	
 
 	return rtn;
 }
+//Getting the entity with collision type
 
 std::shared_ptr<Resources>Core::getResources()
 {
 	return resources;
+}
+std::shared_ptr<Environment>Core::getEnvironment()
+{
+	return environment;
 }
 std::shared_ptr<Context>Core::getContext()
 {
@@ -64,6 +76,7 @@ void Core::createScreen()
 
 	screen->glContext = SDL_GL_CreateContext(screen->window);
 
+	lastTime = SDL_GetTicks();
 
 	if (!screen->glContext)
 	{
@@ -106,11 +119,10 @@ std::shared_ptr<Camera> Core::getCurrentCamera()
 void Core::run()
 {
 	keyboard = std::make_shared<Keyboard>();
-	unsigned int lastTime = SDL_GetTicks();
-	bool quit = false;
+	bool quit = false; 
 	while (!quit)
 	{
-		SDL_Event event = { 0 };
+		event = { 0 };
 		while (SDL_PollEvent(&event))
 		{
 			if (event.type == SDL_QUIT)
@@ -118,25 +130,8 @@ void Core::run()
 				quit = true;
 				
 			}
-			else if (event.type==SDL_KEYDOWN)
-			{
-				/*if (event.key.keysym.sym)
-				{
-					keyboard->getKeyLeft();
-				}*/
-			}
 			
-		}
-		/*for (int i = 0; i < entities.size(); i++)
-		{
-			entities.at(i)->onInit();
-		}*/
-		unsigned int current = SDL_GetTicks();
-		float deltaTs = (float)(current - lastTime) / 1000.0f;
-		lastTime = current;
-		for (int i = 0; i < entities.size(); i++)
-		{
-			entities.at(i)->onUpdate(deltaTs);
+			
 		}
 
 		glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
@@ -144,8 +139,16 @@ void Core::run()
 
 		for (int i = 0; i < entities.size(); i++)
 		{
+			entities.at(i)->onUpdate();
+		}
+		
+		
+		
+		for (int i = 0; i < entities.size(); i++)
+		{
 			entities.at(i)->onDisplay();
 		}
+
 
 
 		SDL_GL_SwapWindow(screen->window);

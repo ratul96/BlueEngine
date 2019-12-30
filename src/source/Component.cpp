@@ -20,7 +20,7 @@ void Component::onBegin()
 	std::cout << "Began" << std::endl;
 }*/
 
-void Component::onUpdate(float deltaTs) { }
+void Component::onUpdate() { }
 void Component::onInit() { }
 void Component::onDisplay() { }
 

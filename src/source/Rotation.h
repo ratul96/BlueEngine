@@ -9,5 +9,5 @@ public:
 
 	void onInit();
 
-	void onUpdate(float getridofme);
+	void onUpdate();
 };

@@ -2,6 +2,7 @@
 #include"GL/glew.h"
 #include "Screen.h"
 #include "Keyboard.h"
+#include "Environment.h"
 #include<rend/rend.h>
 #include<SDL2/SDL.h>
 #include<vector>
@@ -17,6 +18,9 @@ class Resources;
 class Camera;
 
 using namespace rend;
+/**
+*Represents Engine core.All the functionalities are passed through and implemented here
+*/
 
 class Core
 {
@@ -25,15 +29,22 @@ private:
 
 	//Core();
 	//~Core();
-	std::vector<std::weak_ptr<Camera> > cameras;
+	std::vector<std::weak_ptr<Camera> > cameras;  /**
+												 *Initializing camera within Core
+												 */
+	 
 	
 public:
-	ALCdevice* device;
+	ALCdevice* device;   
 	ALCcontext* context;
+	SDL_Event event;
+	unsigned int lastTime;
 	std::shared_ptr<Entity> addEntity();
-	std::vector<std::shared_ptr<Entity>>entities;
+    std::vector<std::shared_ptr<Entity>>entities;
 	std::shared_ptr<Screen>screen;
 	std::shared_ptr<Keyboard>keyboard;
+	std::shared_ptr<Environment>environment;
+	std::shared_ptr<Environment>getEnvironment();
 	std::shared_ptr<Keyboard>getKeyboard();
 	static std::shared_ptr<Core> initialize();
 	void createScreen();

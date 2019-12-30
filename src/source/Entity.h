@@ -57,7 +57,7 @@ public:
 	std::shared_ptr<Core>getCore();
 	
 	// onUpdate
-	void onUpdate(float deltaTs);
+	void onUpdate();
 	void onInit();
 	void onDisplay();
 

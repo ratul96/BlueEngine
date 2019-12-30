@@ -19,10 +19,12 @@ public:
 
 	glm::mat4 projMatrix;
 
-	glm:: mat4 getProjectionMat();
+	glm:: mat4 getProjMat();
 
 	glm::mat4  getViewMat();
 
 	float cameraX, cameraY;
 
+	void ChangeCameraAngleX(float value) { cameraX += value; }
+	void ChangeCameraAngleY(float value) { cameraY += value; }
 };

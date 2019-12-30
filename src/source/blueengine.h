@@ -4,13 +4,14 @@
 #include "Core.h"
 #include "Component.h"
 #include "Entity.h"
-//todo
-//#include "Renderer.h"
 #include "Transform.h"
 #include "Mesh.h"
 #include "Resources.h"
 #include "NewSound.h"
 #include "Material.h"
 #include "Rotation.h"
+#include "Renderer.h"
+#include "Audio.h"
+#include "Collision.h"
 
 #endif

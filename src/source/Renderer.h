@@ -9,6 +9,7 @@
 #include "source/Transform.h"
 #include "source/Camera.h"
 #include "source/Material.h"
+#include "Collision.h"
 #include<memory>
 #include <exception>
 
@@ -24,7 +25,7 @@ public:
 	
 	void onInit();
 	void onDisplay();
-	void onUpdate(float deltaTs);
+	void onUpdate();
 	
 
 

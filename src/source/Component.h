@@ -22,7 +22,7 @@ public:
 	//void onBegin();
 	//void ontick();
 
-	virtual void onUpdate(float deltaTs);
+	virtual void onUpdate();
 	virtual void onInit();
 	virtual void onDisplay();
 	
@@ -33,6 +33,21 @@ public:
 	std::shared_ptr<Entity>getEntity();
 	std::shared_ptr<Core>getCore();
 	std::shared_ptr<Keyboard>getKeyBoard();
+
+	template<typename T>
+	std::shared_ptr<T>getEntities()
+	{
+		for (auto& i : getCore()->entities)
+		{
+			std::shared_ptr<Entity> e = std::dynamic_pointer_cast<T>(i);
+			if (e != NULL)
+			{
+				return e;
+			}
+		}
+		std::cout << "Does Not Exist" << std::endl;
+		throw std::exception();
+	}
 	
 protected:
 	
