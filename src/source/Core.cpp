@@ -115,7 +115,10 @@ std::shared_ptr<Camera> Core::getCurrentCamera()
 {
 	return cameras.at(0).lock();
 }
-
+std::shared_ptr<Lighting>Core::getLight()
+{
+	return light.lock();
+}
 void Core::run()
 {
 	keyboard = std::make_shared<Keyboard>();

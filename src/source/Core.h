@@ -16,6 +16,7 @@ class Entity;
 class Component;
 class Resources;
 class Camera;
+class Lighting;
 
 using namespace rend;
 /**
@@ -32,7 +33,7 @@ private:
 	std::vector<std::weak_ptr<Camera> > cameras;  /**
 												 *Initializing camera within Core
 												 */
-	 
+	std::weak_ptr<Lighting>light;
 	
 public:
 	ALCdevice* device;   
@@ -56,5 +57,6 @@ public:
 	std::shared_ptr<rend::Context>getContext();
 	void run();
 	std::shared_ptr<Camera> getCurrentCamera();
+	std::shared_ptr<Lighting>getLight();
 
 };

@@ -61,15 +61,14 @@ void Collision::Collide()
 	//If collision working GetPosition
 	bool colliding = false;
 	std::shared_ptr<Transform>tr = getEntity()->getComponent<Transform>();
-	std::shared_ptr<Transform>trc = getEntities<Collision>()->getEntity()->getComponent<Transform>();
-		if (isColliding(tr->GetPosition(), trc->GetPosition()))
+	//std::shared_ptr<Transform>trc = getEntities<Collision>()->getEntity()->getComponent<Transform>();
+		/*if (isColliding(tr->GetPosition())
 		{
 			colliding=true;
 			std::cout<<"Collided"<<std::endl;
 	    }
-		
-		if (!isColliding)
+		else if (!colliding)
 		{
 			tr->GetPosition();
-	    }
+	    }*/
 }

@@ -10,6 +10,7 @@
 #include "source/Camera.h"
 #include "source/Material.h"
 #include "Collision.h"
+#include "Lighting.h"
 #include<memory>
 #include <exception>
 

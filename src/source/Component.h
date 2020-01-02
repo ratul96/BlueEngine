@@ -34,7 +34,7 @@ public:
 	std::shared_ptr<Core>getCore();
 	std::shared_ptr<Keyboard>getKeyBoard();
 
-	template<typename T>
+	/*template<typename T>
 	std::shared_ptr<T>getEntities()
 	{
 		for (auto& i : getCore()->entities)
@@ -47,7 +47,7 @@ public:
 		}
 		std::cout << "Does Not Exist" << std::endl;
 		throw std::exception();
-	}
+	}*/
 	
 protected:
 	

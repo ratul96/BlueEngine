@@ -13,5 +13,6 @@
 #include "Renderer.h"
 #include "Audio.h"
 #include "Collision.h"
+#include "Lighting.h"
 
 #endif

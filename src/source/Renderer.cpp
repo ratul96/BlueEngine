@@ -15,12 +15,13 @@ const GLchar* shaderSrc =
 "uniform mat4 Model;                           \n" \
 "uniform mat4 View;                            \n" \
 "varying vec2 v_TexCoord;                      \n" \
-"varying vec3 v_Normal;                      \n" \
+"varying vec3 v_Normal;                        \n" \
+"varying vec3 v_pos;                             \n" \
 "                                              \n" \
 "void main()                                   \n" \
 "{                                             \n" \
-"  vec3 pos = a_Position;					   \n" \
-"  gl_Position = Projection*View*Model*vec4(pos, 1);  \n" \
+"   v_pos = a_Position;					       \n" \
+" gl_Position = Projection*View*Model*vec4(v_pos, 1);  \n" \
 "  v_TexCoord = a_TexCoord;                      \n" \
 "  v_Normal = a_Normal;                          \n" \
 "}                                             \n" \
@@ -29,12 +30,22 @@ const GLchar* shaderSrc =
 "#ifdef FRAGMENT                               \n" \
 "                                              \n" \
 "uniform sampler2D u_Texture;                  \n" \
-"varying vec2 v_TexCoord;                      \n" \
-"varying vec3 v_Normal;                      \n" \
+"uniform vec3 lightPos;                        \n" \
+"uniform vec3 lightColor;                      \n" \
+"uniform vec3 objectColor;                     \n" \
+"varying vec3 v_Normal;                        \n" \
+"varying vec3 v_pos;                             \n" \
 "                                              \n" \
 "void main()                                   \n" \
 "{                                             \n" \
-"  gl_FragColor = texture2D(u_Texture,v_TexCoord);      \n" \
+"   float ambientStrength = 0.1;			   \n" \
+"   vec3 ambient = ambientStrength*lightColor; \n" \
+"   vec3 norm = normalize(v_Normal);		   \n" \
+"   vec3 lightDir = normalize(lightPos-v_pos);   \n" \
+"   float diff = max(dot(norm,lightDir),0.0);  \n" \
+"   vec3 diffuse = diff*lightColor;             \n" \
+"   vec3 result = (ambient+diffuse)*objectColor; \n" \
+"  gl_FragColor = vec4(result,1.0);              \n" \
 "  if(gl_FragColor.x == 0.2) gl_FragColor.x = v_Normal.x; \n" \
 "}                                             \n" \
 "                                              \n" \
@@ -84,9 +95,13 @@ void Renderer::onDisplay()
 		
 		std::shared_ptr<Transform> tr = getEntity()->getComponent<Transform>();
 		std::shared_ptr<Camera>cam = getEntity()->getCore()->getCurrentCamera();
+		std::shared_ptr<Lighting>li = getEntity()->getComponent<Lighting>();
 		sh->setUniform("Model", tr->getModelMat());
 		sh->setUniform("Projection", cam->getProjMat()); 
 		sh->setUniform("View", cam->getViewMat());
+		sh->setUniform("lightPos",tr->GetPosition());
+		sh->setUniform("lightColor", li->getLightColour());
+		sh->setUniform("objectColor", li->getColour());
 		rendMesh->setTexture("u_Texture", rendTex);
 		sh->setMesh(rendMesh);
 		sh->render();
