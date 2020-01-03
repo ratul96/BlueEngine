@@ -10,11 +10,11 @@ int main()
 
 	std::shared_ptr<Entity> ce = core->addEntity();
 	std::shared_ptr<Entity>light = core->addEntity();
+	std::shared_ptr<Entity> entity = core->addEntity();
 	std::shared_ptr<Lighting>lighting = light->addComponent<Lighting>();
-	light->getComponent<Transform>()->SetPosition(1.2f, 1.0f, 2.0f);
+	light->getComponent<Lighting>()->setLightPosition(1.2f, 1.0f,2.0f);
 	ce->getComponent<Transform>()->SetPosition(0, 0, 10);	
 	std::shared_ptr<Camera> camera = ce->addComponent<Camera>(); 
-	std::shared_ptr<Entity> entity = core->addEntity();
 	entity->addComponent<Rotator>();
 	
 	std::shared_ptr<Renderer> tr = entity->addComponent<Renderer>();

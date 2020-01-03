@@ -27,13 +27,13 @@ class Core
 {
 private:
 	friend class Camera;
-
+	friend class Lighting;
 	//Core();
 	//~Core();
 	std::vector<std::weak_ptr<Camera> > cameras;  /**
 												 *Initializing camera within Core
 												 */
-	std::weak_ptr<Lighting>light;
+	std::vector<std::weak_ptr<Lighting>>lights;
 	
 public:
 	ALCdevice* device;   

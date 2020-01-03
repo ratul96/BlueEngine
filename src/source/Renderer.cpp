@@ -20,10 +20,10 @@ const GLchar* shaderSrc =
 "                                              \n" \
 "void main()                                   \n" \
 "{                                             \n" \
-"   v_pos = a_Position;					       \n" \
+"   v_pos = vec3(Model*vec4(a_Position,1.0));					       \n" \
 " gl_Position = Projection*View*Model*vec4(v_pos, 1);  \n" \
 "  v_TexCoord = a_TexCoord;                      \n" \
-"  v_Normal = a_Normal;                          \n" \
+"  v_Normal = mat3(transpose(inverse(Model)))*a_Normal;                          \n" \
 "}                                             \n" \
 "                                              \n" \
 "#endif                                        \n" \
@@ -34,6 +34,7 @@ const GLchar* shaderSrc =
 "uniform vec3 lightColor;                      \n" \
 "uniform vec3 objectColor;                     \n" \
 "varying vec3 v_Normal;                        \n" \
+"varying vec2 v_TexCoord;                      \n" \
 "varying vec3 v_pos;                             \n" \
 "                                              \n" \
 "void main()                                   \n" \
@@ -43,8 +44,9 @@ const GLchar* shaderSrc =
 "   vec3 norm = normalize(v_Normal);		   \n" \
 "   vec3 lightDir = normalize(lightPos-v_pos);   \n" \
 "   float diff = max(dot(norm,lightDir),0.0);  \n" \
+" vec3 texColor = vec3(texture2D(u_Texture, vec2(v_TexCoord.x,1-v_TexCoord.y)));  \n" \
 "   vec3 diffuse = diff*lightColor;             \n" \
-"   vec3 result = (ambient+diffuse)*objectColor; \n" \
+"   vec3 result = (ambient+diffuse+texColor)*objectColor; \n" \
 "  gl_FragColor = vec4(result,1.0);              \n" \
 "  if(gl_FragColor.x == 0.2) gl_FragColor.x = v_Normal.x; \n" \
 "}                                             \n" \
@@ -95,11 +97,11 @@ void Renderer::onDisplay()
 		
 		std::shared_ptr<Transform> tr = getEntity()->getComponent<Transform>();
 		std::shared_ptr<Camera>cam = getEntity()->getCore()->getCurrentCamera();
-		std::shared_ptr<Lighting>li = getEntity()->getComponent<Lighting>();
+		std::shared_ptr<Lighting>li = getEntity()->getCore()->getLight();
 		sh->setUniform("Model", tr->getModelMat());
 		sh->setUniform("Projection", cam->getProjMat()); 
 		sh->setUniform("View", cam->getViewMat());
-		sh->setUniform("lightPos",tr->GetPosition());
+		sh->setUniform("lightPos",li->getLightPosition());
 		sh->setUniform("lightColor", li->getLightColour());
 		sh->setUniform("objectColor", li->getColour());
 		rendMesh->setTexture("u_Texture", rendTex);
@@ -116,6 +118,7 @@ void Renderer::onUpdate()
 {
 	std::shared_ptr<Transform>tr = getEntity()->getComponent<Transform>();
 	std::shared_ptr<Camera>cam = getEntity()->getCore()->getCurrentCamera();
+	std::shared_ptr<Lighting>li = getEntity()->getCore()->getLight();
 	
 	if(getCore()->event.type == SDL_KEYDOWN)
 	{

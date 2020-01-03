@@ -117,7 +117,7 @@ std::shared_ptr<Camera> Core::getCurrentCamera()
 }
 std::shared_ptr<Lighting>Core::getLight()
 {
-	return light.lock();
+	return lights.at(0).lock();
 }
 void Core::run()
 {
