@@ -6,20 +6,17 @@
 #include<GL/glew.h>
 #include<glm/glm.hpp>
 
-
 class Core;
 
 using namespace rend;
 
-class Material:public Resource
+class Shaders :public Resource
 {
 public:
-	std::shared_ptr<Context>context;
-	std::shared_ptr<Texture>texture;
-	void onTextureLoad(const char *path);
+	std::weak_ptr<Core>core;
+	std::shared_ptr<rend::Context>context;
+	std::shared_ptr<rend::Shader>sh;
 	std::shared_ptr<Core>getCore();
-
-
+	void onLoad(std::string &path);
 	
-
 };

@@ -9,6 +9,7 @@
 #include "source/Transform.h"
 #include "source/Camera.h"
 #include "source/Material.h"
+#include "Shaders.h"
 #include "Collision.h"
 #include "Lighting.h"
 #include<memory>
@@ -32,12 +33,13 @@ public:
 
 	//std::shared_ptr<Context> context; // make rend context
 	
-	std::sr1::shared_ptr<rend::Shader> sh;
+	std::sr1::shared_ptr<rend::Shader> rendsh;
 	std::sr1::shared_ptr<rend::Buffer>b;
 	std::sr1::shared_ptr<rend::Mesh>rendMesh;
 	std::sr1::shared_ptr<rend::Texture>rendTex;
 	void setMesh(std::shared_ptr<MeshComponent>_mesh);
 	void setMaterial(std::shared_ptr<Material>material);
+	void setShaders(std::shared_ptr<Shaders>sh);
 
 	//std::weak_ptr<Core>core;
 

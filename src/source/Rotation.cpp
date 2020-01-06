@@ -8,6 +8,7 @@ void Rotator:: onInit()
 
 void Rotator::onUpdate()
 {
+	rot += 0.001f;
 	getEntity()->getComponent<Transform>()->SetRotation(0, rot, 0);
-	rot += 0.01f;
+	
 }

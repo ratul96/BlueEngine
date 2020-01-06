@@ -4,6 +4,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <SDL2/SDL.h>
 
 class Lighting :public Component
 {
@@ -19,7 +20,8 @@ public:
 
 	glm::vec3 lightPosition;
 
-	void setLightPosition(float x,float y,float z);
+	void setLightPosition(float x,float y);
 
 	glm::vec3 getLightPosition();
+
 };

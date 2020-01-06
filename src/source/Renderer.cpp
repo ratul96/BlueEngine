@@ -4,54 +4,8 @@
 
 
 
-const GLchar* shaderSrc =
-"#ifdef VERTEX                                 \n" \
-"                                              \n" \
-"attribute vec3 a_Position;                    \n" \
-"attribute vec2 a_TexCoord;					   \n" \
-"attribute vec3 a_Normal;					   \n" \
-"                                              \n" \
-"uniform mat4 Projection;                      \n" \
-"uniform mat4 Model;                           \n" \
-"uniform mat4 View;                            \n" \
-"varying vec2 v_TexCoord;                      \n" \
-"varying vec3 v_Normal;                        \n" \
-"varying vec3 v_pos;                             \n" \
-"                                              \n" \
-"void main()                                   \n" \
-"{                                             \n" \
-"   v_pos = vec3(Model*vec4(a_Position,1.0));					       \n" \
-" gl_Position = Projection*View*Model*vec4(v_pos, 1);  \n" \
-"  v_TexCoord = a_TexCoord;                      \n" \
-"  v_Normal = mat3(transpose(inverse(Model)))*a_Normal;                          \n" \
-"}                                             \n" \
-"                                              \n" \
-"#endif                                        \n" \
-"#ifdef FRAGMENT                               \n" \
-"                                              \n" \
-"uniform sampler2D u_Texture;                  \n" \
-"uniform vec3 lightPos;                        \n" \
-"uniform vec3 lightColor;                      \n" \
-"uniform vec3 objectColor;                     \n" \
-"varying vec3 v_Normal;                        \n" \
-"varying vec2 v_TexCoord;                      \n" \
-"varying vec3 v_pos;                             \n" \
-"                                              \n" \
-"void main()                                   \n" \
-"{                                             \n" \
-"   float ambientStrength = 0.1;			   \n" \
-"   vec3 ambient = ambientStrength*lightColor; \n" \
-"   vec3 norm = normalize(v_Normal);		   \n" \
-"   vec3 lightDir = normalize(lightPos-v_pos);   \n" \
-"   float diff = max(dot(norm,lightDir),0.0);  \n" \
-" vec3 texColor = vec3(texture2D(u_Texture, vec2(v_TexCoord.x,1-v_TexCoord.y)));  \n" \
-"   vec3 diffuse = diff*lightColor;             \n" \
-"   vec3 result = (ambient+diffuse+texColor)*objectColor; \n" \
-"  gl_FragColor = vec4(result,1.0);              \n" \
-"  if(gl_FragColor.x == 0.2) gl_FragColor.x = v_Normal.x; \n" \
-"}                                             \n" \
-"                                              \n" \
-"#endif                                        \n";
+
+
 
 
 
@@ -77,10 +31,9 @@ void Renderer::onInit()
 	
 
 	
-	sh = std::make_shared<rend::Shader>();
+	rendsh = std::make_shared<rend::Shader>();
 	b = std::make_shared<rend::Buffer>();
-	sh = getCore()->getContext()->createShader(); // create the shader
-	sh->setSource(shaderSrc);	// set source
+	
 
 	b = getCore()->getContext()->createBuffer(); // create buffer
 	
@@ -98,15 +51,15 @@ void Renderer::onDisplay()
 		std::shared_ptr<Transform> tr = getEntity()->getComponent<Transform>();
 		std::shared_ptr<Camera>cam = getEntity()->getCore()->getCurrentCamera();
 		std::shared_ptr<Lighting>li = getEntity()->getCore()->getLight();
-		sh->setUniform("Model", tr->getModelMat());
-		sh->setUniform("Projection", cam->getProjMat()); 
-		sh->setUniform("View", cam->getViewMat());
-		sh->setUniform("lightPos",li->getLightPosition());
-		sh->setUniform("lightColor", li->getLightColour());
-		sh->setUniform("objectColor", li->getColour());
+		rendsh->setUniform("Model", tr->getModelMat());
+		rendsh->setUniform("Projection", cam->getProjMat());
+		rendsh->setUniform("View", cam->getViewMat());
+		rendsh->setUniform("lightPos",li->getLightPosition());
+		rendsh->setUniform("lightColor", li->getLightColour());
+		rendsh->setUniform("objectColor", li->getColour());
 		rendMesh->setTexture("u_Texture", rendTex);
-		sh->setMesh(rendMesh);
-		sh->render();
+		rendsh->setMesh(rendMesh);
+		rendsh->render();
 
 		
 
@@ -186,22 +139,22 @@ void Renderer::onUpdate()
 	}
 	if (getKeyBoard()->RotateLeft&!getKeyBoard()->RotateRight)
 	{
-		cam->ChangeCameraAngleY(getCore()->getEnvironment()->getDeltaTime()*1.0f);
+		cam->ChangeCameraAngleY(getCore()->getEnvironment()->getDeltaTime()*0.01f);
 	}
 	else if (getKeyBoard()->RotateRight & !getKeyBoard()->RotateLeft)
 	{
-		cam->ChangeCameraAngleY(getCore()->getEnvironment()->getDeltaTime()*-1.0f);
+		cam->ChangeCameraAngleY(getCore()->getEnvironment()->getDeltaTime()*-0.01f);
 	}
 
 	if (getKeyBoard()->RotateUp & !getKeyBoard()->RotateDown)
 	{
-		cam->ChangeCameraAngleX(getCore()->getEnvironment()->getDeltaTime()*1.0f);
+		cam->ChangeCameraAngleX(getCore()->getEnvironment()->getDeltaTime()*0.01f);
 	}
 	else if (getKeyBoard()->RotateDown & !getKeyBoard()->RotateUp)
 	{
-		cam->ChangeCameraAngleX(getCore()->getEnvironment()->getDeltaTime()*-1.0f);
+		cam->ChangeCameraAngleX(getCore()->getEnvironment()->getDeltaTime()*-0.01f);
 	}
-	
+	//li->setLightPosition(1.2f, 2.0f);
 }
 void Renderer::setMesh(std::shared_ptr<MeshComponent>_mesh)
 {
@@ -214,7 +167,10 @@ void Renderer::setMaterial(std::shared_ptr<Material>material)
 	this->rendTex = material->texture;                         /**Setting the instance of Rend::Texture inside Renderer to be equivalent to Rend::Texture inside MeshComponent 
 																   */
 }
-	
+void Renderer::setShaders(std::shared_ptr<Shaders>sh)
+{
+	this->rendsh = sh->sh;
+}
 
 
 

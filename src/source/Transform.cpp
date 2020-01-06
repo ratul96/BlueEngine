@@ -50,10 +50,8 @@ glm::mat4 Transform::getModelMat()
 	rtn = glm::rotate(rtn, rotation.y, glm::vec3(0, 1, 0));
 	rtn = glm::rotate(rtn, rotation.x, glm::vec3(1, 0, 0));
 	rtn = glm::rotate(rtn, rotation.z, glm::vec3(0, 0, 1));
-	// TODO: xrot
-	// TODO: zrot
-	// TODO: scale
-	// TODO: Remember to initilize scale to 1, 1, 1 in onInit!!
+	
+
 
 	return rtn;
 }
