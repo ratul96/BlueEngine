@@ -43,6 +43,8 @@ src/source/Component.h
 src/source/Component.cpp
 src/source/Entity.h
 src/source/Core.cpp
+src/source/Lighting.h
+src/source/Lighting.cpp
 src/source/Mesh.h
 src/source/Mesh.cpp
 src/source/Entity.cpp
@@ -50,10 +52,20 @@ src/source/Material.h
 src/source/Material.cpp
 src/source/Resource.h
 src/source/Resources.h
+src/source/Renderer.h
+src/source/Shaders.h
+src/source/Shaders.cpp
+src/source/Renderer.cpp
+src/source/Environment.h
+src/source/Environment.cpp
+src/source/Audio.h
+src/source/Audio.cpp
 src/source/Rotation.h
 src/source/Rotation.cpp
 src/source/Transform.h
 src/source/Transform.cpp
+src/source/Collision.h
+src/source/Collision.cpp
 src/source/Camera.h
 src/source/Camera.cpp
 src/source/blueengine.h
@@ -68,10 +80,6 @@ src/source/stb_image.h
 
 add_executable(sandbox
 src/sandbox/main.cpp
-src/sandbox/Renderer.h
-src/sandbox/Renderer.cpp
-src/sandbox/Audio.h
-src/sandbox/Audio.cpp
 )
 
 target_link_libraries(sandbox BlueEngine)
