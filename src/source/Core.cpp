@@ -58,6 +58,10 @@ std::shared_ptr<Context>Core::getContext()
 {
 	return graphicsContext;
 }
+std::shared_ptr<Gui>Core::getGui()
+{
+	return gui;
+}
 std::shared_ptr<Keyboard>Core::getKeyboard()
 {
 	return keyboard;

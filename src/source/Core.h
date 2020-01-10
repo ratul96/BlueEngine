@@ -3,6 +3,7 @@
 #include "Screen.h"
 #include "Keyboard.h"
 #include "Environment.h"
+#include "Gui.h"
 #include<rend/rend.h>
 #include<SDL2/SDL.h>
 #include<vector>
@@ -59,6 +60,8 @@ public:
 	std::shared_ptr<Keyboard>keyboard;
 	std::shared_ptr<Environment>environment;
 	std::shared_ptr<Environment>getEnvironment();
+	std::shared_ptr<Gui>getGui();
+	std::shared_ptr<Gui>gui;
 	std::shared_ptr<Keyboard>getKeyboard();
 	static std::shared_ptr<Core> initialize();
 	void createScreen();

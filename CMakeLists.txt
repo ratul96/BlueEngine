@@ -36,7 +36,11 @@ src/source/Core.h
 src/source/Screen.h
 src/source/Keyboard.h
 src/source/Keyboard.cpp
+src/source/BoxCollider.h
+src/source/BoxCollider.cpp
 src/source/Screen.cpp
+src/source/Gui.h
+src/source/Gui.cpp
 src/source/NewSound.h
 src/source/NewSound.cpp
 src/source/Component.h
@@ -64,8 +68,6 @@ src/source/Rotation.h
 src/source/Rotation.cpp
 src/source/Transform.h
 src/source/Transform.cpp
-src/source/Collision.h
-src/source/Collision.cpp
 src/source/Camera.h
 src/source/Camera.cpp
 src/source/blueengine.h
