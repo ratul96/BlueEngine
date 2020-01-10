@@ -2,26 +2,6 @@
 #include<memory>
 
 
-
-
-
-
-
-
-
-
-Renderer::Renderer()
-{
-	
-	
-	
-	
-}
-Renderer::~Renderer()
-{
-	
-
-}
 void Renderer::onInit()
 {
 
@@ -55,7 +35,7 @@ void Renderer::onDisplay()
 		rendsh->setUniform("Projection", cam->getProjMat());
 		rendsh->setUniform("View", cam->getViewMat());
 		rendsh->setUniform("lightPos",li->getLightPosition());
-		rendsh->setUniform("lightColor", li->getLightColour());
+		//rendsh->setUniform("lightColor", li->getLightColour());
 		rendsh->setUniform("objectColor", li->getColour());
 		rendMesh->setTexture("u_Texture", rendTex);
 		rendsh->setMesh(rendMesh);

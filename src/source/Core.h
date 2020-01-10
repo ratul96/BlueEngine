@@ -42,6 +42,19 @@ public:
 	unsigned int lastTime;
 	std::shared_ptr<Entity> addEntity();
     std::vector<std::shared_ptr<Entity>>entities;
+	
+	template<typename T>
+	void getEntities(std::vector<std::shared_ptr<Entity>>&ce)
+	{
+		for (auto&c : entities)
+		{
+			if (c->hasComponent<T>())
+			{
+				ce.push_back(c);
+			}
+			
+		}
+	}
 	std::shared_ptr<Screen>screen;
 	std::shared_ptr<Keyboard>keyboard;
 	std::shared_ptr<Environment>environment;

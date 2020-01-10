@@ -4,7 +4,7 @@
 #include "Entity.h"
 #include "Resources.h"
 #include "Camera.h"
-#include "Collision.h"
+
 
 std::shared_ptr<Core> Core::initialize()
 {

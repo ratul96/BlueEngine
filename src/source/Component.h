@@ -26,6 +26,7 @@ public:
 	virtual void onInit();
 	virtual void onDisplay();
 	
+	
 
 	//virtual void createVBO();
 	//std::shared_ptr<PositionComponent>getTransform();

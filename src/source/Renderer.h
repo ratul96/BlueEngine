@@ -10,7 +10,6 @@
 #include "source/Camera.h"
 #include "source/Material.h"
 #include "Shaders.h"
-#include "Collision.h"
 #include "Lighting.h"
 #include<memory>
 #include <exception>
@@ -22,8 +21,7 @@ using namespace rend;
 class Renderer:public Component
 {
 public:
-	Renderer();
-	~Renderer();
+	
 	
 	void onInit();
 	void onDisplay();
@@ -41,16 +39,6 @@ public:
 	void setMaterial(std::shared_ptr<Material>material);
 	void setShaders(std::shared_ptr<Shaders>sh);
 
-	//std::weak_ptr<Core>core;
-
-	//std::shared_ptr<Core>getCore();
-	
-/*
-	std::shared_ptr<Shader>getShader()
-	{
-		return sh.lock();
-	}
-*/
    
 
 

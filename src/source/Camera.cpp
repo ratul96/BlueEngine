@@ -32,6 +32,6 @@ glm::mat4 Camera::getViewMat()
 	glm::mat4 rtn(1.0f);
 	rtn = getEntity()->getComponent<Transform>()->getModelMat();
 	rtn = glm::inverse(rtn);
-	rtn = glm::rotate(glm::rotate(glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, -6.5f)), cameraX, glm::vec3(1, 0, 0)), cameraY, glm::vec3(0, 1, 0));
+	rtn = glm::rotate(glm::rotate(glm::translate(glm::mat4(1.0f), glm::vec3(0, 0, -10.5f)), cameraX, glm::vec3(1, 0, 0)), cameraY, glm::vec3(0, 1, 0));
 	return rtn;
 }

@@ -46,6 +46,19 @@ public:
 		// TODO: Throw non-generic Exception
 		throw std::exception();
 	}
+	template<typename T>
+	bool hasComponent()
+	{
+		for (auto& c : components)
+		{
+			std::shared_ptr<T> rtn1 = std::dynamic_pointer_cast<T>(c);
+			if (rtn1 != NULL)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 	std::vector<std::shared_ptr<Component>> components;
 	
 

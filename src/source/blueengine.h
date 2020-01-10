@@ -12,7 +12,7 @@
 #include "Rotation.h"
 #include "Renderer.h"
 #include "Audio.h"
-#include "Collision.h"
+#include "BoxCollider.h"
 #include "Lighting.h"
 #include "Shaders.h"
 
