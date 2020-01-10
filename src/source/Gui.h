@@ -17,6 +17,7 @@ public:
 	~Gui();
 	std::shared_ptr<rend::Mesh>mesh;
 	glm::mat4 projMatrix;
+	std::shared_ptr<Buffer>buffer;
 	std::weak_ptr<Core>core;
 	std::shared_ptr<Shaders>shader;
 	std::shared_ptr<Core>getCore();
