@@ -41,6 +41,8 @@ src/source/BoxCollider.cpp
 src/source/Screen.cpp
 src/source/Gui.h
 src/source/Gui.cpp
+src/source/Player.h
+src/source/Player.cpp
 src/source/NewSound.h
 src/source/NewSound.cpp
 src/source/Component.h
