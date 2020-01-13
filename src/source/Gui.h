@@ -13,7 +13,7 @@ class Core;
 class Gui
 {
 public:
-	Gui();
+	Gui(std::shared_ptr<Core> c);
 	~Gui();
 	std::shared_ptr<rend::Mesh>mesh;
 	glm::mat4 projMatrix;

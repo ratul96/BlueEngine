@@ -1,5 +1,4 @@
 #pragma once
-#include "Core.h"
 #include "Keyboard.h"
 #include<memory>
 #include<iostream>
@@ -7,8 +6,9 @@
 
 class Transform;
 class Resources;
+class Core;
 
-//class Entity;
+class Entity;
 
 class Component
 {

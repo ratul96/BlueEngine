@@ -1,23 +1,22 @@
 #pragma once
-#include"GL/glew.h"
-#include "Screen.h"
-#include "Keyboard.h"
-#include "Environment.h"
-#include "Gui.h"
-#include<rend/rend.h>
-#include<SDL2/SDL.h>
-#include<vector>
-#include<memory>
-#include<iostream>
+#include "GL/glew.h"
+#include "Entity.h"
+#include <rend/rend.h>
+#include <SDL2/SDL.h>
+#include <vector>
+#include <memory>
+#include <iostream>
 #include <AL/al.h>
 #include <AL/alc.h>
 
-
-class Entity;
+class Screen;
 class Component;
 class Resources;
 class Camera;
 class Lighting;
+class Keyboard;
+class Environment;
+class Gui;
 
 using namespace rend;
 /**
@@ -60,8 +59,8 @@ public:
 	std::shared_ptr<Keyboard>keyboard;
 	std::shared_ptr<Environment>environment;
 	std::shared_ptr<Environment>getEnvironment();
-	std::shared_ptr<Gui>getGui();
-	std::shared_ptr<Gui>gui;
+	std::shared_ptr<Gui> getGui();
+	std::shared_ptr<Gui> gui;
 	std::shared_ptr<Keyboard>getKeyboard();
 	static std::shared_ptr<Core> initialize();
 	void createScreen();

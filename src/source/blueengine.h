@@ -16,5 +16,7 @@
 #include "Lighting.h"
 #include "Shaders.h"
 #include "Player.h"
+#include "Gui.h"
+#include "Environment.h"
 
 #endif

@@ -1,7 +1,7 @@
 #include "Component.h"
 #include "Mesh.h"
 #include "Entity.h"
-
+#include "Core.h"
 
 Component::Component()
 {

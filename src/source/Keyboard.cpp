@@ -1,5 +1,4 @@
 #include "Keyboard.h"
-#include "Entity.h"
 
 bool Keyboard::getKeyLeft()
 {

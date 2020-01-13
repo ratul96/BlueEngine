@@ -2,12 +2,12 @@
 #include "Core.h"
 #include "Resources.h"
 
-Gui::Gui()
+Gui::Gui(std::shared_ptr<Core> c)
 {
+	core = c;
 	shader = getCore()->getResources()->load<Shaders>("../GuiShaders.txt");
 	buffer = getCore()->getContext()->createBuffer();
 	mesh = getCore()->getContext()->createMesh();
-	
 	
 	buffer->add(vec2(0, 0));
 	buffer->add(vec2(0, 1));

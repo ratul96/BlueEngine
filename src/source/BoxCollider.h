@@ -8,8 +8,8 @@ class BoxCollider : public Component
 public:
   void onInit();
 
-  void setOffset(glm::vec3& offset);
-  void setSize(glm::vec3& size);
+  void setOffset(glm::vec3 offset);
+  void setSize(glm::vec3 size);
 
 private:
   void onUpdate();

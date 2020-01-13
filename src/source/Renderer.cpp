@@ -1,4 +1,5 @@
 #include "Renderer.h"
+#include "Environment.h"
 #include<memory>
 
 /**
@@ -23,7 +24,8 @@ void Renderer::onDisplay()
 		rendsh->setUniform("Projection", cam->getProjMat());
 		rendsh->setUniform("View", cam->getViewMat());
 		rendsh->setUniform("lightPos",li->getLightPosition());
-		rendsh->setUniform("lightColor", li->getLightColour());
+		//rendsh->setUniform("lightColor", li->getLightColour());
+		rendsh->setUniform("lightColor", vec3(1, 0, 0));
 		rendsh->setUniform("objectColor", li->getColour());
 		rendMesh->setTexture("u_Texture", rendTex);
 		rendsh->setMesh(rendMesh);

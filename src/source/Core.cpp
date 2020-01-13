@@ -4,7 +4,9 @@
 #include "Entity.h"
 #include "Resources.h"
 #include "Camera.h"
-
+#include "Environment.h"
+#include "Screen.h"
+#include "Gui.h"
 
 std::shared_ptr<Core> Core::initialize()
 {
@@ -26,7 +28,7 @@ std::shared_ptr<Core> Core::initialize()
 	c->environment = std::make_shared<Environment>();
 	c->environment->core = c;
 
-	
+	c->gui = std::make_shared<Gui>(c);
 
 	return c;
 }
@@ -143,20 +145,22 @@ void Core::run()
 			
 		}
 
-		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		environment->Update();
 
 		for (int i = 0; i < entities.size(); i++)
 		{
 			entities.at(i)->onUpdate();
 		}
 		
-		
+		glClearColor(0.1f, 0.0f, 0.0f, 0.0f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		
 		for (int i = 0; i < entities.size(); i++)
 		{
 			entities.at(i)->onDisplay();
 		}
+
+		glClear(GL_DEPTH_BUFFER_BIT);
 
 		//Add onGui() here as well
 		for (int i = 0; i < entities.size(); i++)

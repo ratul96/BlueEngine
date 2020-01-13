@@ -9,12 +9,12 @@ void BoxCollider::onInit()
   lastPosition = getEntity()->getComponent<Transform>()->GetPosition();
 }
 
-void BoxCollider::setOffset(glm::vec3& offset)
+void BoxCollider::setOffset(glm::vec3 offset)
 {
   this->offset = offset;
 }
 
-void BoxCollider::setSize(glm::vec3& size)
+void BoxCollider::setSize(glm::vec3 size)
 {
   this->size = size;
 }

@@ -1,6 +1,5 @@
 #pragma once
-#include "Component.h"
-#include "Material.h"
+#include <source/blueengine.h>
 #include<memory>
 
 class Player :public Component

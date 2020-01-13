@@ -9,6 +9,7 @@ std::shared_ptr<Core>Environment::getCore()
 
 void Environment::Update()
 {
+	std::cout << "Abc" << std::endl;
 	unsigned int current = SDL_GetTicks();
 	deltaTs = (float)(current -(getCore()->lastTime)) / 1000.0f;    /**Calculating change in time between previous frame and current frame
 																	*/

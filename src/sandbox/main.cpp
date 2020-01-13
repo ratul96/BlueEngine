@@ -10,20 +10,23 @@
 struct Orbiter :public Component
 {
 	float lightX, lightY, lightZ;
+	float rot;
 
 	void onInit()
 	{
+		rot = 0;
 		lightX = 0;
 		lightY = 0;
 		lightZ = 0;
 	}
 	void onUpdate()
 	{
-		
+		rot += 90 * getCore()->getEnvironment()->getDeltaTime();
 		getEntity()->getComponent<Transform>()->SetPosition(lightX, lightY, lightZ);
-		lightX = sin(SDL_GetTicks()) * 1.2f;
+		getEntity()->getComponent<Transform>()->SetRotation(0, rot, 0);
+		lightX = sin(SDL_GetTicks()) * 1.2f * getCore()->getEnvironment()->getDeltaTime();
 		lightY = -0.3f;
-		lightZ = cos(SDL_GetTicks()) * 1.5f;
+		lightZ = cos(SDL_GetTicks()) * 1.5f * getCore()->getEnvironment()->getDeltaTime();
 	}
 };
 
@@ -68,7 +71,7 @@ int main()
 	std::shared_ptr<Camera> camera = ce->addComponent<Camera>(); /*Adding Camera component
 																 *
 																 */
-	//ce->addComponent<Player>();
+	ce->addComponent<Player>();
 	//entity->addComponent<Rotator>();
 	std::shared_ptr<BoxCollider>bc=bcentity->addComponent<BoxCollider>();
 	std::shared_ptr<BoxCollider>bc2 = entity->addComponent<BoxCollider>();
@@ -86,6 +89,7 @@ int main()
 	std::shared_ptr<MeshComponent>me = core->getResources()->load<MeshComponent>("../curuthers.obj");
 	std::shared_ptr<Material>m = core->getResources()->loadTexture<Material>("../Whiskers.png");
 	std::shared_ptr<Shaders>sh = core->getResources()->load<Shaders>("../Shaders.txt");
+	std::shared_ptr<Shaders>shnl = core->getResources()->load<Shaders>("../ShadersNoLighting.txt");
 	// TODO
 	tr->setMesh(me);
 	tr2->setMesh(me);
@@ -93,6 +97,7 @@ int main()
 	tr2->setMaterial(m);
 	tr->setShaders(sh);
 	tr2->setShaders(sh);
+	//tr2->setShaders(shnl);
 	//audio->setSound(so);
 
 	core->run();
