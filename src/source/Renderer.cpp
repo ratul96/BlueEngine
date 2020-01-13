@@ -1,24 +1,17 @@
 #include "Renderer.h"
 #include<memory>
 
-
+/**
+* \ brief Initializing Renderer with shaders and buffer initialization
+*
+*/
 void Renderer::onInit()
 {
-
-
-	
-
-	
-
-	
 	rendsh = std::make_shared<rend::Shader>();
 	b = std::make_shared<rend::Buffer>();
 	
 
 	b = getCore()->getContext()->createBuffer(); // create buffer
-	
-	
-	
 }
 void Renderer::onDisplay()
 {
@@ -124,7 +117,7 @@ void Renderer::onUpdate()
 	{
 		cam->ChangeCameraAngleX(getCore()->getEnvironment()->getDeltaTime()*-0.01f);
 	}
-	//li->setLightPosition(1.2f, 2.0f);
+	li->setLightPosition();
 }
 
 void Renderer::setMesh(std::shared_ptr<MeshComponent>_mesh)

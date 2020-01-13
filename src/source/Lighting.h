@@ -20,7 +20,7 @@ public:
 
 	glm::vec3 lightPosition;
 
-	void setLightPosition(float x,float y);
+	void setLightPosition();
 
 	glm::vec3 getLightPosition();
 

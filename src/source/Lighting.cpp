@@ -19,14 +19,13 @@ glm::vec3 Lighting::getLightColour()
 	return lightColour;
 }
 
-void Lighting::setLightPosition(float x,float y)
+void Lighting::setLightPosition()
 {
-	lightPosition.x = x;
-	lightPosition.y = y;
-	lightPosition.z=-0.3f;
+	lightPosition.x = sin(SDL_GetTicks()) * 1.2f;
+	lightPosition.y = -0.3f;
+	lightPosition.z= cos(SDL_GetTicks()) * 1.5f;
 }
 glm::vec3 Lighting::getLightPosition()
 {
-	
 	return lightPosition;
 }

@@ -2,6 +2,11 @@
 #include <iostream>
 #include <memory>
 
+/**
+* \ brief Orbiter component having both the object and the light revolve around a static object
+*
+*/
+
 struct Orbiter :public Component
 {
 	float lightX, lightY, lightZ;

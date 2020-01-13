@@ -15,6 +15,10 @@
 #include<memory>
 #include <exception>
 
+/**
+* \ brief Renderer component. This will be attached to every Entity for it to be displayed on screen.
+*
+*/
 
 
 using namespace rend;
