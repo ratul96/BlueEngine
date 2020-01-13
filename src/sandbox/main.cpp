@@ -2,10 +2,34 @@
 #include <iostream>
 #include <memory>
 
+struct Orbiter :public Component
+{
+	float lightX, lightY, lightZ;
+
+	void onInit()
+	{
+		lightX = 0;
+		lightY = 0;
+		lightZ = 0;
+	}
+	void onUpdate()
+	{
+		
+		getEntity()->getComponent<Transform>()->SetPosition(lightX, lightY, lightZ);
+		lightX = sin(SDL_GetTicks()) * 1.2f;
+		lightY = -0.3f;
+		lightZ = cos(SDL_GetTicks()) * 1.5f;
+	}
+};
+
 
 
 int main()
 {
+	/**
+	* \brief Initializing Core
+	*
+	*/
 	std::shared_ptr<Core> core = Core::initialize();
 
 	/**
@@ -13,15 +37,23 @@ int main()
 	*
 	*/
 
-	std::shared_ptr<Entity> ce = core->addEntity();    
-
-	std::shared_ptr<Entity>light = core->addEntity();   /*Add Light Entity
-														*
-														*/
-	std::shared_ptr<Entity> entity = core->addEntity();   /*Add Object Entity
-														  *
-														  */
+	std::shared_ptr<Entity> ce = core->addEntity();   
+	/**
+	* \brief Add Light Entity
+	*
+	*/
+	std::shared_ptr<Entity>light = core->addEntity();
+	/**
+	* \brief Add Player Entity
+	*
+	*/
+	std::shared_ptr<Entity> entity = core->addEntity();
+	/**
+	* \brief Add BoxCollider Entity
+	*
+	*/
 	std::shared_ptr<Entity>bcentity = core->addEntity();
+
 	std::shared_ptr<Lighting>lighting = light->addComponent<Lighting>();  /*Add Lighting Component to Light Entity
 																		  *
 																		  */
@@ -31,11 +63,12 @@ int main()
 	std::shared_ptr<Camera> camera = ce->addComponent<Camera>(); /*Adding Camera component
 																 *
 																 */
-	entity->addComponent<Rotator>();
+	//ce->addComponent<Player>();
+	//entity->addComponent<Rotator>();
 	std::shared_ptr<BoxCollider>bc=bcentity->addComponent<BoxCollider>();
 	std::shared_ptr<BoxCollider>bc2 = entity->addComponent<BoxCollider>();
-	bcentity->getComponent<Transform>()->SetPosition(0, 0,1);
-	bc->setSize(vec3(5, 5, 5));
+	bcentity->addComponent<Orbiter>();
+	bc->setSize(vec3(1, 1, 1));
 	bc->setOffset(vec3(0, 0, 3));
 	/*bc2->setSize(vec3(20, 20, 20));
 	bc2->setOffset(vec3(0, 0, 2));*/

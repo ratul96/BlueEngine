@@ -31,6 +31,7 @@ void Transform:: SetPosition(float positionX, float positionY, float positionZ)
 	position.z = positionZ;
 }
 
+
 glm::mat4 Transform::getInvModelMat()
 {
 	invmodelMatrix = glm::rotate(glm::mat4(1.0f), -rotation.y, glm::vec3(0, 1, 0));

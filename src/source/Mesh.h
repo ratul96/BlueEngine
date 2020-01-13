@@ -13,8 +13,7 @@ using namespace rend;
 class MeshComponent :public Resource
 {
 public:
-	MeshComponent();
-	~MeshComponent();
+	
 
 	std::shared_ptr<Context> context;
 	std::shared_ptr<Mesh>mesh;

@@ -6,20 +6,16 @@
 void Lighting::onInit()
 {
 	getEntity()->getCore()->lights.push_back(getEntity()->getComponent<Lighting>());
-	
-	
 }
 
 glm::vec3 Lighting::getColour()
 {
-	objectColour=glm::vec3(1.0f, 1.0f, 1.0f);
+	objectColour=glm::vec3(1.0f, 0.5f, 0.31f);
 	return objectColour;
 }
 glm::vec3 Lighting::getLightColour()
 {
-	lightColour.x = sin(SDL_GetTicks()*2.0f);
-	lightColour.y = sin(SDL_GetTicks()*0.7f);
-	lightColour.z = sin(SDL_GetTicks()*1.3f);
+	lightColour = glm::vec3(1.0f, 1.0f, 1.0f);
 	return lightColour;
 }
 
@@ -28,8 +24,6 @@ void Lighting::setLightPosition(float x,float y)
 	lightPosition.x = x;
 	lightPosition.y = y;
 	lightPosition.z=-0.3f;
-
-	
 }
 glm::vec3 Lighting::getLightPosition()
 {

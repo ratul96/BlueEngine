@@ -11,6 +11,7 @@
 #include "source/Material.h"
 #include "Shaders.h"
 #include "Lighting.h"
+#include "Material.h"
 #include<memory>
 #include <exception>
 
@@ -26,6 +27,7 @@ public:
 	void onInit();
 	void onDisplay();
 	void onUpdate();
+
 	
 
 

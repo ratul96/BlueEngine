@@ -15,5 +15,6 @@
 #include "BoxCollider.h"
 #include "Lighting.h"
 #include "Shaders.h"
+#include "Player.h"
 
 #endif

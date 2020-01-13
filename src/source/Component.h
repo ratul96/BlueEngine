@@ -25,6 +25,7 @@ public:
 	virtual void onUpdate();
 	virtual void onInit();
 	virtual void onDisplay();
+	virtual void onGui();
 	
 	
 

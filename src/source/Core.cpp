@@ -26,6 +26,8 @@ std::shared_ptr<Core> Core::initialize()
 	c->environment = std::make_shared<Environment>();
 	c->environment->core = c;
 
+	
+
 	return c;
 }
 
@@ -156,7 +158,11 @@ void Core::run()
 			entities.at(i)->onDisplay();
 		}
 
-
+		//Add onGui() here as well
+		for (int i = 0; i < entities.size(); i++)
+		{
+			entities.at(i)->onGui();
+		}
 
 		SDL_GL_SwapWindow(screen->window);
 	}

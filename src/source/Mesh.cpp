@@ -4,16 +4,6 @@
 #include <iostream>
 #include <exception>
 
-MeshComponent::MeshComponent()
-{
-	// use on init
-	/*mesh = context->createMesh();*/
-		 
-}
-MeshComponent::~MeshComponent()
-{
-
-}
 std::shared_ptr<Core>MeshComponent::getCore()
 {
 	return core.lock();

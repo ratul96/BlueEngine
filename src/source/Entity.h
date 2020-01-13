@@ -73,7 +73,7 @@ public:
 	void onUpdate();
 	void onInit();
 	void onDisplay();
-
+	void onGui();
 
 
 };

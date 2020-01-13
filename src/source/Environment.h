@@ -11,5 +11,6 @@ private:
 public:
 	float getDeltaTime();
 	std::shared_ptr<Core>getCore();
+	void Update();
 	std::weak_ptr<Core>core;
 };

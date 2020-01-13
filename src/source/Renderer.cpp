@@ -22,11 +22,6 @@ void Renderer::onInit()
 }
 void Renderer::onDisplay()
 {
-	
-	
-
-	
-
 		
 		std::shared_ptr<Transform> tr = getEntity()->getComponent<Transform>();
 		std::shared_ptr<Camera>cam = getEntity()->getCore()->getCurrentCamera();
@@ -35,16 +30,11 @@ void Renderer::onDisplay()
 		rendsh->setUniform("Projection", cam->getProjMat());
 		rendsh->setUniform("View", cam->getViewMat());
 		rendsh->setUniform("lightPos",li->getLightPosition());
-		//rendsh->setUniform("lightColor", li->getLightColour());
+		rendsh->setUniform("lightColor", li->getLightColour());
 		rendsh->setUniform("objectColor", li->getColour());
 		rendMesh->setTexture("u_Texture", rendTex);
 		rendsh->setMesh(rendMesh);
 		rendsh->render();
-
-		
-
-		
-	
 
 }
 void Renderer::onUpdate()
@@ -136,6 +126,7 @@ void Renderer::onUpdate()
 	}
 	//li->setLightPosition(1.2f, 2.0f);
 }
+
 void Renderer::setMesh(std::shared_ptr<MeshComponent>_mesh)
 {
 	                                                            /**Setting the instance of Rend::Mesh inside Renderer to be equivalent to Rend::Mesh inside MeshComponent 
