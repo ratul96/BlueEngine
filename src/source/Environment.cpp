@@ -5,8 +5,6 @@ std::shared_ptr<Core>Environment::getCore()
 {
 	return core.lock();
 }
-
-
 void Environment::Update()
 {
 	

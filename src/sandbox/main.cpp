@@ -27,6 +27,8 @@ struct Orbiter :public Component
 		lightX = sin((getCore()->getEnvironment()->getDeltaTime())*SDL_GetTicks()) * 2.0f;
 		lightY = -0.3f;
 		lightZ = cos((getCore()->getEnvironment()->getDeltaTime())*SDL_GetTicks()) * 2.5f;
+
+		
 	}
 };
 
@@ -57,14 +59,12 @@ int main()
 	*/
 	std::shared_ptr<Entity> entity = core->addEntity();
 	/**
-	* \brief Add BoxCollider Entity
+	*\brief Add Lighting Component
 	*
-	*/
-	std::shared_ptr<Entity>bcentity = core->addEntity();
+	*/																	  
 
-	std::shared_ptr<Lighting>lighting = light->addComponent<Lighting>();  /*Add Lighting Component to Light Entity
-																		  *
-																		  */
+	std::shared_ptr<Lighting>lighting = light->addComponent<Lighting>();  
+
 	ce->getComponent<Transform>()->SetPosition(0, 0, 10);	/* Setting position of camera
 															*
 															*/
@@ -75,22 +75,22 @@ int main()
 	//entity->addComponent<Rotator>();
 	/*std::shared_ptr<BoxCollider>bc=bcentity->addComponent<BoxCollider>();
 	std::shared_ptr<BoxCollider>bc2 = entity->addComponent<BoxCollider>();*/
-	bcentity->addComponent<Orbiter>();
+	light->addComponent<Orbiter>();
 	/*bc->setSize(vec3(0.1, 0.1, 0.1));
 	bc->setOffset(vec3(0, 0, 3));*/
 	/*bc2->setSize(vec3(20, 20, 20));
 	bc2->setOffset(vec3(0, 0, 2));*/
 	
 	std::shared_ptr<Renderer> tr = entity->addComponent<Renderer>();
-	std::shared_ptr<Renderer>tr2 = bcentity->addComponent<Renderer>();
+	std::shared_ptr<Renderer>tr2 = light->addComponent<Renderer>();
 	std::shared_ptr<Audio> audio = entity->addComponent<Audio>();
 	//call load function here
 	//std::shared_ptr<NewSound> so = core->getResources()->load<NewSound>("../dixie_horn.ogg");
 	std::shared_ptr<MeshComponent>me = core->getResources()->load<MeshComponent>("../curuthers.obj");
 	std::shared_ptr<Material>m = core->getResources()->loadTexture<Material>("../Whiskers.png");
 	
-	std::shared_ptr<Shaders>sh = core->getResources()->load<Shaders>("../NormalShaders.txt");
-	std::shared_ptr<Shaders>sh2= core->getResources()->load<Shaders>("../Shaders.txt");
+	std::shared_ptr<Shaders>sh = core->getResources()->load<Shaders>("../Shaders.txt");
+	std::shared_ptr<Shaders>sh2= core->getResources()->load<Shaders>("../NormalShaders.txt");
 	// TODO
 	tr->setMesh(me);
 	tr2->setMesh(me);

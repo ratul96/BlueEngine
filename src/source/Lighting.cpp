@@ -3,6 +3,8 @@
 #include "Core.h"
 #include "Resources.h"
 #include "Environment.h"
+#include "Transform.h"
+#include "Camera.h"
 
 void Lighting::onInit()
 {
@@ -23,18 +25,20 @@ glm::vec3 Lighting::getLightColour()
 
 void Lighting::setLightPosition()
 {
-	lightPosition.x = sin(SDL_GetTicks()) * 1.2f;
+	lightPosition.x = sin((getEntity()->getCore()->getEnvironment()->getDeltaTime())*SDL_GetTicks()) * 1.2f;
 	lightPosition.y = -0.3f;
-	lightPosition.z= cos(SDL_GetTicks()) * 1.5f;
+	lightPosition.z= cos((getEntity()->getCore()->getEnvironment()->getDeltaTime())*SDL_GetTicks()) * 1.5f;
 }
 glm::vec3 Lighting::getLightPosition()
 {
 	return lightPosition;
+	
 }
 void Lighting::onDisplay()
 {
 	
 	shader->sh->setUniform("lightPos", getLightPosition());
-	shader->sh->setUniform("lightColor", vec3(0, 0, 0));
+	shader->sh->setUniform("lightColor", vec3(0, 0, 2));
 	shader->sh->setUniform("objectColor", getColour());
+	
 }

@@ -13,9 +13,18 @@ public:
 	template <typename T>
 	std::shared_ptr<T> load(std::string path)
 	{
+		for (size_t ri = 0; ri < resources.size(); ri++)
+		{
+			if (resources.at(ri)->path == path)
+			{
+				return std::dynamic_pointer_cast<T>(resources.at(ri));
+			}
+		}
 		std::shared_ptr<T>re = std::make_shared<T>();
 		re->core = core;
+		re->path = path;
 		re->onLoad(path);
+		resources.push_back(re);
 
 		return re;
 	}
