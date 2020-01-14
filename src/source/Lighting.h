@@ -5,11 +5,13 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <SDL2/SDL.h>
+#include "Shaders.h"
 
-class Lighting :public Component
+class Lighting:public Component
 {
 public:
 	void onInit();
+	void onDisplay();
 	glm::vec3 objectColour;
 
 	glm::vec3 getColour();
@@ -23,5 +25,7 @@ public:
 	void setLightPosition();
 
 	glm::vec3 getLightPosition();
+
+	std::shared_ptr<Shaders>shader;
 
 };

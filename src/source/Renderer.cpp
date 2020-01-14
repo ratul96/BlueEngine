@@ -23,10 +23,11 @@ void Renderer::onDisplay()
 		rendsh->setUniform("Model", tr->getModelMat());
 		rendsh->setUniform("Projection", cam->getProjMat());
 		rendsh->setUniform("View", cam->getViewMat());
-		rendsh->setUniform("lightPos",li->getLightPosition());
-		//rendsh->setUniform("lightColor", li->getLightColour());
+		/*rendsh->setUniform("lightPos", li->getLightPosition());
 		rendsh->setUniform("lightColor", vec3(1, 0, 0));
-		rendsh->setUniform("objectColor", li->getColour());
+		rendsh->setUniform("objectColor", li->getColour());*/
+		//rendsh->setUniform("lightColor", li->getLightColour());
+		
 		rendMesh->setTexture("u_Texture", rendTex);
 		rendsh->setMesh(rendMesh);
 		rendsh->render();
@@ -104,7 +105,7 @@ void Renderer::onUpdate()
 	}
 	if (getKeyBoard()->RotateLeft&!getKeyBoard()->RotateRight)
 	{
-		cam->ChangeCameraAngleY(getCore()->getEnvironment()->getDeltaTime()*0.01f);
+		cam->ChangeCameraAngleY(getCore()->getEnvironment()->getDeltaTime()*1.0f);
 	}
 	else if (getKeyBoard()->RotateRight & !getKeyBoard()->RotateLeft)
 	{
@@ -136,6 +137,8 @@ void Renderer::setMaterial(std::shared_ptr<Material>material)
 void Renderer::setShaders(std::shared_ptr<Shaders>sh)
 {
 	this->rendsh = sh->sh;
+	//sh->Apply();
+	
 }
 
 

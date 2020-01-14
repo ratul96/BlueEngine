@@ -18,5 +18,5 @@ public:
 	std::shared_ptr<rend::Shader>sh;
 	std::shared_ptr<Core>getCore();
 	void onLoad(std::string &path);
-	
+	//void Apply();
 };

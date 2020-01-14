@@ -10,6 +10,6 @@ void Player::onInit()
 }
 void Player::onGui()
 {
-	std::cout << "Displaying: " << getCore()->getGui() << std::endl;
+	
 	getCore()->getGui()->texture(glm::vec4(10,10,100,100), logo);
 }

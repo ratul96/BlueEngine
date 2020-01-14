@@ -31,11 +31,6 @@ public:
 	void onInit();
 	void onDisplay();
 	void onUpdate();
-
-	
-
-
-	//std::shared_ptr<Context> context; // make rend context
 	
 	std::sr1::shared_ptr<rend::Shader> rendsh;
 	std::sr1::shared_ptr<rend::Buffer>b;
