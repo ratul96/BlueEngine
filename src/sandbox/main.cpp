@@ -1,4 +1,4 @@
-#include "source/blueengine.h"
+#include "BlueEngine/blueengine.h"
 #include <iostream>
 #include <memory>
 
@@ -62,12 +62,12 @@ int main()
 	*\brief Add Lighting Component
 	*
 	*/																	  
-
 	std::shared_ptr<Lighting>lighting = light->addComponent<Lighting>();  
-
-	ce->getComponent<Transform>()->SetPosition(0, 0, 10);	/* Setting position of camera
-															*
-															*/
+	/**
+	*\brief Setting Position of the camera
+	*
+	*/
+	ce->getComponent<Transform>()->SetPosition(0, 0, 10);	
 	std::shared_ptr<Camera> camera = ce->addComponent<Camera>(); /*Adding Camera component
 																 *
 																 */
