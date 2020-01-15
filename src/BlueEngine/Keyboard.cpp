@@ -4,9 +4,10 @@ Keyboard::Keyboard()
 {
 	
 }
-void Keyboard::Initialise()
+std::shared_ptr<Keyboard> Keyboard::Initialise()
 {
-	const Uint8 *key = SDL_GetKeyboardState(NULL);
+	std::shared_ptr<Keyboard>rtn = std::make_shared<Keyboard>();
+	return rtn;
 }
 Keyboard::~Keyboard()
 {
@@ -19,18 +20,23 @@ void Keyboard::isKey(int key)
 	while (SDL_PollEvent(&event))
 	{
 		
-		if (event.type = SDL_KEYDOWN)
+		if (event.type == SDL_KEYDOWN)
 		{
 			if (event.key.keysym.sym == key)
 			{
-				for (int i = 0; i < pressedKeys.size(); i++)
-				{
-					pressedKeys.push_back(key);
+				pressedKeys.push_back(key);
 
-				}
 			}
 
 		}
+		else if (event.type == SDL_KEYUP)
+		{
+			if (event.key.keysym.sym == key)
+			{
+				pressedKeys.pop_back();
+			}
+		}
+		
 
 
 	}
@@ -41,8 +47,9 @@ bool Keyboard::getKey(int _key)
 	{
 		if (pressedKeys.at(i) == _key)
 		{
+			
 			return true;
-			std::cout << "Pressed" << std::endl;
+			
 		}
 		return false;
 	}

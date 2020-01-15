@@ -7,6 +7,7 @@
 #include "Environment.h"
 #include "Screen.h"
 #include "Gui.h"
+#include "Keyboard.h"
 
 std::shared_ptr<Core> Core::initialize()
 {
@@ -16,7 +17,7 @@ std::shared_ptr<Core> Core::initialize()
 	c->createScreen();
 	c->audioInit();
 	
-	
+	c->keyboard=Keyboard::Initialise();
 
 	c->graphicsContext = Context::initialize();
 	

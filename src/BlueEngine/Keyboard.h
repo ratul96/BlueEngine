@@ -11,7 +11,7 @@ class Keyboard
 public:
 	Keyboard();
 	~Keyboard();
-	void Initialise();
+	static std::shared_ptr<Keyboard> Initialise();
 	void isKey(int key);
 	bool getKey(int _key);
 	const Uint8 *key;

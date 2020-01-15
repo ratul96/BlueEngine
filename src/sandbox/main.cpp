@@ -78,7 +78,7 @@ int main()
 	light->addComponent<Orbiter>();
 	/*bc->setSize(vec3(0.1, 0.1, 0.1));
 	bc->setOffset(vec3(0, 0, 3));*/
-	/*bc2->setSize(vec3(20, 20, 20));
+	/*bc2->setSize(vec3(20, 20, 20)); 
 	bc2->setOffset(vec3(0, 0, 2));*/
 	
 	std::shared_ptr<Renderer> tr = entity->addComponent<Renderer>();
