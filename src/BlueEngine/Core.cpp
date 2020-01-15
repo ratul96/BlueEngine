@@ -133,30 +133,7 @@ void Core::run()
 	bool quit = false; 
 	while (!quit)
 	{
-		event = { 0 };
-		while (SDL_PollEvent(&event))
-		{
-
-			if (event.type == SDL_QUIT)
-			{
-				quit = true;
-				
-			}
-			if(event.type=SDL_KEYDOWN)
-			{
-				switch (event.key.keysym.sym)
-				{
-					case SDLK_LEFT:
-					{
-					keyboard->getKey(SDLK_LEFT);
-					break;
-					}
-					
-				}
-			}
-			
-			
-		}
+		
 
 		environment->Update();
 
