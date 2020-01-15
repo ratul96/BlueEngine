@@ -2,13 +2,17 @@
 
 Keyboard::Keyboard()
 {
-	key = SDL_GetKeyboardState(NULL);
+	
+}
+void Keyboard::Initialise()
+{
+	const Uint8 *key = SDL_GetKeyboardState(NULL);
 }
 Keyboard::~Keyboard()
 {
 
 }
-void Keyboard::isKey()
+void Keyboard::isKey(int key)
 {
 	SDL_Event event = { 0 };
 
@@ -17,36 +21,29 @@ void Keyboard::isKey()
 		
 		if (event.type = SDL_KEYDOWN)
 		{
-			for (auto&i : ListOfKeys)
+			if (event.key.keysym.sym == key)
 			{
-				if (event.key.keysym.sym == i)
+				for (int i = 0; i < pressedKeys.size(); i++)
 				{
+					pressedKeys.push_back(key);
 
 				}
 			}
-			
-			{
-			case SDLK_LEFT:
-			{
-				//keyboard->getKey(SDLK_LEFT);
-				break;
-			}
 
-			}
 		}
 
 
 	}
 }
-bool Keyboard::getKey(int key)
+bool Keyboard::getKey(int _key)
 {
-	for (size_t i = 0; pressedKeys.size(); i++)
+	for (size_t i = 0; i < pressedKeys.size(); i++)
 	{
-		pressedKeys.push_back(key);
-		if (pressedKeys.at(i) == key)
+		if (pressedKeys.at(i) == _key)
 		{
 			return true;
+			std::cout << "Pressed" << std::endl;
 		}
+		return false;
 	}
-	return false;
 }

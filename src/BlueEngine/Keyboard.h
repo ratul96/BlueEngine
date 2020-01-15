@@ -11,8 +11,9 @@ class Keyboard
 public:
 	Keyboard();
 	~Keyboard();
-	bool getKey(int key);
-	void isKey();
+	void Initialise();
+	void isKey(int key);
+	bool getKey(int _key);
 	const Uint8 *key;
 	std::vector<int>pressedKeys;
 	std::vector<int>keys;

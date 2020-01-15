@@ -134,8 +134,10 @@ void Core::run()
 	while (!quit)
 	{
 		
-
 		environment->Update();
+
+		keyboard->isKey(SDLK_LEFT);
+		
 
 		for (int i = 0; i < entities.size(); i++)
 		{

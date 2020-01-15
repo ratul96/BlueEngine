@@ -36,15 +36,8 @@ glm::mat4 Camera::getViewMat()
 }
 void Camera::onUpdate()
 {
-	
-		if (getCore()->getKeyboard()->getKey(SDLK_LEFT))
-		{
-			std::cout << "Left" << std::endl;
-		}
-
-	if (getKeyBoard()->RotateLeft & !getKeyBoard()->RotateRight)
+	if (getCore()->getKeyboard()->getKey(SDLK_LEFT))
 	{
-		ChangeCameraAngleY(getCore()->getEnvironment()->getDeltaTime()*1.0f);
+		std::cout << "working" << std::endl;
 	}
-
 }
