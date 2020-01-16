@@ -13,28 +13,37 @@ Keyboard::~Keyboard()
 {
 
 }
-void Keyboard::isKey(int key)
+void Keyboard::isKey()
 {
-	SDL_Event event = { 0 };
+	//SDL_Event event = { 0 };
 
 	while (SDL_PollEvent(&event))
 	{
 		
 		if (event.type == SDL_KEYDOWN)
 		{
-			if (event.key.keysym.sym == key)
+			if (event.key.keysym.sym == SDLK_LEFT)
 			{
-				pressedKeys.push_back(key);
+				pressedKeys.push_back(SDLK_LEFT);
 
 			}
-			
+			if (event.key.keysym.sym == SDLK_RIGHT)
+			{
+				pressedKeys.push_back(SDLK_RIGHT);
+
+			}
 		}
 		else if (event.type == SDL_KEYUP)
 		{
-			if (event.key.keysym.sym == key)
+			if (event.key.keysym.sym == SDLK_LEFT)
 			{
-				releasedKeys.push_back(key);
-				
+				releasedKeys.push_back(SDLK_LEFT);
+
+			}
+			if (event.key.keysym.sym == SDLK_RIGHT)
+			{
+				releasedKeys.push_back(SDLK_RIGHT);
+
 			}
 		}
 		

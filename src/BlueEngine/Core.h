@@ -42,6 +42,8 @@ private:
 */
 
 	std::vector<std::weak_ptr<Lighting>>lights;
+
+	
 	
 public:
 	ALCdevice* device;   

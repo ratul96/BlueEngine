@@ -9,7 +9,7 @@
 void Lighting::onInit()
 {
 	getEntity()->getCore()->lights.push_back(getEntity()->getComponent<Lighting>());
-	shader = getCore()->getResources()->load<Shaders>("../Shaders.txt");
+	shader = getCore()->getResources()->load<Shaders>(getCore()->getEnvironment()->getRootDirectory() + "\\Shaders.txt");
 }
 
 glm::vec3 Lighting::getColour()

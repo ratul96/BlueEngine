@@ -52,13 +52,14 @@ void Camera::onUpdate()
 	if (getCore()->getKeyboard()->getKey(SDLK_LEFT))
 	{
 		std::cout << "working" << std::endl;
+		ChangeCameraAngleY(getCore()->getEnvironment()->getDeltaTime()*-2.0f);
 		getCore()->getKeyboard()->clearKeys();
 	}
 	
 	if (getCore()->getKeyboard()->getKey(SDLK_RIGHT))
 	{
 		std::cout << "Right Working" << std::endl;
-		ChangeCameraAngleY(getCore()->getEnvironment()->getDeltaTime()*5.0f);
+		ChangeCameraAngleY(getCore()->getEnvironment()->getDeltaTime()*2.0f);
 		getCore()->getKeyboard()->clearKeys();
 	}
 }

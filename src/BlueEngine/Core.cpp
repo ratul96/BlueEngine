@@ -179,8 +179,9 @@ void Core::run()
 		
 		environment->Update();
 
-		keyboard->isKey(SDLK_RIGHT);
-
+		
+		keyboard->isKey();
+		
 		for (int i = 0; i < entities.size(); i++)
 		{
 			entities.at(i)->onUpdate();

@@ -7,6 +7,11 @@
 #include <SDL2/SDL.h>
 #include "Shaders.h"
 
+/**
+* \ brief Lighting Component. Feature implemented for Tech Demo for user to play around with different lighting properties.Currently it features a light that moves around every frame with time.
+*
+*/
+
 class Lighting:public Component
 {
 public:

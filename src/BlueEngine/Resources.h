@@ -4,6 +4,11 @@
 #include<vector>
 #include<iostream>
 
+/**
+* \ brief Resources and Caching system for loading in the correct file and avoiding loading same file twice
+*
+*/
+
 class Core;
 
 class Resources

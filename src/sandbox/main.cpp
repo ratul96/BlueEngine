@@ -85,12 +85,13 @@ int main()
 	std::shared_ptr<Renderer>tr2 = light->addComponent<Renderer>();
 	std::shared_ptr<Audio> audio = entity->addComponent<Audio>();
 	//call load function here
-	//std::shared_ptr<NewSound> so = core->getResources()->load<NewSound>("../dixie_horn.ogg");
-	std::shared_ptr<MeshComponent>me = core->getResources()->load<MeshComponent>("../curuthers.obj");
-	std::shared_ptr<Material>m = core->getResources()->loadTexture<Material>("../Whiskers.png");
+	std::shared_ptr<NewSound> so = core->getResources()->load<NewSound>(core->getEnvironment()->getRootDirectory()+"\\dixie_horn.ogg");
+	std::shared_ptr<MeshComponent>me = core->getResources()->load<MeshComponent>(core->getEnvironment()->getRootDirectory()+"\\curuthers.obj");
+	std::string test = core->getEnvironment()->getRootDirectory() + "\\Whiskers.png";
+	std::shared_ptr<Material>m = core->getResources()->loadTexture<Material>(test.c_str());
 	
-	std::shared_ptr<Shaders>sh = core->getResources()->load<Shaders>("../Shaders.txt");
-	std::shared_ptr<Shaders>sh2= core->getResources()->load<Shaders>("../NormalShaders.txt");
+	std::shared_ptr<Shaders>sh = core->getResources()->load<Shaders>(core->getEnvironment()->getRootDirectory()+"\\Shaders.txt");
+	std::shared_ptr<Shaders>sh2= core->getResources()->load<Shaders>(core->getEnvironment()->getRootDirectory()+"\\NormalShaders.txt");
 	// TODO
 	tr->setMesh(me);
 	tr2->setMesh(me);

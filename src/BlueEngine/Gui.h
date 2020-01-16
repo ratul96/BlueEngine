@@ -8,6 +8,12 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+/**
+* \ brief Graphics User Interface Class. Implementing a basic faeture for GUI
+*
+*/
+
+
 class Core;
 
 class Gui

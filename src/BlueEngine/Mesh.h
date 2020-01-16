@@ -6,6 +6,11 @@
 #include<memory>
 #include<iostream>
 
+/**
+* \ brief Material Resource Class used primarily for loading in Texture resources
+*
+*/
+
 class Core;
 
 using namespace rend;

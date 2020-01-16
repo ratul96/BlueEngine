@@ -6,6 +6,10 @@
 #include<GL/glew.h>
 #include<glm/glm.hpp>
 
+/**
+* \ brief Material Resource Class used primarily for loading in Texture resources
+*
+*/
 
 class Core;
 
