@@ -20,6 +20,12 @@
 
 class NewSound;
 
+/**
+* \ brief Audio class for loading audio feature
+*
+*/
+
+
 class Audio :public Component
 {
 public:

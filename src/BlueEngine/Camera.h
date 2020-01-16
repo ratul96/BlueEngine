@@ -7,6 +7,10 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+/**
+* \ brief Class implementing Camera as a component feature for BlueEngine. Core has an instance for individual cameras to implement multiple cameras for the future.
+*
+*/
 class Camera:public Component
 {
 public:

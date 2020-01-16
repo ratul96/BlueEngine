@@ -3,6 +3,12 @@
 #include "GL/glew.h"
 #include<glm/glm.hpp>
 
+/**
+* \ brief Collision Detection detected by BoxCollider Component
+*
+*/
+
+
 class BoxCollider : public Component
 {
 public:

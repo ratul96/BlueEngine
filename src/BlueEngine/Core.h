@@ -20,7 +20,8 @@ class Gui;
 
 using namespace rend;
 /**
-*Represents Engine core.All the functionalities are passed through and implemented here
+* \brief Represents Engine core.All the functionalities are passed through and implemented here.
+*
 */
 
 class Core
@@ -28,11 +29,18 @@ class Core
 private:
 	friend class Camera;
 	friend class Lighting;
-	//Core();
-	//~Core();
-	std::vector<std::weak_ptr<Camera> > cameras;  /**
-												 *Initializing camera within Core
-												 */
+/**
+*\ brief Initializing camera within Core. declaring vector of cameras.
+*
+*/
+
+	std::vector<std::weak_ptr<Camera> > cameras;
+
+/**
+*\ brief Initializing Light within Core. declaring vector of Lights.
+*
+*/
+
 	std::vector<std::weak_ptr<Lighting>>lights;
 	
 public:

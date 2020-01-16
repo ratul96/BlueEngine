@@ -9,6 +9,11 @@
 #include "Gui.h"
 #include "Keyboard.h"
 
+/**
+* \ return shared pointer of type Core. Initialising the game engine here and creating references for all the utilities the Game Engine provides.
+*
+*/
+
 std::shared_ptr<Core> Core::initialize()
 {
 	std::shared_ptr<Core> c = std::make_shared<Core>();
@@ -25,15 +30,19 @@ std::shared_ptr<Core> Core::initialize()
 	c->resources = std::make_shared<Resources>();
 	c->resources->core = c;
 
-	//need to get environment reference here
 	c->environment = std::make_shared<Environment>();
 	c->environment->core = c;
+
+	
 
 	c->gui = std::make_shared<Gui>(c);
 
 	return c;
 }
-
+/**
+* \ return shared pointer of type Core. Adding each Entities within Core.
+*
+*/
 std::shared_ptr<Entity> Core::addEntity()
 {
 	std::shared_ptr<Entity> rtn = std::make_shared<Entity>();
@@ -49,24 +58,42 @@ std::shared_ptr<Entity> Core::addEntity()
 
 	return rtn;
 }
-//Getting the entity with collision type
-
+/**
+* \ return shared pointer of type Core. Getting reference to resources within core.
+*
+*/
 std::shared_ptr<Resources>Core::getResources()
 {
 	return resources;
 }
+/**
+* \ return shared pointer of type Core. Getting references to Environment which calculates DeltatTime.
+*
+*/
 std::shared_ptr<Environment>Core::getEnvironment()
 {
 	return environment;
 }
+/**
+* \ return shared pointer of type Core. Getting references to Context(context for Rend an OpenGL wrapper provided by Karsten Pedersen).
+*
+*/
 std::shared_ptr<Context>Core::getContext()
 {
 	return graphicsContext;
 }
+/**
+* \ return shared pointer of type Core. Getting reference to the GUI.
+*
+*/
 std::shared_ptr<Gui>Core::getGui()
 {
 	return gui;
 }
+/**
+* \ return shared pointer of type Core. Getting reference to the Keyboard.
+*
+*/
 std::shared_ptr<Keyboard>Core::getKeyboard()
 {
 	return keyboard;
@@ -94,6 +121,10 @@ void Core::createScreen()
 
 
 }
+/**
+* \ return type NULL. Initializing Audio
+*
+*/
 void Core::audioInit()
 {
 	device = alcOpenDevice(NULL);
@@ -119,15 +150,26 @@ void Core::audioInit()
 	}
 
 }
-
+/**
+* \ return shared pointer of type Core. Getting reference to individual Cameras within Core.
+*
+*/
 std::shared_ptr<Camera> Core::getCurrentCamera()
 {
 	return cameras.at(0).lock();
 }
+/**
+* \ return shared pointer of type Core. Getting reference to each Light.
+*
+*/
 std::shared_ptr<Lighting>Core::getLight()
 {
 	return lights.at(0).lock();
 }
+/**
+* \ return type NULL. Finally function to run Engine core to Update and Display Entities.  
+*
+*/
 void Core::run()
 {
 	keyboard = std::make_shared<Keyboard>();
@@ -137,8 +179,7 @@ void Core::run()
 		
 		environment->Update();
 
-		keyboard->isKey(SDLK_LEFT);
-		
+		keyboard->isKey(SDLK_RIGHT);
 
 		for (int i = 0; i < entities.size(); i++)
 		{

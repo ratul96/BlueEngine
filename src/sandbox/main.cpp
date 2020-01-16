@@ -24,9 +24,9 @@ struct Orbiter :public Component
 		
 		getEntity()->getComponent<Transform>()->SetPosition(lightX, lightY, lightZ);
 		
-		lightX = sin((getCore()->getEnvironment()->getDeltaTime())*SDL_GetTicks()) * 2.0f;
+		lightX = sin(SDL_GetTicks()) * 2.0f;
 		lightY = -0.3f;
-		lightZ = cos((getCore()->getEnvironment()->getDeltaTime())*SDL_GetTicks()) * 2.5f;
+		lightZ = cos(SDL_GetTicks()) * 2.5f;
 
 		
 	}

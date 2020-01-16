@@ -27,19 +27,33 @@ void Keyboard::isKey(int key)
 				pressedKeys.push_back(key);
 
 			}
-
+			
 		}
 		else if (event.type == SDL_KEYUP)
 		{
 			if (event.key.keysym.sym == key)
 			{
-				pressedKeys.pop_back();
+				releasedKeys.push_back(key);
+				
 			}
 		}
 		
 
 
 	}
+}
+void Keyboard::clearKeys()
+{
+	if (pressedKeys.size() > 0)
+	{
+		pressedKeys.clear();
+	}
+	
+	if (releasedKeys.size() > 0)
+	{
+		releasedKeys.clear();
+	}
+	
 }
 bool Keyboard::getKey(int _key)
 {

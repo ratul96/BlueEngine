@@ -3,29 +3,10 @@
 #include "Entity.h"
 #include "Core.h"
 
-Component::Component()
-{
-	
-}
-Component::~Component()
-{
-
-}
-/*void Component::onInit()
-{
-	std::cout << "Initialize window here" << std::endl;
-}
-void Component::onBegin()
-{
-	std::cout << "Began" << std::endl;
-}*/
-
 void Component::onUpdate() { }
 void Component::onInit() { }
 void Component::onDisplay() { }
 void Component::onGui(){}
-
-
 
 std::shared_ptr<Entity> Component::getEntity()
 {

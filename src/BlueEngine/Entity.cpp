@@ -1,5 +1,9 @@
 #include "Entity.h"
 
+/**
+* \ return type NULL. Function to call on each Components' Initialise by looping through each entity within its Initialise.
+*
+*/
 void Entity::onInit()
 {
 	for (int i = 0; i < components.size(); i++)

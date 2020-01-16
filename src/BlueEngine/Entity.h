@@ -10,13 +10,17 @@
 
 class Core;
 
+/**
+* \ brief Entity class. Each Gameobject or an individual feature like Camera or Light is first added as an Entity. Each Entity has individual Components added as a template functon which is defined as below.    
+*
+*/
 class Entity
 {
 public:
-
-	//std::shared_ptr<Component>updateEntityComponents(); //update with all the models accessing the components
-	//std::shared_ptr<T>addComponent<T>();
-
+/**
+* \ return Template function shared pointer type which adds Components to each individual entity, while also initialising the components and storing the reference of itself within the component.
+*
+*/
 	template <typename T>
 	std::shared_ptr<T> addComponent()
 	{
@@ -24,11 +28,14 @@ public:
 
 		components.push_back(rtn);
 
-		rtn->entity=self;//Reference of entity stored in Component
+		rtn->entity=self;
 		rtn->onInit();
 		return rtn;
 	}
-
+/**
+* \ return Template function shared pointer type which gets an existing Component from Entity.
+*
+*/
 	template<typename T>
 	std::shared_ptr<T> getComponent()
 	{
@@ -42,10 +49,14 @@ public:
 		}
 
 		std::cout << "Does not Exist" << std::endl;
-		//return std::shared_ptr<T>();
-		// TODO: Throw non-generic Exception
+
 		throw std::exception();
 	}
+
+/**
+* \ return Template function Boolean type which which checks whether the Entity has the specific component.
+*
+*/
 	template<typename T>
 	bool hasComponent()
 	{
@@ -59,9 +70,12 @@ public:
 		}
 		return false;
 	}
-	std::vector<std::shared_ptr<Component>> components;
-	
 
+/**
+* \ Vector of shared pointer of Components
+*
+*/
+	std::vector<std::shared_ptr<Component>> components;
 	
 	std::weak_ptr<Core>core;
 
@@ -69,9 +83,8 @@ public:
 
 	std::shared_ptr<Core>getCore();
 	
-	// onUpdate
-	void onUpdate();
 	void onInit();
+	void onUpdate();
 	void onDisplay();
 	void onGui();
 

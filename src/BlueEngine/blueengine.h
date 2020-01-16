@@ -1,6 +1,12 @@
 #ifndef BLUE_ENGINE_BLUEENGINE_H
 #define BLUE_ENGINE_BLUEENGINE_H
 
+/**
+* \ brief metaheader file including all necessary headers to run the game engine
+*
+*/
+
+
 #include "Core.h"
 #include "Component.h"
 #include "Entity.h"

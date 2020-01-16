@@ -14,10 +14,9 @@ public:
 	static std::shared_ptr<Keyboard> Initialise();
 	void isKey(int key);
 	bool getKey(int _key);
-	const Uint8 *key;
+	void clearKeys();
 	std::vector<int>pressedKeys;
-	std::vector<int>keys;
-	std::vector<int>ListOfKeys;
+	std::vector<int>releasedKeys;
 	bool RotateLeft = false; bool RotateRight = false; bool RotateUp = false; bool RotateDown = false;
 	
 };
