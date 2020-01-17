@@ -38,7 +38,6 @@ src/BlueEngine/Keyboard.h
 src/BlueEngine/Keyboard.cpp
 src/BlueEngine/BoxCollider.h
 src/BlueEngine/BoxCollider.cpp
-src/BlueEngine/Screen.cpp
 src/BlueEngine/Gui.h
 src/BlueEngine/Gui.cpp
 src/BlueEngine/NewSound.h
