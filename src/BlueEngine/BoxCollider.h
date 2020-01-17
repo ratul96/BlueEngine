@@ -21,6 +21,10 @@ private:
   void onUpdate();
   void collideBox();
 
+ /**
+* \ brief variable for setting size
+*
+*/
  glm::vec3 size;
   glm::vec3 offset;
   glm::vec3 lastPosition;
