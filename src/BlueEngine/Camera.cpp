@@ -51,7 +51,7 @@ void Camera::onUpdate()
 {
 	if (getCore()->getKeyboard()->getKey(SDLK_LEFT))
 	{
-		std::cout << "working" << std::endl;
+		std::cout << "Left Working" << std::endl;
 		ChangeCameraAngleY(getCore()->getEnvironment()->getDeltaTime()*-2.0f);
 		getCore()->getKeyboard()->clearKeys();
 	}
@@ -60,6 +60,20 @@ void Camera::onUpdate()
 	{
 		std::cout << "Right Working" << std::endl;
 		ChangeCameraAngleY(getCore()->getEnvironment()->getDeltaTime()*2.0f);
+		getCore()->getKeyboard()->clearKeys();
+	}
+
+	if (getCore()->getKeyboard()->getKey(SDLK_UP))
+	{
+		std::cout << "Up Working" << std::endl;
+		ChangeCameraAngleX(getCore()->getEnvironment()->getDeltaTime()*2.0f);
+		getCore()->getKeyboard()->clearKeys();
+	}
+
+	if (getCore()->getKeyboard()->getKey(SDLK_DOWN))
+	{
+		std::cout << "Down Working" << std::endl;
+		ChangeCameraAngleX(getCore()->getEnvironment()->getDeltaTime()*-2.0f);
 		getCore()->getKeyboard()->clearKeys();
 	}
 }

@@ -1,5 +1,11 @@
 #include "Audio.h"
 #include "BlueEngine/newSound.h"
+
+/**
+* \ return type Null Setting up Sound
+*
+*/
+
 void Audio::setSound(std::shared_ptr<NewSound>_sn)
 {
 	sourceId = 0;
@@ -13,21 +19,5 @@ void Audio::setSound(std::shared_ptr<NewSound>_sn)
 
 	alSourcei(sourceId, AL_BUFFER, _sn->bufferId);
 	alSourcePlay(sourceId);
-
-	/* TODO: Check if file finished, move to ontick */
-/*
-	while (true)
-	{
-		ALint state = 0;
-		alGetSourcei(sourceId, AL_SOURCE_STATE, &state);
-
-		if (state == AL_STOPPED)
-		{
-			break;
-		}
-
-	}
-*/
-
 }
 

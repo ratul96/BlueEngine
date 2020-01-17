@@ -4,6 +4,10 @@ Keyboard::Keyboard()
 {
 	
 }
+/**
+*return type shared pointer of type keyboard to initialise Keyboard
+*
+*/
 std::shared_ptr<Keyboard> Keyboard::Initialise()
 {
 	std::shared_ptr<Keyboard>rtn = std::make_shared<Keyboard>();
@@ -13,9 +17,12 @@ Keyboard::~Keyboard()
 {
 
 }
+/**
+*return type void detecting keypress and key release and pushing them inside respective vectors
+*
+*/
 void Keyboard::isKey()
 {
-	//SDL_Event event = { 0 };
 
 	while (SDL_PollEvent(&event))
 	{
@@ -32,6 +39,16 @@ void Keyboard::isKey()
 				pressedKeys.push_back(SDLK_RIGHT);
 
 			}
+			if (event.key.keysym.sym == SDLK_UP)
+			{
+				pressedKeys.push_back(SDLK_UP);
+
+			}
+			if (event.key.keysym.sym == SDLK_DOWN)
+			{
+				pressedKeys.push_back(SDLK_DOWN);
+
+			}
 		}
 		else if (event.type == SDL_KEYUP)
 		{
@@ -45,12 +62,26 @@ void Keyboard::isKey()
 				releasedKeys.push_back(SDLK_RIGHT);
 
 			}
+			if (event.key.keysym.sym == SDLK_UP)
+			{
+				releasedKeys.push_back(SDLK_UP);
+
+			}
+			if (event.key.keysym.sym == SDLK_DOWN)
+			{
+				releasedKeys.push_back(SDLK_DOWN);
+
+			}
 		}
 		
 
 
 	}
 }
+/**
+*return type void function to clear keys every frame
+*
+*/
 void Keyboard::clearKeys()
 {
 	if (pressedKeys.size() > 0)
@@ -64,6 +95,10 @@ void Keyboard::clearKeys()
 	}
 	
 }
+/**
+*return type Boolean to detect key pressed by user thus triggering whichever instruction to be processed
+*
+*/
 bool Keyboard::getKey(int _key)
 {
 	for (size_t i = 0; i < pressedKeys.size(); i++)

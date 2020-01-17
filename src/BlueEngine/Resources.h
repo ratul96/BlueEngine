@@ -5,7 +5,7 @@
 #include<iostream>
 
 /**
-* \ brief Resources and Caching system for loading in the correct file and avoiding loading same file twice
+* \ brief Resources and Caching system for loading in the correct file and avoiding loading same file twice. This class is designed to add the functionality of loading different types of object resources.
 *
 */
 

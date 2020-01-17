@@ -7,7 +7,10 @@
 #include <vector>
 #include <exception>
 
-
+/**
+* \ brief Sound Resource Class used primarily for loading in Audio
+*
+*/
 
 class NewSound :public Resource
 {

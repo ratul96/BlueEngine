@@ -197,7 +197,7 @@ void Core::run()
 
 		glClear(GL_DEPTH_BUFFER_BIT);
 
-		//Add onGui() here as well
+		
 		for (int i = 0; i < entities.size(); i++)
 		{
 			entities.at(i)->onGui();

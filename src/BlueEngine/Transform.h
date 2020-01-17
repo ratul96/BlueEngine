@@ -5,6 +5,10 @@
 #include<glm/gtc/matrix_transform.hpp>
 #include<iostream>
 
+/**
+* \ brief Transform component setting up properties of entities like position,orientation, scaling and modelMatrix among others.
+*
+*/
 class Transform:public Component
 {
 public:

@@ -6,6 +6,11 @@
 #include<GL/glew.h>
 #include<glm/glm.hpp>
 
+/**
+* \ brief Shaders Resource Class used primarily for loading in Shaders resources
+*
+*/
+
 class Core;
 
 using namespace rend;
@@ -18,5 +23,5 @@ public:
 	std::shared_ptr<rend::Shader>sh;
 	std::shared_ptr<Core>getCore();
 	void onLoad(std::string &path);
-	//void Apply();
+	
 };

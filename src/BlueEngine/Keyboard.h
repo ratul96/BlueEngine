@@ -24,6 +24,6 @@ public:
 	void clearKeys();
 	std::vector<int>pressedKeys;
 	std::vector<int>releasedKeys;
-	bool RotateLeft = false; bool RotateRight = false; bool RotateUp = false; bool RotateDown = false;
+	
 	
 };

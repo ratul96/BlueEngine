@@ -2,7 +2,10 @@
 #include "BlueEngine/Component.h"
 #include "BlueEngine/Material.h"
 #include<memory>
-
+/**
+* \ brief Player, a component used primarily for displaying GUI triggered by virtue of polymorphism
+*
+*/
 class Player:public Component
 {
 public:

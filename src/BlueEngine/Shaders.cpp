@@ -2,11 +2,18 @@
 #include "Core.h"
 #include "Lighting.h"
 #include <fstream>
-
+/**
+* \ return type shared pointer reference to Core
+*
+*/
 std::shared_ptr<Core>Shaders::getCore()
 {
 	return core.lock();
 }
+/**
+* \ return type NULL Function for loading in shaders
+*
+*/
 void Shaders::onLoad(std::string &path)
 {
 	std::ifstream file(path);
@@ -25,10 +32,3 @@ void Shaders::onLoad(std::string &path)
 	sh = getCore()->getContext()->createShader(); // create the shader
 	sh->setSource(path);	// set source
 }
-//void Shaders::Apply()
-//{
-//	std::shared_ptr<Lighting>li = getCore()->getLight();
-//	sh->setUniform("lightPos", li->getLightPosition());
-//	sh->setUniform("lightColor", vec3(1, 0, 0));
-//	sh->setUniform("objectColor", li->getColour());
-//}

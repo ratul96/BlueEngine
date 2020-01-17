@@ -7,6 +7,10 @@
 #define WINDOW_WIDTH 640
 #define WINDOW_HEIGHT 480
 
+/**
+* \ brief Screen class for initialising Window and Window context
+*
+*/
 class Core;
 
 class Screen

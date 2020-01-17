@@ -4,10 +4,18 @@
 #include <iostream>
 #include <exception>
 
+/**
+* \ return type shared pointer reference to Core
+*
+*/
 std::shared_ptr<Core>MeshComponent::getCore()
 {
 	return core.lock();
 }
+/**
+* \ return type NULL Function for loading in Mesh by reading .obj file 
+*
+*/
 void MeshComponent::onLoad(std::string path)
 {
 	std::ifstream file(path);

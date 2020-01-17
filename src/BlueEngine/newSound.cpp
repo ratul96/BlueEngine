@@ -1,7 +1,9 @@
 #include "newSound.h"
 #include "stb_vorbis.h"
-
-
+/**
+* \ return type NULL Function for loading in sound loading in OpenAL file.
+*
+*/
 void NewSound::onLoad(const std::string& fileName)
 {
 	alListener3f(AL_POSITION, 0.0f, 0.0f, 0.0f);

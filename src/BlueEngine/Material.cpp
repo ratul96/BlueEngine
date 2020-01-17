@@ -3,11 +3,18 @@
 #include "Material.h"
 #include "Core.h"
 #include <SDL2/SDL.h>
-
+/**
+* \ return type shared pointer reference to Core
+*
+*/
 std::shared_ptr<Core>Material::getCore()
 {
 	return core.lock();
 }
+/**
+* \ return type NULL Function for loading in texture
+*
+*/
 void Material::onTextureLoad(const char *path)
 {
 	texture = getCore()->getContext()->createTexture();

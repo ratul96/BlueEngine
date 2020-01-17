@@ -3,29 +3,45 @@
 #include "Transform.h"
 #include "Entity.h"
 
+/**
+* \ return type Null Initialising size of "Box" Collider and last known position
+*
+*/
 void BoxCollider::onInit()
 {
   size = glm::vec3(1, 1, 1);
   lastPosition = getEntity()->getComponent<Transform>()->GetPosition();
 }
-
+/**
+* \ return type Null Setting Offset
+*
+*/
 void BoxCollider::setOffset(glm::vec3 offset)
 {
   this->offset = offset;
 }
-
+/**
+* \ return type Null Setting Size
+*
+*/
 void BoxCollider::setSize(glm::vec3 size)
 {
   this->size = size;
 }
-
+/**
+* \ return type Null onUpdate for Box Collider triggering collision by virtue of polymorphism.
+*
+*/
 void BoxCollider::onUpdate()
 {
-  //collideStaticMesh();
+  
   collideBox();
   
 }
-
+/**
+* \ return type Null Function to iterate through all the entities and checks whether BoxCollider component is attached making sure to check it's not colliding with itself
+*
+*/
 void BoxCollider::collideBox()
 {
   std::vector<std::sr1::shared_ptr<Entity> > bces;
@@ -51,39 +67,10 @@ void BoxCollider::collideBox()
     lastPosition = np;
   }
 }
-
-//void BoxCollider::collideStaticMesh()
-//{
-//  std::vector<std::sr1::shared_ptr<Entity> > smces;
-//
-//  getWorld()->getEntities<StaticModelCollider>(smces);
-//
-//  glm::vec3 np = getTransform()->getPosition() + offset;
-//
-//  for(std::vector<std::sr1::shared_ptr<Entity> >::iterator it = smces.begin();
-//    it != smces.end(); it++)
-//  {
-//    std::sr1::shared_ptr<StaticModelCollider> smc =
-//      (*it)->getComponent<StaticModelCollider>();
-//
-//    bool solved = false;
-//    glm::vec3 sp = smc->getCollisionResponse(np, size, solved);
-//
-//    if(solved)
-//    {
-//      np = sp;
-//    }
-//    else
-//    {
-//      np = lastPosition + offset;
-//    }
-//
-//    np = np - offset;
-//    getTransform()->setPosition(np);
-//    lastPosition = np;
-//  }
-//}
-
+/**
+* \ return type Boolean Function to check whether two objects are colliding
+*
+*/
 bool BoxCollider::isColliding(glm::vec3 position, glm::vec3 size)
 {
   glm::vec3 a = getEntity()->getComponent<Transform>()->GetPosition() + offset;
@@ -138,7 +125,10 @@ bool BoxCollider::isColliding(glm::vec3 position, glm::vec3 size)
 
   return true;
 }
-
+/**
+* \ return type Vector 3 ,function calculating Collision Response
+*
+*/
 glm::vec3 BoxCollider::getCollisionResponse(glm::vec3 position,
     glm::vec3 size)
 {

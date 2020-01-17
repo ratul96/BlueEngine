@@ -19,8 +19,6 @@ public:
 
 private:
   void onUpdate();
-
-  //void collideStaticMesh();
   void collideBox();
 
  glm::vec3 size;
